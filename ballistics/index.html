@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<title>Symulacja balistyki</title>
+<style>
+body,html{
+margin:0;
+padding:0;
+height:100%;
+font-family:sans-serif;
+}
+#top{
+height:50vh;
+position:relative;
+}
+#bottom{
+height:50vh;
+background:white;
+padding:20px;
+box-sizing:border-box;
+overflow:auto;
+}
+#sky{
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:66.66%;
+background:#87CEEB;
+}
+#ground{
+position:absolute;
+bottom:0;
+left:0;
+width:100%;
+height:33.33%;
+background:#3cb043;
+}
+canvas{
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:100%;
+}
+.controls{
+max-width:500px;
+display:grid;
+gap:12px;
+}
+label{
+display:flex;
+flex-direction:column;
+font-size:14px;
+}
+</style>
+</head>
+<body>
+
+<div id="top">
+<div id="sky"></div>
+<div id="ground"></div>
+<canvas id="canvas"></canvas>
+</div>
+
+<div id="bottom">
+<div class="controls">
+
+<label>Kąt podniesienia lufy
+<input type="range" id="angle" min="-10" max="45" value="5" step="0.1">
+</label>
+
+<label>Prędkość wylotowa (m/s)
+<input type="range" id="velocity" min="200" max="1200" value="800" step="10">
+</label>
+
+<label>Temperatura (°C)
+<input type="range" id="temp" min="-40" max="50" value="15">
+</label>
+
+<label>Ciśnienie (hPa)
+<input type="range" id="pressure" min="850" max="1100" value="1013">
+</label>
+
+<label>Wilgotność (%)
+<input type="range" id="humidity" min="0" max="100" value="50">
+</label>
+
+<label>Gęstość powietrza (kg/m³)
+<input type="range" id="density" min="0.8" max="1.5" step="0.01" value="1.225">
+</label>
+
+</div>
+</div>
+
+<script>
+const canvas=document.getElementById("canvas")
+const ctx=canvas.getContext("2d")
+
+const angleSlider=document.getElementById("angle")
+const velocitySlider=document.getElementById("velocity")
+
+const tempSlider=document.getElementById("temp")
+const pressureSlider=document.getElementById("pressure")
+const humiditySlider=document.getElementById("humidity")
+const densitySlider=document.getElementById("density")
+
+function resize(){
+canvas.width=canvas.clientWidth
+canvas.height=canvas.clientHeight
+draw()
+}
+
+window.addEventListener("resize",resize)
+
+function computeDensity(){
+let T=(parseFloat(tempSlider.value)+273.15)
+let P=parseFloat(pressureSlider.value)*100
+let H=parseFloat(humiditySlider.value)/100
+
+let R=287.05
+let baseDensity=(P/(R*T))*(1-0.378*H)
+
+let tempFactor=1-(parseFloat(tempSlider.value)-15)*0.013
+let pressureFactor=1+(parseFloat(pressureSlider.value)-1013)*0.0008
+let humidityFactor=1-(H*0.095)
+
+let density=baseDensity*tempFactor*pressureFactor*humidityFactor
+
+density=Math.max(0.8,Math.min(1.5,density))
+densitySlider.value=density.toFixed(3)
+
+return density
+}
+
+function updateFromTemp(){
+let t=parseFloat(tempSlider.value)
+pressureSlider.value=1013-(t-15)*2.6
+humiditySlider.value=50-(t-15)*1.04
+computeDensity()
+draw()
+}
+
+function updateFromPressure(){
+computeDensity()
+draw()
+}
+
+function updateFromHumidity(){
+computeDensity()
+draw()
+}
+
+function updateFromDensity(){
+draw()
+}
+
+angleSlider.addEventListener("input",draw)
+velocitySlider.addEventListener("input",draw)
+
+tempSlider.addEventListener("input",updateFromTemp)
+pressureSlider.addEventListener("input",updateFromPressure)
+humiditySlider.addEventListener("input",updateFromHumidity)
+densitySlider.addEventListener("input",updateFromDensity)
+
+function draw(){
+ctx.clearRect(0,0,canvas.width,canvas.height)
+
+const groundY=canvas.height*0.666
+
+const rifleX=20
+const rifleY=groundY-20
+
+const targetX=canvas.width-120
+const targetRadiusY=60
+const targetY=groundY-targetRadiusY
+
+const angleDeg=parseFloat(angleSlider.value)
+const angle=angleDeg*Math.PI/180
+
+const velocity=parseFloat(velocitySlider.value)
+const density=parseFloat(densitySlider.value)
+
+drawTarget(targetX,targetY)
+drawRifle(rifleX,rifleY,angle)
+drawAimLine(rifleX,rifleY,angle)
+
+drawTrajectory(rifleX,rifleY,angle,groundY,velocity,density,targetX,targetY)
+}
+
+function drawRifle(x,y,angle){
+ctx.save()
+ctx.translate(x,y)
+ctx.rotate(-angle)
+
+ctx.fillStyle="black"
+ctx.fillRect(0,-2,100,4)
+ctx.fillRect(20,-12,30,4)
+
+ctx.restore()
+}
+
+function drawAimLine(x,y,angle){
+ctx.beginPath()
+ctx.strokeStyle="black"
+ctx.setLineDash([6,6])
+ctx.moveTo(x,y)
+ctx.lineTo(x+4000*Math.cos(angle),y-4000*Math.sin(angle))
+ctx.stroke()
+ctx.setLineDash([])
+}
+
+function drawTarget(x,y){
+
+let rx=40
+let ry=60
+
+ctx.fillStyle="white"
+ctx.strokeStyle="black"
+ctx.lineWidth=2
+
+ctx.beginPath()
+ctx.ellipse(x,y,rx,ry,0,0,Math.PI*2)
+ctx.fill()
+ctx.stroke()
+
+ctx.beginPath()
+ctx.ellipse(x,y,rx*0.66,ry*0.66,0,0,Math.PI*2)
+ctx.stroke()
+
+ctx.beginPath()
+ctx.ellipse(x,y,rx*0.33,ry*0.33,0,0,Math.PI*2)
+ctx.stroke()
+
+ctx.beginPath()
+ctx.moveTo(x,y-ry)
+ctx.lineTo(x,y+ry)
+ctx.stroke()
+}
+
+function drawTrajectory(x,y,angle,groundY,velocity,density,targetX,targetY){
+
+let g=9.81
+let scale=0.7
+
+let dragCoefficient=0.0009
+let drag=dragCoefficient*density
+
+let vx=velocity*Math.cos(angle)
+let vy=velocity*Math.sin(angle)
+
+ctx.beginPath()
+ctx.strokeStyle="red"
+
+let first=true
+let impactX=null
+let hitY=null
+
+let px=0
+let py=0
+let dt=0.05
+
+let rx=40
+let ry=60
+
+for(let i=0;i<3000;i++){
+
+let sx=x+px*scale
+let sy=y-py*scale
+
+if(first){
+ctx.moveTo(sx,sy)
+first=false
+}else{
+ctx.lineTo(sx,sy)
+}
+
+let dx=(sx-targetX)/rx
+let dy=(sy-targetY)/ry
+
+if(dx*dx+dy*dy<=1 && hitY===null){
+hitY=sy
+}
+
+if(sy>=groundY){
+impactX=sx
+break
+}
+
+let v=Math.sqrt(vx*vx+vy*vy)
+
+let ax=-drag*v*vx
+let ay=-g-drag*v*vy
+
+vx+=ax*dt
+vy+=ay*dt
+
+px+=vx*dt
+py+=vy*dt
+}
+
+ctx.stroke()
+
+if(impactX){
+ctx.fillStyle="black"
+ctx.font="18px sans-serif"
+ctx.fillText("X",impactX-5,groundY+8)
+}
+
+if(hitY!==null){
+ctx.fillStyle="red"
+ctx.beginPath()
+ctx.arc(targetX,hitY,5,0,Math.PI*2)
+ctx.fill()
+}
+}
+
+resize()
+computeDensity()
+</script>
+
+</body>
+</html>
