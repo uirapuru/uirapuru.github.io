@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<title>Balistyka</title>
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        background-color: #121212;
+        color: #ffffff;
+        font-family: sans-serif;
+        overflow: hidden;
+    }
+    #scope-view {
+        flex: 1;
+        position: relative;
+        background: linear-gradient(to bottom, #87ceeb 0%, #87ceeb 33.33%, #228b22 33.33%, #228b22 100%);
+    }
+    canvas {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        cursor: crosshair;
+    }
+    #controls-view {
+        flex: 1;
+        padding: 20px;
+        box-sizing: border-box;
+        background: #1e1e1e;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+    .indicators {
+        display: flex;
+        gap: 30px;
+        font-size: 1.2rem;
+        background: #000000;
+        padding: 15px;
+        border-radius: 5px;
+        flex-wrap: wrap;
+    }
+    .sliders {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        padding: 10px 0;
+    }
+    .slider-group {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+    }
+    input[type="range"] {
+        flex: 1;
+    }
+    #btn-fire {
+        padding: 15px;
+        font-size: 2rem;
+        font-weight: bold;
+        background-color: #d32f2f;
+        color: #ffffff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        text-align: center;
+        margin-top: auto;
+    }
+    #btn-fire:active {
+        background-color: #9a0007;
+    }
+</style>
+</head>
+<body>
+
+<div id="scope-view">
+    <canvas id="scope-canvas"></canvas>
+</div>
+
+<div id="controls-view">
+    <div class="indicators">
+        <div id="ind-distance">Dystans: 0 m</div>
+        <div id="ind-pressure">Ciśnienie: 1013 hPa</div>
+        <div id="ind-temp">Temperatura: 15°C</div>
+        <div id="ind-wind">Wiatr: 3 m/s</div>
+    </div>
+    
+    <div class="sliders">
+        <div class="slider-group">
+            <label for="val-elevation">Elewacja (MIL):</label>
+            <input type="range" id="val-elevation" min="-10" max="30" step="0.1" value="0">
+            <span id="out-elevation" style="min-width: 40px;">0.0</span>
+        </div>
+        <div class="slider-group">
+            <label for="val-windage">Windage (MIL):</label>
+            <input type="range" id="val-windage" min="-10" max="10" step="0.1" value="0">
+            <span id="out-windage" style="min-width: 40px;">0.0</span>
+        </div>
+    </div>
+
+    <button id="btn-fire">FIRE</button>
+</div>
+
+<script>
+    const canvas = document.getElementById("scope-canvas");
+    const ctx = canvas.getContext("2d");
+    const elevSlider = document.getElementById("val-elevation");
+    const windSlider = document.getElementById("val-windage");
+    const elevOut = document.getElementById("out-elevation");
+    const windOut = document.getElementById("out-windage");
+    const btnFire = document.getElementById("btn-fire");
+    const indDistance = document.getElementById("ind-distance");
+
+    let currentDistance = 0;
+    let targetXOffset = 0;
+    
+    let panX = 0;
+    let panY = 0;
+    let isDragging = false;
+    let lastMouseX = 0;
+    let lastMouseY = 0;
+
+    function initTarget() {
+        currentDistance = Math.floor(Math.random() * 901) + 100;
+        targetXOffset = (Math.random() - 0.5) * 200;
+        indDistance.textContent = "Dystans: " + currentDistance + " m";
+    }
+
+    function resizeCanvas() {
+        canvas.width = canvas.parentElement.clientWidth;
+        canvas.height = canvas.parentElement.clientHeight;
+        drawScope();
+    }
+
+    window.addEventListener("resize", resizeCanvas);
+
+    canvas.addEventListener("mousedown", (e) => {
+        isDragging = true;
+        lastMouseX = e.clientX;
+        lastMouseY = e.clientY;
+    });
+
+    canvas.addEventListener("mousemove", (e) => {
+        if (isDragging) {
+            panX += e.clientX - lastMouseX;
+            panY += e.clientY - lastMouseY;
+            lastMouseX = e.clientX;
+            lastMouseY = e.clientY;
+            drawScope();
+        }
+    });
+
+    window.addEventListener("mouseup", () => {
+        isDragging = false;
+    });
+
+    function drawTremor3(cx, cy, scale) {
+        ctx.strokeStyle = "#000000";
+        ctx.fillStyle = "#000000";
+        ctx.lineWidth = 1.5;
+
+        ctx.beginPath();
+        ctx.moveTo(0, cy);
+        ctx.lineTo(canvas.width, cy);
+        ctx.stroke();
+
+        ctx.beginPath();
+        ctx.moveTo(cx, 0);
+        ctx.lineTo(cx, canvas.height);
+        ctx.stroke();
+
+        ctx.lineWidth = 1;
+        for (let i = -15; i <= 15; i++) {
+            if (i !== 0) {
+                ctx.beginPath();
+                ctx.moveTo(cx + i * scale, cy - 5);
+                ctx.lineTo(cx + i * scale, cy + 5);
+                ctx.stroke();
+            }
+        }
+
+        for (let i = -15; i <= 15; i++) {
+            if (i !== 0) {
+                ctx.beginPath();
+                ctx.moveTo(cx - 5, cy + i * scale);
+                ctx.lineTo(cx + 5, cy + i * scale);
+                ctx.stroke();
+            }
+        }
+
+        for (let y = 1; y <= 12; y++) {
+            let currentY = cy + y * scale;
+            for (let x = 1; x <= y + 2; x++) {
+                ctx.beginPath();
+                ctx.arc(cx - x * scale * 0.5, currentY, 1.5, 0, Math.PI * 2);
+                ctx.fill();
+                ctx.beginPath();
+                ctx.arc(cx + x * scale * 0.5, currentY, 1.5, 0, Math.PI * 2);
+                ctx.fill();
+            }
+        }
+    }
+
+    function drawTarget() {
+        const horizonY = canvas.height * 0.3333;
+        const groundHeight = canvas.height - horizonY;
+        
+        const minDist = 100;
+        const maxDist = 1000;
+        const distRatio = (currentDistance - minDist) / (maxDist - minDist);
+        
+        const y = canvas.height - (groundHeight * 0.1) - distRatio * (groundHeight * 0.8);
+        
+        const baseRadius = 4000;
+        const radius = baseRadius / currentDistance;
+        
+        const x = (canvas.width / 2) + targetXOffset;
+
+        ctx.strokeStyle = "#000000";
+        ctx.lineWidth = Math.max(radius / 4, 1);
+        ctx.beginPath();
+        ctx.moveTo(x - radius / 1.5, y);
+        ctx.lineTo(x - radius / 1.5, y + radius * 3);
+        ctx.stroke();
+        
+        ctx.beginPath();
+        ctx.moveTo(x + radius / 1.5, y);
+        ctx.lineTo(x + radius / 1.5, y + radius * 3);
+        ctx.stroke();
+
+        ctx.fillStyle = "#ffffff";
+        ctx.beginPath();
+        ctx.arc(x, y, radius, 0, Math.PI * 2);
+        ctx.fill();
+
+        ctx.strokeStyle = "#000000";
+        ctx.lineWidth = Math.max(radius / 8, 0.5);
+        for (let i = 1; i <= 3; i++) {
+            ctx.beginPath();
+            ctx.arc(x, y, radius * (i / 4), 0, Math.PI * 2);
+            ctx.stroke();
+        }
+    }
+
+    function drawScope() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        
+        drawTarget();
+
+        const cx = (canvas.width / 2) + panX;
+        const cy = (canvas.height / 2) + panY;
+        const scale = 40;
+        
+        drawTremor3(cx, cy, scale);
+    }
+
+    elevSlider.addEventListener("input", (e) => {
+        elevOut.textContent = e.target.value;
+    });
+
+    windSlider.addEventListener("input", (e) => {
+        windOut.textContent = e.target.value;
+    });
+
+    btnFire.addEventListener("click", () => {
+        
+    });
+
+    initTarget();
+    resizeCanvas();
+</script>
+
+</body>
+</html>
