@@ -1,324 +1,298 @@
+```html
 <!DOCTYPE html>
 <html lang="pl">
 <head>
 <meta charset="UTF-8">
-<title>Symulacja balistyki</title>
 <style>
-body,html{
-margin:0;
-padding:0;
-height:100%;
-font-family:sans-serif;
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden;
+    font-family: sans-serif;
 }
-#top{
-height:50vh;
-position:relative;
+#top {
+    height: 66.66vh;
+    width: 100vw;
 }
-#bottom{
-height:50vh;
-background:white;
-padding:20px;
-box-sizing:border-box;
-overflow:auto;
+#bottom {
+    height: 33.33vh;
+    width: 100vw;
+    background: white;
+    padding: 20px;
+    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    overflow-y: auto;
 }
-#sky{
-position:absolute;
-top:0;
-left:0;
-width:100%;
-height:66.66%;
-background:#87CEEB;
+canvas {
+    display: block;
+    width: 100%;
+    height: 100%;
 }
-#ground{
-position:absolute;
-bottom:0;
-left:0;
-width:100%;
-height:33.33%;
-background:#3cb043;
+.control {
+    display: flex;
+    flex-direction: column;
 }
-canvas{
-position:absolute;
-top:0;
-left:0;
-width:100%;
-height:100%;
-}
-.controls{
-max-width:500px;
-display:grid;
-gap:12px;
-}
-label{
-display:flex;
-flex-direction:column;
-font-size:14px;
+label {
+    font-size: 14px;
+    margin-bottom: 5px;
+    font-weight: bold;
 }
 </style>
 </head>
 <body>
-
 <div id="top">
-<div id="sky"></div>
-<div id="ground"></div>
-<canvas id="canvas"></canvas>
+    <canvas id="sim"></canvas>
 </div>
-
 <div id="bottom">
-<div class="controls">
-
-<label>Kąt podniesienia lufy
-<input type="range" id="angle" min="-10" max="45" value="5" step="0.1">
-</label>
-
-<label>Prędkość wylotowa (m/s)
-<input type="range" id="velocity" min="200" max="1200" value="800" step="10">
-</label>
-
-<label>Temperatura (°C)
-<input type="range" id="temp" min="-40" max="50" value="15">
-</label>
-
-<label>Ciśnienie (hPa)
-<input type="range" id="pressure" min="850" max="1100" value="1013">
-</label>
-
-<label>Wilgotność (%)
-<input type="range" id="humidity" min="0" max="100" value="50">
-</label>
-
-<label>Gęstość powietrza (kg/m³)
-<input type="range" id="density" min="0.8" max="1.5" step="0.01" value="1.225">
-</label>
-
+    <div class="control">
+        <label>Kąt lufy: <span id="angleVal"></span>&deg;</label>
+        <input type="range" id="angleSlider" min="-30" max="30" value="-5" step="0.5">
+    </div>
+    <div class="control">
+        <label>Montaż optyki: <span id="opticVal"></span>&deg;</label>
+        <input type="range" id="opticSlider" min="-15" max="15" value="-1" step="0.1">
+    </div>
+    <div class="control">
+        <label>Prędkość wylotowa: <span id="velVal"></span> m/s</label>
+        <input type="range" id="velSlider" min="300" max="1200" value="800" step="10">
+    </div>
+    <div class="control">
+        <label>Temperatura: <span id="tempVal"></span> &deg;C</label>
+        <input type="range" id="tempSlider" min="-30" max="50" value="15" step="1">
+    </div>
+    <div class="control">
+        <label>Ciśnienie atm.: <span id="pressVal"></span> hPa</label>
+        <input type="range" id="pressSlider" min="800" max="1100" value="1013" step="1">
+    </div>
+    <div class="control">
+        <label>Wilgotność: <span id="humVal"></span> %</label>
+        <input type="range" id="humSlider" min="0" max="100" value="50" step="1">
+    </div>
+    <div class="control">
+        <label>Gęstość powietrza: <span id="densVal"></span> kg/m&sup3;</label>
+        <input type="range" id="densSlider" min="0.8" max="1.5" step="0.01" disabled>
+    </div>
 </div>
-</div>
-
 <script>
-const canvas=document.getElementById("canvas")
-const ctx=canvas.getContext("2d")
+const canvas = document.getElementById("sim");
+const ctx = canvas.getContext("2d");
 
-const angleSlider=document.getElementById("angle")
-const velocitySlider=document.getElementById("velocity")
+const angleSlider = document.getElementById("angleSlider");
+const opticSlider = document.getElementById("opticSlider");
+const velSlider = document.getElementById("velSlider");
+const tempSlider = document.getElementById("tempSlider");
+const pressSlider = document.getElementById("pressSlider");
+const humSlider = document.getElementById("humSlider");
+const densSlider = document.getElementById("densSlider");
 
-const tempSlider=document.getElementById("temp")
-const pressureSlider=document.getElementById("pressure")
-const humiditySlider=document.getElementById("humidity")
-const densitySlider=document.getElementById("density")
+const angleVal = document.getElementById("angleVal");
+const opticVal = document.getElementById("opticVal");
+const velVal = document.getElementById("velVal");
+const tempVal = document.getElementById("tempVal");
+const pressVal = document.getElementById("pressVal");
+const humVal = document.getElementById("humVal");
+const densVal = document.getElementById("densVal");
 
-function resize(){
-canvas.width=canvas.clientWidth
-canvas.height=canvas.clientHeight
-draw()
+function resize() {
+    canvas.width = canvas.clientWidth;
+    canvas.height = canvas.clientHeight;
+    updatePhysics();
+}
+window.addEventListener("resize", resize);
+
+function updatePhysics() {
+    const T = parseFloat(tempSlider.value);
+    const P = parseFloat(pressSlider.value);
+    const H = parseFloat(humSlider.value);
+
+    const Tk = T + 273.15;
+    const P_pa = P * 100;
+    const P_sat = 610.78 * Math.pow(10, (7.5 * T) / (T + 237.3));
+    const P_v = (H / 100) * P_sat;
+    const P_d = P_pa - P_v;
+
+    const rho = (P_d / (287.058 * Tk)) + (P_v / (461.495 * Tk));
+    
+    densSlider.value = rho;
+    
+    angleVal.innerText = angleSlider.value;
+    opticVal.innerText = opticSlider.value;
+    velVal.innerText = velSlider.value;
+    tempVal.innerText = tempSlider.value;
+    pressVal.innerText = pressSlider.value;
+    humVal.innerText = humSlider.value;
+    densVal.innerText = rho.toFixed(3);
+
+    draw(rho);
 }
 
-window.addEventListener("resize",resize)
+function draw(rho) {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    
+    const h = canvas.height;
+    const w = canvas.width;
+    const groundY = h * (2/3);
+    
+    ctx.fillStyle = "#87CEEB";
+    ctx.fillRect(0, 0, w, groundY);
+    
+    ctx.fillStyle = "#228B22";
+    ctx.fillRect(0, groundY, w, h - groundY);
 
-function computeDensity(){
-let T=(parseFloat(tempSlider.value)+273.15)
-let P=parseFloat(pressureSlider.value)*100
-let H=parseFloat(humiditySlider.value)/100
+    const targetX = w - 60;
+    const targetH = 120;
+    const targetW = 30;
+    const targetCY = groundY - targetH / 2;
 
-let R=287.05
-let baseDensity=(P/(R*T))*(1-0.378*H)
+    for (let i = 3; i > 0; i--) {
+        ctx.fillStyle = "white";
+        ctx.strokeStyle = "black";
+        ctx.lineWidth = 1;
+        ctx.beginPath();
+        ctx.ellipse(targetX, targetCY, (targetW/2) * (i/3), (targetH/2) * (i/3), 0, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.stroke();
+    }
 
-let tempFactor=1-(parseFloat(tempSlider.value)-15)*0.013
-let pressureFactor=1+(parseFloat(pressureSlider.value)-1013)*0.0008
-let humidityFactor=1-(H*0.095)
+    const angleDeg = parseFloat(angleSlider.value);
+    const angleRad = angleDeg * Math.PI / 180;
+    
+    const opticDeg = parseFloat(opticSlider.value);
+    const opticRad = opticDeg * Math.PI / 180;
+    const losAngleRad = angleRad + opticRad;
 
-let density=baseDensity*tempFactor*pressureFactor*humidityFactor
+    const pivotX = 50;
+    const pivotY = groundY - 30;
+    
+    ctx.save();
+    ctx.translate(pivotX, pivotY);
+    ctx.rotate(angleRad);
+    
+    ctx.fillStyle = "#333";
+    ctx.fillRect(-20, -5, 70, 10);
+    ctx.fillRect(5, -18, 30, 8);
+    ctx.restore();
 
-density=Math.max(0.8,Math.min(1.5,density))
-densitySlider.value=density.toFixed(3)
+    const scopeLocalY = -14;
+    const scopeLocalX = 20;
+    
+    const scopeX = pivotX + Math.cos(angleRad) * scopeLocalX - Math.sin(angleRad) * scopeLocalY;
+    const scopeY = pivotY + Math.sin(angleRad) * scopeLocalX + Math.cos(angleRad) * scopeLocalY;
 
-return density
+    ctx.strokeStyle = "#333";
+    ctx.setLineDash([5, 5]);
+    ctx.beginPath();
+    ctx.moveTo(scopeX, scopeY);
+    const losLength = w * 1.5;
+    ctx.lineTo(scopeX + Math.cos(losAngleRad) * losLength, scopeY + Math.sin(losAngleRad) * losLength);
+    ctx.stroke();
+    ctx.setLineDash([]);
+
+    ctx.strokeStyle = "red";
+    ctx.lineWidth = 2;
+    ctx.beginPath();
+    
+    const barrelLocalX = 50;
+    const barrelLocalY = 0;
+    let bx = pivotX + Math.cos(angleRad) * barrelLocalX - Math.sin(angleRad) * barrelLocalY;
+    let by = pivotY + Math.sin(angleRad) * barrelLocalX + Math.cos(angleRad) * barrelLocalY;
+    
+    ctx.moveTo(bx, by);
+
+    const v0 = parseFloat(velSlider.value) / 25;
+    
+    let vx = v0 * Math.cos(angleRad);
+    let vy = v0 * Math.sin(angleRad);
+    const g = 0.25;
+    const dragMultiplier = 0.0003;
+
+    let hitGround = false;
+    let prevDistLoS = null;
+    const intersections = [];
+    const targetHits = [];
+
+    for (let t = 0; t < 800; t++) {
+        let currentV = Math.sqrt(vx * vx + vy * vy);
+        let Fd = dragMultiplier * rho * currentV * currentV;
+        
+        vx += -Fd * (vx / currentV);
+        vy += g - Fd * (vy / currentV);
+
+        let prevBx = bx;
+        let prevBy = by;
+
+        bx += vx;
+        by += vy;
+        
+        if (!hitGround) {
+            ctx.lineTo(bx, by);
+        }
+
+        if (prevBx < targetX && bx >= targetX && !hitGround) {
+            let ratio = (targetX - prevBx) / (bx - prevBx);
+            let hitY = prevBy + ratio * (by - prevBy);
+            if (hitY >= groundY - targetH && hitY <= groundY) {
+                targetHits.push({x: targetX, y: hitY});
+            }
+        }
+
+        if (!hitGround && by >= groundY) {
+            hitGround = true;
+            ctx.stroke();
+            
+            ctx.strokeStyle = "black";
+            ctx.lineWidth = 2;
+            ctx.beginPath();
+            ctx.moveTo(bx - 6, groundY - 6);
+            ctx.lineTo(bx + 6, groundY + 6);
+            ctx.moveTo(bx + 6, groundY - 6);
+            ctx.lineTo(bx - 6, groundY + 6);
+            ctx.stroke();
+        }
+
+        if (!hitGround) {
+            let distLoS = -(bx - scopeX) * Math.sin(losAngleRad) + (by - scopeY) * Math.cos(losAngleRad);
+            if (prevDistLoS !== null) {
+                if ((prevDistLoS > 0 && distLoS <= 0) || (prevDistLoS < 0 && distLoS >= 0)) {
+                    intersections.push({x: bx, y: by});
+                }
+            }
+            prevDistLoS = distLoS;
+        }
+    }
+    
+    if (!hitGround) {
+        ctx.stroke();
+    }
+
+    ctx.fillStyle = "green";
+    intersections.forEach(pt => {
+        ctx.beginPath();
+        ctx.arc(pt.x, pt.y, 5, 0, Math.PI * 2);
+        ctx.fill();
+    });
+
+    ctx.fillStyle = "red";
+    targetHits.forEach(pt => {
+        ctx.beginPath();
+        ctx.arc(pt.x, pt.y, 5, 0, Math.PI * 2);
+        ctx.fill();
+    });
 }
 
-function updateFromTemp(){
-let t=parseFloat(tempSlider.value)
-pressureSlider.value=1013-(t-15)*2.6
-humiditySlider.value=50-(t-15)*1.04
-computeDensity()
-draw()
-}
+angleSlider.addEventListener("input", updatePhysics);
+opticSlider.addEventListener("input", updatePhysics);
+velSlider.addEventListener("input", updatePhysics);
+tempSlider.addEventListener("input", updatePhysics);
+pressSlider.addEventListener("input", updatePhysics);
+humSlider.addEventListener("input", updatePhysics);
 
-function updateFromPressure(){
-computeDensity()
-draw()
-}
-
-function updateFromHumidity(){
-computeDensity()
-draw()
-}
-
-function updateFromDensity(){
-draw()
-}
-
-angleSlider.addEventListener("input",draw)
-velocitySlider.addEventListener("input",draw)
-
-tempSlider.addEventListener("input",updateFromTemp)
-pressureSlider.addEventListener("input",updateFromPressure)
-humiditySlider.addEventListener("input",updateFromHumidity)
-densitySlider.addEventListener("input",updateFromDensity)
-
-function draw(){
-ctx.clearRect(0,0,canvas.width,canvas.height)
-
-const groundY=canvas.height*0.666
-
-const rifleX=20
-const rifleY=groundY-20
-
-const targetX=canvas.width-120
-const targetRadiusY=60
-const targetY=groundY-targetRadiusY
-
-const angleDeg=parseFloat(angleSlider.value)
-const angle=angleDeg*Math.PI/180
-
-const velocity=parseFloat(velocitySlider.value)
-const density=parseFloat(densitySlider.value)
-
-drawTarget(targetX,targetY)
-drawRifle(rifleX,rifleY,angle)
-drawAimLine(rifleX,rifleY,angle)
-
-drawTrajectory(rifleX,rifleY,angle,groundY,velocity,density,targetX,targetY)
-}
-
-function drawRifle(x,y,angle){
-ctx.save()
-ctx.translate(x,y)
-ctx.rotate(-angle)
-
-ctx.fillStyle="black"
-ctx.fillRect(0,-2,100,4)
-ctx.fillRect(20,-12,30,4)
-
-ctx.restore()
-}
-
-function drawAimLine(x,y,angle){
-ctx.beginPath()
-ctx.strokeStyle="black"
-ctx.setLineDash([6,6])
-ctx.moveTo(x,y)
-ctx.lineTo(x+4000*Math.cos(angle),y-4000*Math.sin(angle))
-ctx.stroke()
-ctx.setLineDash([])
-}
-
-function drawTarget(x,y){
-
-let rx=40
-let ry=60
-
-ctx.fillStyle="white"
-ctx.strokeStyle="black"
-ctx.lineWidth=2
-
-ctx.beginPath()
-ctx.ellipse(x,y,rx,ry,0,0,Math.PI*2)
-ctx.fill()
-ctx.stroke()
-
-ctx.beginPath()
-ctx.ellipse(x,y,rx*0.66,ry*0.66,0,0,Math.PI*2)
-ctx.stroke()
-
-ctx.beginPath()
-ctx.ellipse(x,y,rx*0.33,ry*0.33,0,0,Math.PI*2)
-ctx.stroke()
-
-ctx.beginPath()
-ctx.moveTo(x,y-ry)
-ctx.lineTo(x,y+ry)
-ctx.stroke()
-}
-
-function drawTrajectory(x,y,angle,groundY,velocity,density,targetX,targetY){
-
-let g=9.81
-let scale=0.7
-
-let dragCoefficient=0.0009
-let drag=dragCoefficient*density
-
-let vx=velocity*Math.cos(angle)
-let vy=velocity*Math.sin(angle)
-
-ctx.beginPath()
-ctx.strokeStyle="red"
-
-let first=true
-let impactX=null
-let hitY=null
-
-let px=0
-let py=0
-let dt=0.05
-
-let rx=40
-let ry=60
-
-for(let i=0;i<3000;i++){
-
-let sx=x+px*scale
-let sy=y-py*scale
-
-if(first){
-ctx.moveTo(sx,sy)
-first=false
-}else{
-ctx.lineTo(sx,sy)
-}
-
-let dx=(sx-targetX)/rx
-let dy=(sy-targetY)/ry
-
-if(dx*dx+dy*dy<=1 && hitY===null){
-hitY=sy
-}
-
-if(sy>=groundY){
-impactX=sx
-break
-}
-
-let v=Math.sqrt(vx*vx+vy*vy)
-
-let ax=-drag*v*vx
-let ay=-g-drag*v*vy
-
-vx+=ax*dt
-vy+=ay*dt
-
-px+=vx*dt
-py+=vy*dt
-}
-
-ctx.stroke()
-
-if(impactX){
-ctx.fillStyle="black"
-ctx.font="18px sans-serif"
-ctx.fillText("X",impactX-5,groundY+8)
-}
-
-if(hitY!==null){
-ctx.fillStyle="red"
-ctx.beginPath()
-ctx.arc(targetX,hitY,5,0,Math.PI*2)
-ctx.fill()
-}
-}
-
-resize()
-computeDensity()
+updatePhysics();
 </script>
-
 </body>
 </html>
+
+```
