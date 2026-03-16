@@ -185,7 +185,7 @@ function draw(rho) {
     ctx.setLineDash([5, 5]);
     ctx.beginPath();
     ctx.moveTo(scopeX, scopeY);
-    const losLength = w * 1.5;
+    const losLength = w * 2;
     ctx.lineTo(scopeX + Math.cos(losAngleRad) * losLength, scopeY + Math.sin(losAngleRad) * losLength);
     ctx.stroke();
     ctx.setLineDash([]);
@@ -201,19 +201,19 @@ function draw(rho) {
     
     ctx.moveTo(bx, by);
 
-    const v0 = parseFloat(velSlider.value) / 25;
+    const v0 = parseFloat(velSlider.value) / 20;
     
     let vx = v0 * Math.cos(angleRad);
     let vy = v0 * Math.sin(angleRad);
-    const g = 0.25;
-    const dragMultiplier = 0.0003;
+    const g = 0.19;
+    const dragMultiplier = 0.00022;
 
     let hitGround = false;
     let prevDistLoS = null;
     const intersections = [];
     const targetHits = [];
 
-    for (let t = 0; t < 800; t++) {
+    for (let t = 0; t < 1200; t++) {
         let currentV = Math.sqrt(vx * vx + vy * vy);
         let Fd = dragMultiplier * rho * currentV * currentV;
         
@@ -289,7 +289,7 @@ tempSlider.addEventListener("input", updatePhysics);
 pressSlider.addEventListener("input", updatePhysics);
 humSlider.addEventListener("input", updatePhysics);
 
-updatePhysics();
+resize();
 </script>
 </body>
 </html>
