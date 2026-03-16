@@ -9,6 +9,7 @@ body, html {
     height: 100%;
     overflow: hidden;
     font-family: sans-serif;
+    user-select: none;
 }
 #top {
     height: 66.66vh;
@@ -29,6 +30,7 @@ canvas {
     display: block;
     width: 100%;
     height: 100%;
+    cursor: crosshair;
 }
 .control {
     display: flex;
@@ -288,6 +290,42 @@ velSlider.addEventListener("input", updatePhysics);
 tempSlider.addEventListener("input", updatePhysics);
 pressSlider.addEventListener("input", updatePhysics);
 humSlider.addEventListener("input", updatePhysics);
+
+let isDragging = false;
+let lastMouseX = 0;
+let lastMouseY = 0;
+
+canvas.addEventListener("mousedown", (e) => {
+    isDragging = true;
+    lastMouseX = e.clientX;
+    lastMouseY = e.clientY;
+});
+
+window.addEventListener("mousemove", (e) => {
+    if (!isDragging) return;
+
+    const deltaX = e.clientX - lastMouseX;
+    const deltaY = e.clientY - lastMouseY;
+
+    let newAngle = parseFloat(angleSlider.value) + (deltaY * 0.1);
+    if (newAngle > parseFloat(angleSlider.max)) newAngle = parseFloat(angleSlider.max);
+    if (newAngle < parseFloat(angleSlider.min)) newAngle = parseFloat(angleSlider.min);
+    angleSlider.value = newAngle;
+
+    let newVel = parseFloat(velSlider.value) + (deltaX * 2);
+    if (newVel > parseFloat(velSlider.max)) newVel = parseFloat(velSlider.max);
+    if (newVel < parseFloat(velSlider.min)) newVel = parseFloat(velSlider.min);
+    velSlider.value = newVel;
+
+    lastMouseX = e.clientX;
+    lastMouseY = e.clientY;
+
+    updatePhysics();
+});
+
+window.addEventListener("mouseup", () => {
+    isDragging = false;
+});
 
 resize();
 </script>
