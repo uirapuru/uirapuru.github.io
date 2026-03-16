@@ -97,14 +97,20 @@ const pressVal = document.getElementById("pressVal");
 const humVal = document.getElementById("humVal");
 const densVal = document.getElementById("densVal");
 
+// God mode state
+let godModeActive = false;
+let inputBuffer = "";
+const godModeCode = "iddqd";
+let currentFrameCount = 0;
+let targetBurning = false;
+
 function resize() {
     canvas.width = canvas.clientWidth;
     canvas.height = canvas.clientHeight;
-    updatePhysics();
 }
 window.addEventListener("resize", resize);
 
-function updatePhysics() {
+function updateAllVariables() {
     const T = parseFloat(tempSlider.value);
     const P = parseFloat(pressSlider.value);
     const H = parseFloat(humSlider.value);
@@ -117,7 +123,7 @@ function updatePhysics() {
 
     const rho = (P_d / (287.058 * Tk)) + (P_v / (461.495 * Tk));
     
-    densSlider.value = rho;
+    densSlider.value = rho.toFixed(3);
     
     angleVal.innerText = angleSlider.value;
     opticVal.innerText = opticSlider.value;
@@ -127,20 +133,30 @@ function updatePhysics() {
     humVal.innerText = humSlider.value;
     densVal.innerText = rho.toFixed(3);
 
-    draw(rho);
+    return rho;
 }
 
-function draw(rho) {
+function render(rho, frameCount) {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     
     const h = canvas.height;
     const w = canvas.width;
     const groundY = h * (2/3);
     
-    ctx.fillStyle = "#87CEEB";
+    // Background color based on God Mode
+    if (godModeActive) {
+        ctx.fillStyle = "#800"; // Dark red sky
+    } else {
+        ctx.fillStyle = "#87CEEB"; // Light blue sky
+    }
     ctx.fillRect(0, 0, w, groundY);
     
-    ctx.fillStyle = "#228B22";
+    // Ground color based on God Mode
+    if (godModeActive) {
+        ctx.fillStyle = "#013220"; // Dark green ground
+    } else {
+        ctx.fillStyle = "#228B22"; // Green ground
+    }
     ctx.fillRect(0, groundY, w, h - groundY);
 
     const targetX = w - 60;
@@ -192,104 +208,215 @@ function draw(rho) {
     ctx.stroke();
     ctx.setLineDash([]);
 
-    ctx.strokeStyle = "red";
-    ctx.lineWidth = 2;
-    ctx.beginPath();
-    
+    // Barrel position
     const barrelLocalX = 50;
     const barrelLocalY = 0;
     let bx = pivotX + Math.cos(angleRad) * barrelLocalX - Math.sin(angleRad) * barrelLocalY;
     let by = pivotY + Math.sin(angleRad) * barrelLocalX + Math.cos(angleRad) * barrelLocalY;
     
-    ctx.moveTo(bx, by);
+    let currentLaserHitTarget = false;
 
-    const v0 = parseFloat(velSlider.value) / 20;
-    
-    let vx = v0 * Math.cos(angleRad);
-    let vy = v0 * Math.sin(angleRad);
-    const g = 0.19;
-    const dragMultiplier = 0.00022;
+    if (godModeActive) {
+        // Red laser beam in God Mode
+        ctx.strokeStyle = "red";
+        ctx.lineWidth = 4;
+        ctx.setLineDash([]); // Ensure no dashes
+        ctx.beginPath();
+        ctx.moveTo(bx, by);
 
-    let hitGround = false;
-    let prevDistLoS = null;
-    const intersections = [];
-    const targetHits = [];
-
-    for (let t = 0; t < 1200; t++) {
-        let currentV = Math.sqrt(vx * vx + vy * vy);
-        let Fd = dragMultiplier * rho * currentV * currentV;
+        // Calculate laser end point (straight line, ignore physics)
+        const tanA = Math.tan(angleRad);
         
-        vx += -Fd * (vx / currentV);
-        vy += g - Fd * (vy / currentV);
-
-        let prevBx = bx;
-        let prevBy = by;
-
-        bx += vx;
-        by += vy;
-        
-        if (!hitGround) {
-            ctx.lineTo(bx, by);
+        // Find intersection with ground
+        // Ground is y = groundY, line is y = tan(angleRad) * (x - bx) + by
+        // groundY = tanA * (endX_ground - bx) + by => endX_ground = bx + (groundY - by) / tanA
+        let endX_ground;
+        if (tanA === 0) {
+            endX_ground = w + 100; // Never intersects horizontal ground
+        } else {
+            endX_ground = bx + (groundY - by) / tanA;
         }
 
-        if (prevBx < targetX && bx >= targetX && !hitGround) {
-            let ratio = (targetX - prevBx) / (bx - prevBx);
-            let hitY = prevBy + ratio * (by - prevBy);
-            if (hitY >= groundY - targetH && hitY <= groundY) {
-                targetHits.push({x: targetX, y: hitY});
+        // Find intersection with target plane (vertical line at targetX)
+        // targetY = tanA * (targetX - bx) + by
+        const endY_target = tanA * (targetX - bx) + by;
+
+        let laserEndX, laserEndY;
+        // Logic to draw laser to first obstacle
+        if (tanA === 0) { // Horizontal laser
+            if (bx < targetX) {
+                laserEndX = targetX;
+                laserEndY = by;
+                if (laserEndY >= groundY - targetH && laserEndY <= groundY) {
+                    currentLaserHitTarget = true;
+                }
+            } else {
+                laserEndX = w + 100; // Goes off screen right
+                laserEndY = by;
             }
-        }
-
-        if (!hitGround && by >= groundY) {
-            hitGround = true;
-            ctx.stroke();
-            
-            ctx.strokeStyle = "black";
-            ctx.lineWidth = 2;
-            ctx.beginPath();
-            ctx.moveTo(bx - 6, groundY - 6);
-            ctx.lineTo(bx + 6, groundY + 6);
-            ctx.moveTo(bx + 6, groundY - 6);
-            ctx.lineTo(bx - 6, groundY + 6);
-            ctx.stroke();
-        }
-
-        if (!hitGround) {
-            let distLoS = -(bx - scopeX) * Math.sin(losAngleRad) + (by - scopeY) * Math.cos(losAngleRad);
-            if (prevDistLoS !== null) {
-                if ((prevDistLoS > 0 && distLoS <= 0) || (prevDistLoS < 0 && distLoS >= 0)) {
-                    intersections.push({x: bx, y: by});
+        } else if (tanA < 0) { // Laser points up. Hits target or top edge.
+            laserEndX = targetX;
+            laserEndY = endY_target;
+            if (laserEndY >= groundY - targetH && laserEndY <= groundY) {
+                currentLaserHitTarget = true;
+            } else if (laserEndY < 0) { // Intersects top edge first
+                laserEndX = bx - by / tanA;
+                laserEndY = 0;
+            }
+        } else { // Laser points down. Ground or target.
+            // Compare intersection X values to find first hit
+            if (endX_ground < targetX) { // Hits ground before target plane
+                laserEndX = endX_ground;
+                laserEndY = groundY;
+            } else { // Hits target plane before ground
+                laserEndX = targetX;
+                laserEndY = endY_target;
+                if (laserEndY >= groundY - targetH && laserEndY <= groundY) {
+                    currentLaserHitTarget = true;
                 }
             }
-            prevDistLoS = distLoS;
+        }
+
+        ctx.lineTo(laserEndX, laserEndY);
+        ctx.stroke();
+
+        targetBurning = currentLaserHitTarget;
+
+    } else {
+        // Regular physics-based projectile
+        ctx.strokeStyle = "red";
+        ctx.lineWidth = 2;
+        ctx.setLineDash([]); // Reset line dash to solid for projectile path
+        ctx.beginPath();
+        ctx.moveTo(bx, by);
+
+        const v0 = parseFloat(velSlider.value) / 20;
+        
+        let vx = v0 * Math.cos(angleRad);
+        let vy = v0 * Math.sin(angleRad);
+        const g = 0.19;
+        const dragMultiplier = 0.00022;
+
+        let hitGround = false;
+        let prevDistLoS = null;
+        const intersections = [];
+        const targetHits = [];
+
+        for (let t = 0; t < 1200; t++) {
+            let currentV = Math.sqrt(vx * vx + vy * vy);
+            let Fd = dragMultiplier * rho * currentV * currentV;
+            
+            vx += -Fd * (vx / currentV);
+            vy += g - Fd * (vy / currentV);
+
+            let prevBx = bx;
+            let prevBy = by;
+
+            bx += vx;
+            by += vy;
+            
+            if (!hitGround) {
+                ctx.lineTo(bx, by);
+            }
+
+            if (prevBx < targetX && bx >= targetX && !hitGround) {
+                let ratio = (targetX - prevBx) / (bx - prevBx);
+                let hitY = prevBy + ratio * (by - prevBy);
+                if (hitY >= groundY - targetH && hitY <= groundY) {
+                    targetHits.push({x: targetX, y: hitY});
+                }
+            }
+
+            if (!hitGround && by >= groundY) {
+                hitGround = true;
+                ctx.stroke();
+                
+                ctx.strokeStyle = "black";
+                ctx.lineWidth = 2;
+                ctx.beginPath();
+                ctx.moveTo(bx - 6, groundY - 6);
+                ctx.lineTo(bx + 6, groundY + 6);
+                ctx.moveTo(bx + 6, groundY - 6);
+                ctx.lineTo(bx - 6, groundY + 6);
+                ctx.stroke();
+            }
+
+            if (!hitGround) {
+                let distLoS = -(bx - scopeX) * Math.sin(losAngleRad) + (by - scopeY) * Math.cos(losAngleRad);
+                if (prevDistLoS !== null) {
+                    if ((prevDistLoS > 0 && distLoS <= 0) || (prevDistLoS < 0 && distLoS >= 0)) {
+                        intersections.push({x: bx, y: by});
+                    }
+                }
+                prevDistLoS = distLoS;
+            }
+        }
+        
+        if (!hitGround) {
+            ctx.stroke();
+        }
+
+        ctx.fillStyle = "green";
+        intersections.forEach(pt => {
+            ctx.beginPath();
+            ctx.arc(pt.x, pt.y, 5, 0, Math.PI * 2);
+            ctx.fill();
+        });
+
+        ctx.fillStyle = "red";
+        targetHits.forEach(pt => {
+            ctx.beginPath();
+            ctx.arc(pt.x, pt.y, 5, 0, Math.PI * 2);
+            ctx.fill();
+        });
+
+        targetBurning = false; // No flames in regular mode
+    }
+
+    // Flame animation if target is burning
+    if (targetBurning) {
+        // Create flickering orange/yellow flames
+        const numFlames = 10 + (Math.sin(frameCount * 0.1) * 5); // count flickers
+        for (let i = 0; i < numFlames; i++) {
+            const offsetX = (Math.random() - 0.5) * targetW;
+            const offsetY = (Math.random() - 0.5) * targetH / 2;
+            const radius = 5 + Math.random() * 10;
+            const fx = targetX + offsetX;
+            const fy = targetCY + offsetY;
+
+            // flicker color and alpha
+            const hue = 10 + Math.random() * 30; // 10-40, orange-yellow range
+            const saturation = 90 + Math.random() * 10;
+            const lightness = 40 + Math.random() * 20;
+            const alpha = 0.5 + Math.random() * 0.5;
+            ctx.fillStyle = `hsla(${hue}, ${saturation}%, ${lightness}%, ${alpha})`;
+
+            ctx.beginPath();
+            ctx.arc(fx, fy, radius, 0, Math.PI * 2);
+            ctx.fill();
         }
     }
-    
-    if (!hitGround) {
-        ctx.stroke();
-    }
-
-    ctx.fillStyle = "green";
-    intersections.forEach(pt => {
-        ctx.beginPath();
-        ctx.arc(pt.x, pt.y, 5, 0, Math.PI * 2);
-        ctx.fill();
-    });
-
-    ctx.fillStyle = "red";
-    targetHits.forEach(pt => {
-        ctx.beginPath();
-        ctx.arc(pt.x, pt.y, 5, 0, Math.PI * 2);
-        ctx.fill();
-    });
 }
 
-angleSlider.addEventListener("input", updatePhysics);
-opticSlider.addEventListener("input", updatePhysics);
-velSlider.addEventListener("input", updatePhysics);
-tempSlider.addEventListener("input", updatePhysics);
-pressSlider.addEventListener("input", updatePhysics);
-humSlider.addEventListener("input", updatePhysics);
+// Add event listener for God Mode detection
+window.addEventListener("keydown", (e) => {
+    inputBuffer += e.key.toLowerCase();
+    if (inputBuffer.length > 20) {
+        inputBuffer = inputBuffer.slice(-20);
+    }
+    if (inputBuffer.endsWith(godModeCode)) {
+        godModeActive = !godModeActive;
+        inputBuffer = ""; // Reset buffer
+    }
+});
+
+// Create continuous loop for flame animation
+function loop() {
+    const rho = updateAllVariables();
+    render(rho, currentFrameCount);
+    currentFrameCount++;
+    requestAnimationFrame(loop);
+}
 
 let isDragging = false;
 let lastMouseX = 0;
@@ -319,8 +446,6 @@ window.addEventListener("mousemove", (e) => {
 
     lastMouseX = e.clientX;
     lastMouseY = e.clientY;
-
-    updatePhysics();
 });
 
 window.addEventListener("mouseup", () => {
@@ -333,10 +458,10 @@ canvas.addEventListener("wheel", (e) => {
     if (newOptic > parseFloat(opticSlider.max)) newOptic = parseFloat(opticSlider.max);
     if (newOptic < parseFloat(opticSlider.min)) newOptic = parseFloat(opticSlider.min);
     opticSlider.value = newOptic;
-    updatePhysics();
 }, { passive: false });
 
 resize();
+loop();
 </script>
 </body>
 </html>
