@@ -419,24 +419,24 @@
     const SPEED_OF_SOUND_BASE_MS = 331.3;
 
     const defaultForm = {
-      distanceMeters: 619.84,
+      distanceMeters: 600.0,
       slopeAngleDegrees: 0.0,
-      windSpeedMps: 6.7,
-      windDirectionDegrees: 49.0,
+      windSpeedMps: 5.0,
+      windDirectionDegrees: 90.0,
       temperatureC: 15.0,
-      pressureHpa: 999.9,
-      humidityPercent: 78.0,
+      pressureHpa: 1013.0,
+      humidityPercent: 50.0,
       latitudeDegrees: 52.0,
       targetAzimuthDegrees: 90.0,
-      zeroDistanceMeters: 99.67,
-      scopeHeightMm: 50.8,
-      muzzleVelocityMps: 807.1,
+      zeroDistanceMeters: 100.0,
+      scopeHeightMm: 50.0,
+      muzzleVelocityMps: 800.0,
       bulletWeightGrains: 168.0,
       ballisticCoefficient: 0.447,
       dragModel: "G1",
       twistRateInches: 12.0,
       twistDirection: "right",
-      gyroscopicStabilityFactor: 1.73,
+      gyroscopicStabilityFactor: 1.50,
       zeroOffsetXmm: 0.0,
       zeroOffsetYmm: 0.0,
       zeroTemperatureC: 15.0,
@@ -452,6 +452,9 @@
       addCoriolisEffect: true,
       useUDLRInsteadOfPlusMinus: true
     };
+
+    const FORM_COOKIE_NAME = "ballistic_form_v1";
+    const FORM_COOKIE_DAYS = 180;
 
     const numericFields = [
       "distanceMeters", "slopeAngleDegrees", "targetAzimuthDegrees",
@@ -1092,8 +1095,99 @@
       }
     }
 
+    function setCookie(name, value, days) {
+      const maxAge = Math.max(1, Number(days || 1)) * 24 * 60 * 60;
+      document.cookie = `${name}=${encodeURIComponent(value)}; max-age=${maxAge}; path=/; samesite=lax`;
+    }
+
+    function getCookie(name) {
+      const parts = document.cookie ? document.cookie.split("; ") : [];
+      for (const part of parts) {
+        const eqIndex = part.indexOf("=");
+        if (eqIndex <= 0) {
+          continue;
+        }
+        const key = part.slice(0, eqIndex);
+        const value = part.slice(eqIndex + 1);
+        if (key === name) {
+          return decodeURIComponent(value);
+        }
+      }
+      return null;
+    }
+
+    function safeNumberFromInput(id, fallbackValue) {
+      const el = document.getElementById(id);
+      if (!el) {
+        return fallbackValue;
+      }
+      const value = Number(el.value);
+      return Number.isFinite(value) ? value : fallbackValue;
+    }
+
+    function collectFormStateForCookie() {
+      const state = { ...defaultForm };
+
+      for (const field of numericFields) {
+        state[field] = safeNumberFromInput(field, state[field]);
+      }
+
+      state.dragModel = document.getElementById("dragModel")?.value || state.dragModel;
+      state.twistDirection = document.getElementById("twistDirection")?.value || state.twistDirection;
+
+      const advancedNumericFields = [
+        "clickVerticalMRAD", "clickHorizontalMRAD", "horizontalWindDriftPercent",
+        "gyroscopicStabilityFactor", "zeroOffsetXmm", "zeroOffsetYmm",
+        "humidityPercent", "latitudeDegrees", "zeroTemperatureC"
+      ];
+      for (const field of advancedNumericFields) {
+        state[field] = safeNumberFromInput(field, state[field]);
+      }
+
+      const advancedBooleanFields = [
+        "considerPowderTemperature", "addTailwindHeadwindToBulletSpeed",
+        "addVerticalDeflectionOfCrosswind", "setRelationManually",
+        "addSpinDrift", "addCoriolisEffect", "useUDLRInsteadOfPlusMinus"
+      ];
+      for (const field of advancedBooleanFields) {
+        const el = document.getElementById(field);
+        if (el) {
+          state[field] = el.checked;
+        }
+      }
+
+      const moaSelect = document.getElementById("showSMOAInsteadOfMOA");
+      if (moaSelect) {
+        state.showSMOAInsteadOfMOA = moaSelect.value === "true";
+      }
+
+      return state;
+    }
+
+    function saveFormStateToCookie() {
+      const state = collectFormStateForCookie();
+      setCookie(FORM_COOKIE_NAME, JSON.stringify(state), FORM_COOKIE_DAYS);
+    }
+
+    function loadFormStateFromCookie() {
+      const raw = getCookie(FORM_COOKIE_NAME);
+      if (!raw) {
+        return null;
+      }
+      try {
+        const parsed = JSON.parse(raw);
+        if (!parsed || typeof parsed !== "object") {
+          return null;
+        }
+        return { ...defaultForm, ...parsed };
+      } catch (_err) {
+        return null;
+      }
+    }
+
     function bootstrap() {
-      fillForm(defaultForm);
+      const savedForm = loadFormStateFromCookie();
+      fillForm(savedForm || defaultForm);
 
       const toggleAdvancedBtn = document.getElementById("toggleAdvancedBtn");
       const advancedPanel = document.getElementById("advancedPanel");
@@ -1103,8 +1197,15 @@
         toggleAdvancedBtn.textContent = isHidden ? "Ukryj zaawansowane" : "Pokaz zaawansowane";
       });
 
+      document.querySelectorAll("input, select").forEach((el) => {
+        el.addEventListener("change", () => {
+          saveFormStateToCookie();
+        });
+      });
+
       document.getElementById("resetBtn").addEventListener("click", () => {
         fillForm(defaultForm);
+        saveFormStateToCookie();
         setStatus("Przywrocono domyslne wartosci formularza.");
       });
 
@@ -1113,15 +1214,17 @@
           const raw = getRawInputFromForm();
           const result = calculateTrajectory(raw);
           renderResult(result, raw);
+          saveFormStateToCookie();
           setStatus("Obliczenia zakonczone.");
         } catch (err) {
           setStatus(`Blad: ${err.message || err}`, true);
         }
       });
 
-      const initial = calculateTrajectory(defaultForm);
-      renderResult(initial, defaultForm);
-      setStatus("Uruchomiono kalkulator z domyslnymi wartosciami metrycznymi.");
+      const initialInput = savedForm || defaultForm;
+      const initial = calculateTrajectory(initialInput);
+      renderResult(initial, initialInput);
+      setStatus(savedForm ? "Wczytano zapisane wartosci formularza (cookie)." : "Uruchomiono kalkulator z domyslnymi wartosciami metrycznymi.");
     }
 
     bootstrap();
