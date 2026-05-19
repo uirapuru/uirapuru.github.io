@@ -1,0 +1,187 @@
+/* css/device.css — photo-based device layout */
+#sim-screen {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 40px;
+  min-height: 100vh;
+  padding: 40px 20px;
+  background: #fff;
+  font-family: sans-serif;
+}
+
+#kestrel {
+  position: relative;
+  flex-shrink: 0;
+  align-self: flex-start;
+  width: fit-content;
+  user-select: none;
+}
+
+#kestrel-photo {
+  display: block;
+  max-height: 82vh;
+  width: auto;
+  height: auto;
+  -webkit-user-drag: none;
+}
+
+/* LCD overlay — transparent, positioned over the photo's gray LCD */
+#lcd {
+  position: absolute;
+  top: 39%;
+  left: 39%;
+  width: 25%;
+  height: calc(8 * 0.936rem * 1.4);
+  background: transparent;
+  border-radius: 2px;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-start;
+}
+
+#lcd-content {
+  color: #1a2e0a;
+  font-family: 'Courier New', monospace;
+  font-size: 0.936rem;
+  line-height: 1.4;
+  white-space: pre;
+  padding: 4px 6px;
+  width: 100%;
+}
+
+#lcd-content.backlight-red {
+  color: #8b1a1a;
+}
+
+.lcd-line {
+  display: block;
+  white-space: pre;
+}
+
+.lcd-invert {
+  color: #d8edbb;
+  background: #1a2e0a;
+}
+
+.lcd-underline {
+  text-decoration: underline;
+}
+
+.lcd-sep {
+  border-bottom: 1px solid currentColor;
+}
+
+#lcd-content.backlight-red .lcd-invert {
+  color: #f8e8e8;
+  background: #8b1a1a;
+}
+
+/* Transparent button overlays — hover shows a subtle ring */
+.kbtn {
+  position: absolute;
+  background: transparent;
+  border: 2px solid transparent;
+  border-radius: 50%;
+  cursor: pointer;
+  padding: 0;
+  transition: background .08s, border-color .08s;
+}
+
+.kbtn:hover {
+  background: rgba(255, 220, 0, 0.15);
+  border-color: rgba(255, 220, 0, 0.7);
+}
+
+.kbtn:active {
+  background: rgba(255, 220, 0, 0.3);
+}
+
+/* Row 1: ⚙ lewo | — środek | 💡 prawo */
+.kbtn[data-btn="options"] {
+  top: 61.5%;
+  left: 33%;
+  width: 7%;
+  height: 6%;
+}
+
+.kbtn[data-btn="capture"] {
+  top: 61.5%;
+  left: 46.5%;
+  width: 7%;
+  height: 6%;
+}
+
+.kbtn[data-btn="backlight"] {
+  top: 61.5%;
+  left: 60%;
+  width: 7%;
+  height: 6%;
+}
+
+/* D-pad */
+.kbtn[data-btn="up"] {
+  top: 68.8%;
+  left: 46.5%;
+  width: 7%;
+  height: 6%;
+}
+
+.kbtn[data-btn="left"] {
+  top: 74.5%;
+  left: 35%;
+  width: 7%;
+  height: 6%;
+}
+
+.kbtn[data-btn="select"] {
+  top: 74.5%;
+  left: 46.5%;
+  width: 7%;
+  height: 6%;
+}
+
+.kbtn[data-btn="right"] {
+  top: 74.5%;
+  left: 58%;
+  width: 7%;
+  height: 6%;
+}
+
+.kbtn[data-btn="down"] {
+  top: 80.4%;
+  left: 46.5%;
+  width: 7%;
+  height: 6%;
+}
+
+/* Power button — bottom left */
+.kbtn[data-btn="power"] {
+  top: 85.2%;
+  left: 32%;
+  width: 7%;
+  height: 6%;
+}
+
+/* Compass calibration rotation */
+@keyframes rotateDevice {
+  from {
+    transform: rotateY(0deg);
+  }
+
+  to {
+    transform: rotateY(360deg);
+  }
+}
+
+#kestrel-photo.rotating {
+  animation: rotateDevice .65s ease-in-out;
+  transform-origin: center;
+}
+
+/* Boot sequence screens */
+#lcd-content.boot {
+  white-space: normal;
+  text-align: center;
+  padding: 4px 5px;
+}

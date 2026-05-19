@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kestrel 5700 Elite Simulator</title>
+  <link rel="stylesheet" href="css/intro.css">
+  <link rel="stylesheet" href="css/device.css">
+  <link rel="stylesheet" href="css/screens.css">
+  <link rel="stylesheet" href="css/panel.css">
+  <link rel="stylesheet" href="css/snake.css">
+</head>
+<body>
+
+  <!-- INTRO -->
+  <div id="intro-screen">
+    <div id="intro-device-wrap">
+      <img id="intro-img" src="assets/kestrel_5700.png" alt="Kestrel 5700 Elite">
+      <div id="power-hotspot"></div>
+      <div id="intro-arrow">▶</div>
+      <div id="intro-label">WŁĄCZ MNIE</div>
+    </div>
+  </div>
+
+  <!-- SYMULATOR -->
+  <div id="sim-screen" hidden>
+    <div id="weather-panel">
+      <h3>Dane pogodowe</h3>
+      <label>Temperatura (°C)<input id="p-temp" type="number" value="15" step="0.1"></label>
+      <label>Ciśnienie (hPa)<input id="p-pres" type="number" value="1013" step="0.1"></label>
+      <label>Wilgotność (%)<input id="p-hum" type="number" value="50" step="1" min="0" max="100"></label>
+      <label>Wiatr (m/s)<input id="p-wind" type="number" value="3" step="0.1" min="0"></label>
+      <label>Kierunek wiatru (°)<input id="p-wdir" type="number" value="90" step="1" min="0" max="360"></label>
+      <label class="check-label">
+        <input id="p-live" type="checkbox"> Symuluj żywą pogodę
+      </label>
+      <button id="p-apply">Zastosuj</button>
+    </div>
+
+    <div id="kestrel">
+      <img id="kestrel-photo" src="assets/kestrel_5700.png" alt="Kestrel 5700 Elite" draggable="false">
+      <div id="lcd"><div id="lcd-content"></div></div>
+      <button class="kbtn" data-btn="options"   title="OPTIONS/EXIT"></button>
+      <button class="kbtn" data-btn="backlight" title="BACKLIGHT"></button>
+      <button class="kbtn capture-btn" data-btn="capture" title="CAPTURE"></button>
+      <button class="kbtn" data-btn="left"      title="LEFT"></button>
+      <button class="kbtn" data-btn="up"        title="UP"></button>
+      <button class="kbtn" data-btn="select"    title="SELECT"></button>
+      <button class="kbtn" data-btn="down"      title="DOWN"></button>
+      <button class="kbtn" data-btn="right"     title="RIGHT"></button>
+      <button class="kbtn power-btn" data-btn="power" title="POWER"></button>
+    </div>
+  </div>
+
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>

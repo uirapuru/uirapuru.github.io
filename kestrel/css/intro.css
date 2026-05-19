@@ -1,0 +1,60 @@
+/* css/intro.css */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: #fff; }
+
+#intro-screen {
+  display: flex; align-items: center; justify-content: center;
+  min-height: 100vh; background: #fff;
+}
+
+#intro-device-wrap { position: relative; display: inline-block; }
+
+#intro-img { max-height: 90vh; max-width: 90vw; display: block; border-radius: 12px; }
+
+#power-hotspot {
+  position: absolute; bottom: 9%; left: 28%;
+  width: 15%; height: 9%;
+  cursor: pointer; border-radius: 50%;
+}
+
+#intro-arrow {
+  position: absolute; bottom: 13%; left: 10%;
+  color: #e00; font-size: 2.2rem;
+  animation: arrowPulse .9s ease-in-out infinite alternate;
+  pointer-events: none;
+  filter: drop-shadow(0 0 6px #f00);
+}
+
+@keyframes arrowPulse {
+  from { transform: translateX(0); opacity: 1; }
+  to   { transform: translateX(8px); opacity: .5; }
+}
+
+#intro-label {
+  position: absolute; bottom: 7%; left: 5%;
+  color: #e00; font-family: sans-serif; font-weight: 700;
+  font-size: .95rem; letter-spacing: 1px;
+  animation: labelPulse 1.5s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes labelPulse {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: .3; }
+}
+
+#intro-screen.zooming { pointer-events: none; }
+
+#intro-screen.zooming #intro-img { animation: introExit .45s ease-in forwards; }
+
+@keyframes introExit {
+  from { transform: scale(1);    opacity: 1; }
+  to   { transform: scale(1.08); opacity: 0; }
+}
+
+#sim-screen { animation: simEnter .5s ease-out forwards; }
+
+@keyframes simEnter {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
