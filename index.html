@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>[Your Full Name] &mdash; Business Card &amp; CV</title>
+  <style>
+    /* ── Reset & base ─────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --accent:   #2563eb;
+      --accent-dk:#1e40af;
+      --sidebar:  #1e293b;
+      --sidebar-text: #e2e8f0;
+      --body-bg:  #f1f5f9;
+      --card-bg:  #ffffff;
+      --text:     #1e293b;
+      --muted:    #64748b;
+      --border:   #e2e8f0;
+      --radius:   10px;
+    }
+
+    body {
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      background: var(--body-bg);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      padding: 2.5rem 1rem;
+    }
+
+    /* ── Card wrapper ─────────────────────────────────────────── */
+    .card {
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      max-width: 960px;
+      width: 100%;
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      box-shadow: 0 8px 40px rgba(0,0,0,.12);
+      overflow: hidden;
+    }
+
+    /* ── Sidebar ──────────────────────────────────────────────── */
+    .sidebar {
+      background: var(--sidebar);
+      color: var(--sidebar-text);
+      padding: 2.5rem 1.75rem;
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    .avatar-wrap {
+      display: flex;
+      justify-content: center;
+    }
+
+    .avatar {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      border: 4px solid var(--accent);
+      object-fit: cover;
+      background: #334155;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .avatar-placeholder {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      border: 4px solid var(--accent);
+      background: #334155;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #94a3b8;
+      font-size: .75rem;
+      text-align: center;
+      line-height: 1.4;
+    }
+
+    .sidebar-section-title {
+      font-size: .65rem;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: .75rem;
+    }
+
+    /* contact */
+    .contact-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: .6rem;
+    }
+
+    .contact-list li {
+      display: flex;
+      align-items: center;
+      gap: .55rem;
+      font-size: .82rem;
+      color: #cbd5e1;
+      word-break: break-all;
+    }
+
+    .contact-list .icon {
+      flex-shrink: 0;
+      width: 16px;
+      height: 16px;
+      fill: var(--accent);
+    }
+
+    /* skills */
+    .skill-item {
+      margin-bottom: .75rem;
+    }
+
+    .skill-label {
+      display: flex;
+      justify-content: space-between;
+      font-size: .8rem;
+      margin-bottom: .3rem;
+      color: #cbd5e1;
+    }
+
+    .skill-bar {
+      height: 5px;
+      border-radius: 3px;
+      background: #334155;
+      overflow: hidden;
+    }
+
+    .skill-bar-fill {
+      height: 100%;
+      border-radius: 3px;
+      background: var(--accent);
+      transition: width .4s ease;
+    }
+
+    /* languages */
+    .lang-item {
+      display: flex;
+      justify-content: space-between;
+      font-size: .82rem;
+      color: #cbd5e1;
+      padding: .35rem 0;
+      border-bottom: 1px solid #334155;
+    }
+
+    .lang-level {
+      font-size: .75rem;
+      color: var(--accent);
+    }
+
+    /* ── Main content ─────────────────────────────────────────── */
+    .main {
+      padding: 2.5rem 2.25rem;
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    /* header */
+    .profile-header { border-bottom: 2px solid var(--border); padding-bottom: 1.25rem; }
+
+    .profile-name {
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--text);
+      line-height: 1.1;
+    }
+
+    .profile-title {
+      font-size: 1rem;
+      color: var(--accent);
+      font-weight: 600;
+      margin-top: .3rem;
+    }
+
+    /* sections */
+    .section-title {
+      font-size: .7rem;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1rem;
+    }
+
+    /* summary */
+    .summary-text {
+      font-size: .9rem;
+      line-height: 1.7;
+      color: var(--muted);
+    }
+
+    /* experience */
+    .timeline { display: flex; flex-direction: column; gap: 1.25rem; }
+
+    .timeline-item { position: relative; padding-left: 1.1rem; }
+
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: .45rem;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--accent);
+      flex-shrink: 0;
+    }
+
+    .timeline-item::after {
+      content: '';
+      position: absolute;
+      left: 3.5px;
+      top: 1.1rem;
+      width: 1px;
+      bottom: -1.25rem;
+      background: var(--border);
+    }
+
+    .timeline-item:last-child::after { display: none; }
+
+    .job-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: .5rem;
+      flex-wrap: wrap;
+    }
+
+    .job-title {
+      font-size: .92rem;
+      font-weight: 700;
+    }
+
+    .job-date {
+      font-size: .75rem;
+      color: var(--muted);
+      white-space: nowrap;
+    }
+
+    .job-company {
+      font-size: .82rem;
+      color: var(--accent);
+      margin-top: .1rem;
+    }
+
+    .job-desc {
+      font-size: .83rem;
+      color: var(--muted);
+      line-height: 1.6;
+      margin-top: .4rem;
+    }
+
+    /* education */
+    .edu-item { margin-bottom: 1rem; }
+
+    .edu-degree {
+      font-size: .9rem;
+      font-weight: 700;
+    }
+
+    .edu-school {
+      font-size: .82rem;
+      color: var(--accent);
+      margin-top: .1rem;
+    }
+
+    .edu-year {
+      font-size: .78rem;
+      color: var(--muted);
+    }
+
+    /* tags (interests / technologies) */
+    .tags { display: flex; flex-wrap: wrap; gap: .5rem; }
+
+    .tag {
+      font-size: .75rem;
+      padding: .3rem .75rem;
+      border-radius: 20px;
+      background: #eff6ff;
+      color: var(--accent-dk);
+      font-weight: 600;
+      border: 1px solid #bfdbfe;
+    }
+
+    /* ── Responsive ───────────────────────────────────────────── */
+    @media (max-width: 680px) {
+      .card { grid-template-columns: 1fr; }
+      .avatar-wrap { margin-bottom: .5rem; }
+    }
+
+    @media print {
+      body { background: #fff; padding: 0; }
+      .card { box-shadow: none; max-width: 100%; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="card">
+
+  <!-- ══════════════ SIDEBAR ══════════════ -->
+  <aside class="sidebar">
+
+    <!-- Photo -->
+    <div class="avatar-wrap">
+      <div class="avatar-placeholder">
+        Your<br/>Photo
+      </div>
+    </div>
+
+    <!-- Contact -->
+    <div>
+      <p class="sidebar-section-title">Contact</p>
+      <ul class="contact-list">
+        <li>
+          <svg class="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z"/>
+          </svg>
+          [City, Country]
+        </li>
+        <li>
+          <svg class="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2a1 1 0 011.11-.27c1.21.49 2.53.76 3.88.76a1 1 0 011 1V20a1 1 0 01-1 1C10.61 21 3 13.39 3 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.36.27 2.68.76 3.88a1 1 0 01-.27 1.11l-2.37 1.8z"/>
+          </svg>
+          [+00 000 000 0000]
+        </li>
+        <li>
+          <svg class="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+          </svg>
+          [your@email.com]
+        </li>
+        <li>
+          <svg class="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"/>
+          </svg>
+          [github.com/yourusername]
+        </li>
+        <li>
+          <svg class="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M19 3a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h14m-.5 15.5v-5.3a3.26 3.26 0 00-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 011.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 001.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 00-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/>
+          </svg>
+          [linkedin.com/in/yourprofile]
+        </li>
+      </ul>
+    </div>
+
+    <!-- Skills -->
+    <div>
+      <p class="sidebar-section-title">Skills</p>
+
+      <div class="skill-item">
+        <div class="skill-label"><span>[Skill One]</span><span>90%</span></div>
+        <div class="skill-bar"><div class="skill-bar-fill" style="width:90%"></div></div>
+      </div>
+
+      <div class="skill-item">
+        <div class="skill-label"><span>[Skill Two]</span><span>80%</span></div>
+        <div class="skill-bar"><div class="skill-bar-fill" style="width:80%"></div></div>
+      </div>
+
+      <div class="skill-item">
+        <div class="skill-label"><span>[Skill Three]</span><span>75%</span></div>
+        <div class="skill-bar"><div class="skill-bar-fill" style="width:75%"></div></div>
+      </div>
+
+      <div class="skill-item">
+        <div class="skill-label"><span>[Skill Four]</span><span>65%</span></div>
+        <div class="skill-bar"><div class="skill-bar-fill" style="width:65%"></div></div>
+      </div>
+
+      <div class="skill-item">
+        <div class="skill-label"><span>[Skill Five]</span><span>60%</span></div>
+        <div class="skill-bar"><div class="skill-bar-fill" style="width:60%"></div></div>
+      </div>
+    </div>
+
+    <!-- Languages -->
+    <div>
+      <p class="sidebar-section-title">Languages</p>
+      <div class="lang-item"><span>[Language 1]</span><span class="lang-level">Native</span></div>
+      <div class="lang-item"><span>[Language 2]</span><span class="lang-level">Fluent</span></div>
+      <div class="lang-item"><span>[Language 3]</span><span class="lang-level">Intermediate</span></div>
+    </div>
+
+  </aside>
+
+  <!-- ══════════════ MAIN ══════════════ -->
+  <main class="main">
+
+    <!-- Header -->
+    <header class="profile-header">
+      <h1 class="profile-name">[Your Full Name]</h1>
+      <p class="profile-title">[Your Professional Title / Role]</p>
+    </header>
+
+    <!-- Summary -->
+    <section>
+      <p class="section-title">About Me</p>
+      <p class="summary-text">
+        [Write a short professional summary here &mdash; 2 to 4 sentences describing your background,
+        core strengths, and what drives you. For example: "Passionate software engineer with
+        X years of experience building scalable web applications. Specializes in [domain].
+        Always looking for new challenges that push the boundaries of technology."]
+      </p>
+    </section>
+
+    <!-- Experience -->
+    <section>
+      <p class="section-title">Experience</p>
+      <div class="timeline">
+
+        <div class="timeline-item">
+          <div class="job-header">
+            <span class="job-title">[Job Title]</span>
+            <span class="job-date">[Month Year] &mdash; Present</span>
+          </div>
+          <p class="job-company">[Company Name] &middot; [City, Country]</p>
+          <p class="job-desc">
+            [Describe your key responsibilities and achievements. Use action verbs and quantify
+            results where possible. E.g. "Led a team of N engineers to deliver X feature,
+            reducing latency by Y%."]
+          </p>
+        </div>
+
+        <div class="timeline-item">
+          <div class="job-header">
+            <span class="job-title">[Previous Job Title]</span>
+            <span class="job-date">[Month Year] &mdash; [Month Year]</span>
+          </div>
+          <p class="job-company">[Previous Company] &middot; [City, Country]</p>
+          <p class="job-desc">
+            [Describe responsibilities and achievements for this role.]
+          </p>
+        </div>
+
+        <div class="timeline-item">
+          <div class="job-header">
+            <span class="job-title">[Earlier Job Title]</span>
+            <span class="job-date">[Month Year] &mdash; [Month Year]</span>
+          </div>
+          <p class="job-company">[Earlier Company] &middot; [City, Country]</p>
+          <p class="job-desc">
+            [Describe responsibilities and achievements for this role.]
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Education -->
+    <section>
+      <p class="section-title">Education</p>
+
+      <div class="edu-item">
+        <p class="edu-degree">[Degree Title &mdash; e.g. BSc Computer Science]</p>
+        <p class="edu-school">[University / Institution Name]</p>
+        <p class="edu-year">[Year of Graduation]</p>
+      </div>
+
+      <div class="edu-item">
+        <p class="edu-degree">[Additional Certification or Course]</p>
+        <p class="edu-school">[Issuing Organisation]</p>
+        <p class="edu-year">[Year]</p>
+      </div>
+
+    </section>
+
+    <!-- Interests / Technologies -->
+    <section>
+      <p class="section-title">Technologies &amp; Interests</p>
+      <div class="tags">
+        <span class="tag">[Technology 1]</span>
+        <span class="tag">[Technology 2]</span>
+        <span class="tag">[Technology 3]</span>
+        <span class="tag">[Technology 4]</span>
+        <span class="tag">[Technology 5]</span>
+        <span class="tag">[Interest 1]</span>
+        <span class="tag">[Interest 2]</span>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+</body>
+</html>
