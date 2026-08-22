@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Privacy Policy — SniperTAK</title>
+<style>
+body { max-width: 42rem; margin: 3rem auto; padding: 0 1.2rem;
+        font: 16px/1.6 system-ui, sans-serif; color: #17211d; background: #fbfdfc; }
+h1 { font-size: 1.6rem; } h2 { font-size: 1.15rem; margin-top: 2rem; }
+a { color: #1b6f4f; } li { margin: .3rem 0; }
+@media (prefers-color-scheme: dark) {
+  body { color: #e7efea; background: #121a16; } a { color: #7ab298; } }
+</style>
+</head>
+<body>
+<h1>Privacy Policy — SniperTAK</h1>
+
+<p>Last updated: 22 August 2026</p>
+
+<p>SniperTAK is a plugin for ATAK-CIV developed by Grzegorz Kaszuba ("the developer").</p>
+<p>The plugin computes ballistic firing solutions, reads weather data from a Kestrel 5700 meter
+and distance from a Vortex Impact 4000 rangefinder over Bluetooth Low Energy, and draws
+observation post, target, and range and bearing items on the ATAK map.</p>
+
+<h2>Data the plugin collects</h2>
+
+<p>None. The plugin does not collect, transmit, or share any personal or device data.</p>
+
+<p>Specific facts behind that statement:</p>
+
+<ul>
+<li>The plugin declares no Android permissions of its own.</li>
+<li>The plugin contains no networking code. It opens no connections and sends nothing to
+  the developer or to any third party.</li>
+<li>The plugin contains no analytics, advertising, or tracking libraries.</li>
+<li>The plugin does not use the advertising identifier.</li>
+<li>The plugin has no user account, no login, and never asks for an email address.</li>
+</ul>
+
+<h2>Bluetooth connections</h2>
+
+<p>You may pair the plugin with a Kestrel 5700 weather meter or a Vortex Impact 4000 rangefinder.
+The connection uses Bluetooth Low Energy and the Bluetooth permissions already granted to
+ATAK-CIV. The plugin reads measurements from the device — temperature, pressure, humidity,
+wind, distance — and passes them to the ballistic calculation on the same phone or tablet.
+Nothing from these devices leaves the device through the plugin.</p>
+
+<h2>Files the plugin creates</h2>
+
+<p>The plugin writes the following data to storage on the device:</p>
+
+<ul>
+<li>Settings — language, units, dialog options — in the ATAK shared preferences.</li>
+<li>The shot log, in the ATAK application files directory, in <code>snipertak/dziennik.jsonl</code>.</li>
+<li>Files you export yourself, in the location you pick in the Android save dialog, or in
+  <code>Documents/snipertak/exports</code> when that dialog is unavailable.</li>
+</ul>
+
+<p>These files stay on the device. The plugin does not upload them. You may delete them at any
+time through ATAK or a file manager.</p>
+
+<h2>Data handled by ATAK</h2>
+
+<p>SniperTAK runs inside ATAK-CIV. Markers and lines the plugin places on the map are ATAK map
+items. Whether they leave the device depends on how you configure ATAK — for example on the TAK
+server you connect to and the contacts you share data with. That handling is governed by
+ATAK-CIV and by the servers you configure there. This policy covers only SniperTAK.</p>
+
+<h2>Distribution through Google Play</h2>
+
+<p>Google Play collects installation and crash data on its own terms, independently of the plugin.
+See the <a href="https://policies.google.com/privacy">Google Play Services privacy policy</a>.</p>
+
+<h2>Children</h2>
+
+<p>The plugin is intended for users aged 18 or over. It is not directed at children.</p>
+
+<h2>Changes to this policy</h2>
+
+<p>Changes will be published on this page with a new date at the top.</p>
+
+<h2>Contact</h2>
+
+<p>Questions about this policy: <a href="mailto:uirapuruadg@gmail.com">uirapuruadg@gmail.com</a></p>
+
+</body>
+</html>
