@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="pl">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Grzegorz Kaszuba — Rozkładam sprzęt i oprogramowanie na części, żeby dało się ich używać.</title>
+<meta name="description" content="Rozkładam sprzęt i oprogramowanie na części, żeby dało się ich używać.">
+
+<link rel="stylesheet" href="styl.css">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+
+<header class="pasek">
+  <div class="szeroko">
+    <a class="marka" href="index.html">Grzegorz Kaszuba</a>
+    <nav>
+      <a href="index.html#wtyczki">Wtyczki</a>
+      <a href="index.html#ebooki">Ebooki</a>
+      <a href="kontakt.html">Kontakt</a>
+    </nav>
+    <span class="jezyk"><a href="en/index.html">English</a></span>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="szeroko">
+    <h1>Grzegorz Kaszuba</h1>
+    <p class="motto">Rozkładam sprzęt i oprogramowanie na części, żeby dało się ich używać.</p>
+    <blockquote>To nie problem jest problemem. Problemem jest twoje nastawienie do problemu.<cite>— kapitan Jack Sparrow</cite></blockquote>
+    <p class="robie">Piszę wtyczki do ATAK-a — aplikacji, na której wojsko i służby prowadzą mapę sytuacyjną na telefonie. Stawiam serwery TAK, od Raspberry Pi po Kubernetes. Rozgryzam protokoły urządzeń, których producent nie opisał: wiatromierza Kestrel, radia Baofeng, dalmierza Leica. Z tego, czego się dowiem, robię ebooki po polsku, bo po polsku nikt tego nie napisał.</p>
+    <div class="kontakt-pasek">
+      <span>E-mail: <a href="mailto:grzegorzkaszuba84@gmail.com">grzegorzkaszuba84@gmail.com</a></span>
+      <span>Telefon: <span data-telefon>numer widoczny po włączeniu JavaScriptu</span></span>
+      <span><a href="https://github.com/uirapuru">GitHub</a></span>
+      <span><a href="kontakt.html">Kontakt</a></span>
+    </div>
+  </div>
+</div>
+
+<section id="wtyczki">
+  <div class="szeroko">
+    <h2>Wtyczki</h2>
+    <p class="wstep">Wtyczki i aplikacje, które napisałem do ekosystemu TAK. Każda powstała, bo czegoś w ATAK-u brakowało mnie samemu.</p>
+    <div class="siatka pary">
+    <a class="karta karta-wtyczka" href="wtyczki/taklab-hub.html">
+      <img class="ikona" src="media/wtyczki/taklab-hub.png" alt="">
+      <span class="stan">Zgłoszona do Google Play</span>
+      <h3>TakLab Hub</h3>
+      <p class="podtytul">Aplikacja na Androida</p>
+      <p>Doprowadza telefon od stanu pustego do działającego klienta ATAK. Pobiera katalog, instaluje ATAK i wtyczki ze sprawdzeniem sumy kontrolnej, zakłada środowisko serwerowe.</p>
+      <span class="wiecej">Czytaj dalej →</span>
+    </a>
+    <a class="karta karta-wtyczka" href="wtyczki/snipertak.html">
+      <img class="ikona" src="media/wtyczki/snipertak.png" alt="">
+      <span class="stan">W Google Play</span>
+      <h3>SniperTAK</h3>
+      <p class="podtytul">Wtyczka ATAK-CIV</p>
+      <p>Kalkulator balistyczny wbudowany w mapę ATAK-a. Liczy poprawkę na odległość i wiatr, uwzględnia gęstość wysokości, rysuje punkt obserwacyjny.</p>
+      <span class="wiecej">Czytaj dalej →</span>
+    </a>
+    <a class="karta karta-wtyczka" href="wtyczki/printplugin.html">
+      <img class="ikona" src="media/wtyczki/printplugin.png" alt="">
+      <span class="stan">Działa</span>
+      <h3>PrintPlugin</h3>
+      <p class="podtytul">Wtyczka ATAK-CIV 5.8</p>
+      <p>Zapisuje bieżący kadr mapy jako arkusze A4 w pliku PNG albo PDF. 300 dpi, opcjonalna siatka MGRS, wybrana skala.</p>
+      <span class="wiecej">Czytaj dalej →</span>
+    </a>
+    <a class="karta karta-wtyczka" href="wtyczki/simpleplugin.html">
+      <img class="ikona" src="media/wtyczki/simpleplugin.png" alt="">
+      <span class="stan">Działa</span>
+      <h3>SimplePlugin</h3>
+      <p class="podtytul">Wtyczka ATAK-CIV 5.8</p>
+      <p>Ogranicza interfejs ATAK-a do narzędzi jednego z pięciu scenariuszy. Szósty przycisk cofa wszystkie zmiany.</p>
+      <span class="wiecej">Czytaj dalej →</span>
+    </a>
+    </div>
+  </div>
+</section>
+
+<section id="ebooki" class="przemienna">
+  <div class="szeroko">
+    <h2>Ebooki</h2>
+    <p class="wstep">Książki do pobrania za darmo, w formacie PDF. Część napisałem, część przetłumaczyłem.</p>
+    <div class="siatka">
+    <a class="karta karta-ebook" href="ebooki/poradnik-atak.html">
+      <img class="okladka" src="media/okladki/atak-poradnik.jpg" alt="" loading="lazy">
+      <h3>Poradnik ATAK</h3>
+      <p class="podtytul">Ekosystem TAK od aplikacji po serwer · 156 stron</p>
+      <p>Jak działa ATAK, po co komu serwer TAK i jak taki serwer postawić. Po polsku, bo po polsku tego nie było.</p>
+      <span class="wiecej">Czytaj dalej →</span>
+    </a>
+    <a class="karta karta-ebook" href="ebooki/vademecum-baofenga.html">
+      <img class="okladka" src="media/okladki/vademecum-baofenga.jpg" alt="" loading="lazy">
+      <h3>Vademecum Baofenga</h3>
+      <p class="podtytul">Kompletny przewodnik po radiotelefonach Baofeng UV-5R · 116 stron</p>
+      <p>Co wolno, czego nie wolno i jak w ogóle zaprogramować najtańsze radio świata, żeby się na nim dogadać.</p>
+      <span class="wiecej">Czytaj dalej →</span>
+    </a>
+    <a class="karta karta-ebook" href="ebooki/mindful-shooter.html">
+      <img class="okladka" src="media/okladki/mindful-shooter.jpg" alt="" loading="lazy">
+      <h3>Mindful Shooter</h3>
+      <p class="podtytul">Uważność w strzelectwie sportowym · 52 stron</p>
+      <p>Co dzieje się w głowie między decyzją a strzałem i dlaczego trening uwagi poprawia wyniki bardziej niż kolejny tysiąc naboi.</p>
+      <span class="wiecej">Czytaj dalej →</span>
+    </a>
+    <a class="karta karta-ebook" rel="nofollow" href="ebooki/fry-the-brain.html">
+      <img class="okladka" src="media/okladki/fry-the-brain.jpg" alt="" loading="lazy">
+      <h3>Fry The Brain</h3>
+      <p class="podtytul">Sztuka snajperki miejskiej i jej rola we współczesnej wojnie partyzanckiej · 758 stron</p>
+      <p>Tłumaczenie książki Johna Westa o snajperce miejskiej. 758 stron o tym, że celem strzelca nie jest ciało, tylko psychika przeciwnika.</p>
+      <span class="wiecej">Czytaj dalej →</span>
+    </a>
+    <a class="karta karta-ebook" rel="nofollow" href="ebooki/special-reconnaissance.html">
+      <img class="okladka" src="media/okladki/sr-patrolling.jpg" alt="" loading="lazy">
+      <h3>Rozpoznanie specjalne i patrolowanie małymi pododdziałami</h3>
+      <p class="podtytul">Special Reconnaissance and Advanced Small Unit Patrolling · 508 stron</p>
+      <p>Tłumaczenie podręcznika patrolowania: przygotowanie misji, wykonanie, zabezpieczenie, łączność i działania po powrocie. 508 stron.</p>
+      <span class="wiecej">Czytaj dalej →</span>
+    </a>
+    </div>
+  </div>
+</section>
+
+<section id="narzedzia">
+  <div class="szeroko">
+    <h2>Narzędzia w przeglądarce</h2>
+    <p class="wstep">Rzeczy, które działają bez instalowania czegokolwiek.</p>
+    <div class="siatka">
+    <a class="karta" href="kestrel/">
+      <h3>Symulator Kestrela 5700</h3>
+      <p>Wiatromierz Kestrel w przeglądarce: te same menu i ten sam wyświetlacz, bez kupowania urządzenia.</p>
+      <span class="wiecej">Czytaj dalej →</span>
+    </a>
+    <a class="karta" href="ballistics/">
+      <h3>Kalkulator balistyczny</h3>
+      <p>Tor pocisku liczony w przeglądarce.</p>
+      <span class="wiecej">Czytaj dalej →</span>
+    </a>
+    </div>
+  </div>
+</section>
+
+<footer class="stopka">
+  <div class="szeroko">
+    <nav>
+      <a href="index.html">Strona główna</a>
+      <a href="kontakt.html">Kontakt</a>
+      <a href="prywatnosc.html">Prywatność</a>
+      <a href="https://github.com/uirapuru">GitHub</a>
+    </nav>
+    <p>Grzegorz Kaszuba · <a href="mailto:grzegorzkaszuba84@gmail.com">grzegorzkaszuba84@gmail.com</a> ·
+       <span data-telefon>numer widoczny po włączeniu JavaScriptu</span></p>
+    <p>Strona nie jest powiązana z TAK Product Center ani z żadną instytucją publiczną.</p>
+  </div>
+</footer>
+<script src="js/tel.js"></script>
+</html>

@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TakLab Hub — Grzegorz Kaszuba</title>
+<meta name="description" content="Takes a phone from empty to a working ATAK client. Fetches a catalogue, installs ATAK and its plugins with checksum verification, and provisions a server environment.">
+
+<link rel="stylesheet" href="../../styl.css">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+
+<header class="pasek">
+  <div class="szeroko">
+    <a class="marka" href="../../en/index.html">Grzegorz Kaszuba</a>
+    <nav>
+      <a href="../../en/index.html#wtyczki">Plugins</a>
+      <a href="../../en/index.html#ebooki">Books</a>
+      <a href="../../en/contact.html">Contact</a>
+    </nav>
+    <span class="jezyk"><a href="../../wtyczki/taklab-hub.html">Polski</a></span>
+  </div>
+</header>
+<div class="wasko okruszek"><a href="../../en/index.html">Home</a> › <a href="../../en/index.html#wtyczki">Plugins</a> › TakLab Hub</div>
+<article class="wasko">
+  <p><img class="ikona-duza" src="../../media/wtyczki/taklab-hub.png" alt=""></p>
+  <span class="stan">Submitted to Google Play</span>
+  <h1>TakLab Hub</h1>
+  <p class="podtytul">Android app</p>
+  <p>Takes a phone from empty to a working ATAK client. Fetches a catalogue, installs ATAK and its plugins with checksum verification, and provisions a server environment.</p>
+<h2>Why it exists</h2>
+<p>Setting up ATAK on a phone takes several steps a newcomer cannot guess: find the right version of the app, match plugins to that version, load maps, and import a connection package with a certificate. Every one of those steps can go wrong.</p>
+<p>TakLab Hub does it for the user. It installs files in the right order, verifies them first, and hands the rest to ATAK.</p>
+<h2>How it works</h2>
+<p>The app downloads a file catalogue from a public bucket. The catalogue records which ATAK version each plugin matches and the checksum of every file.</p>
+<p>Before installing, the app computes the SHA-256 of the downloaded file and compares it against the catalogue. A file that does not match is not installed.</p>
+<p>The „My server” screen provisions a training environment through the TakLab API, adds operators, issues their connection packages, and shows a QR code for enrolment.</p>
+<h2>Status</h2>
+<p>The app runs on a phone. Installing ATAK and plugins is finished. Server environments run against a stub API, because the API itself is still being built. Maps and VPN are screens without function for now.</p>
+<h2>Screenshots</h2><div class="zrzuty"><img src="../../media/wtyczki/taklab-hub-1.jpg" alt="" loading="lazy"><img src="../../media/wtyczki/taklab-hub-2.jpg" alt="" loading="lazy"><img src="../../media/wtyczki/taklab-hub-3.jpg" alt="" loading="lazy"></div>
+<p><a href="https://uirapuru.github.io/taklab-hub/prywatnosc.html">App privacy policy</a></p>
+  <p><a href="../../en/index.html">← Back to the home page</a></p>
+</article>
+
+<footer class="stopka">
+  <div class="szeroko">
+    <nav>
+      <a href="../../en/index.html">Home</a>
+      <a href="../../en/contact.html">Contact</a>
+      <a href="../../en/privacy.html">Privacy</a>
+      <a href="https://github.com/uirapuru">GitHub</a>
+    </nav>
+    <p>Grzegorz Kaszuba · <a href="mailto:grzegorzkaszuba84@gmail.com">grzegorzkaszuba84@gmail.com</a> ·
+       <span data-telefon>number shown once JavaScript is enabled</span></p>
+    <p>This site is not affiliated with TAK Product Center or any public institution.</p>
+  </div>
+</footer>
+<script src="../../js/tel.js"></script>
+</html>

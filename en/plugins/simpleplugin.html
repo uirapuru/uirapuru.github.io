@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SimplePlugin — Grzegorz Kaszuba</title>
+<meta name="description" content="Cuts the ATAK interface down to the tools of one of five scenarios. A sixth button undoes every change.">
+
+<link rel="stylesheet" href="../../styl.css">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+
+<header class="pasek">
+  <div class="szeroko">
+    <a class="marka" href="../../en/index.html">Grzegorz Kaszuba</a>
+    <nav>
+      <a href="../../en/index.html#wtyczki">Plugins</a>
+      <a href="../../en/index.html#ebooki">Books</a>
+      <a href="../../en/contact.html">Contact</a>
+    </nav>
+    <span class="jezyk"><a href="../../wtyczki/simpleplugin.html">Polski</a></span>
+  </div>
+</header>
+<div class="wasko okruszek"><a href="../../en/index.html">Home</a> › <a href="../../en/index.html#wtyczki">Plugins</a> › SimplePlugin</div>
+<article class="wasko">
+  <p><img class="ikona-duza" src="../../media/wtyczki/simpleplugin.png" alt=""></p>
+  <span class="stan">Working</span>
+  <h1>SimplePlugin</h1>
+  <p class="podtytul">ATAK-CIV 5.8 plugin</p>
+  <p>Cuts the ATAK interface down to the tools of one of five scenarios. A sixth button undoes every change.</p>
+<h2>Why it exists</h2>
+<p>ATAK ships dozens of tools. Someone who opens it once a month uses five of them and hunts for those among the rest.</p>
+<p>SimplePlugin leaves on screen only the tools that fit the chosen job: navigation, tactics, monitoring, audio, or a custom set.</p>
+<h2>How it works</h2>
+<p>The plugin does not replace the ATAK interface. It drives mechanisms ATAK already has:</p>
+<ul><li>loadouts, the sets of visible toolbar tools,</li><li>the radial menu factory, which narrows a marker&#x27;s menu,</li><li>the preferences that control map legibility,</li><li>its own toolbar with push-to-talk and chat buttons, shown only in the audio scenario.</li></ul>
+<p>The plugin never writes to or deletes ATAK&#x27;s default loadout. Restoring is therefore just switching back to it and replaying the preferences from a snapshot taken before the first change.</p>
+<h2>What it taught me</h2>
+<p>Six defects passed compilation, unit tests and package checks, and only surfaced on a running ATAK. Among them: the component entry in the plugin descriptor can be ignored, the hidden-tools list does not map onto toolbar slots, and empty item names break the radial menu.</p>
+<p>The lesson is dull and expensive: ATAK plugins are verified on a device, not in a test.</p>
+
+
+  <p><a href="../../en/index.html">← Back to the home page</a></p>
+</article>
+
+<footer class="stopka">
+  <div class="szeroko">
+    <nav>
+      <a href="../../en/index.html">Home</a>
+      <a href="../../en/contact.html">Contact</a>
+      <a href="../../en/privacy.html">Privacy</a>
+      <a href="https://github.com/uirapuru">GitHub</a>
+    </nav>
+    <p>Grzegorz Kaszuba · <a href="mailto:grzegorzkaszuba84@gmail.com">grzegorzkaszuba84@gmail.com</a> ·
+       <span data-telefon>number shown once JavaScript is enabled</span></p>
+    <p>This site is not affiliated with TAK Product Center or any public institution.</p>
+  </div>
+</footer>
+<script src="../../js/tel.js"></script>
+</html>

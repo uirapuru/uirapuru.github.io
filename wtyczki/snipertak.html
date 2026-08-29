@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="pl">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SniperTAK — Grzegorz Kaszuba</title>
+<meta name="description" content="Kalkulator balistyczny wbudowany w mapę ATAK-a. Liczy poprawkę na odległość i wiatr, uwzględnia gęstość wysokości, rysuje punkt obserwacyjny.">
+
+<link rel="stylesheet" href="../styl.css">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+
+<header class="pasek">
+  <div class="szeroko">
+    <a class="marka" href="../index.html">Grzegorz Kaszuba</a>
+    <nav>
+      <a href="../index.html#wtyczki">Wtyczki</a>
+      <a href="../index.html#ebooki">Ebooki</a>
+      <a href="../kontakt.html">Kontakt</a>
+    </nav>
+    <span class="jezyk"><a href="../en/plugins/snipertak.html">English</a></span>
+  </div>
+</header>
+<div class="wasko okruszek"><a href="../index.html">Strona główna</a> › <a href="../index.html#wtyczki">Wtyczki</a> › SniperTAK</div>
+<article class="wasko">
+  <p><img class="ikona-duza" src="../media/wtyczki/snipertak.png" alt=""></p>
+  <span class="stan">W Google Play</span>
+  <h1>SniperTAK</h1>
+  <p class="podtytul">Wtyczka ATAK-CIV</p>
+  <p>Kalkulator balistyczny wbudowany w mapę ATAK-a. Liczy poprawkę na odległość i wiatr, uwzględnia gęstość wysokości, rysuje punkt obserwacyjny.</p>
+<h2>Po co to jest</h2>
+<p>Strzelec na dystansie liczy poprawki w osobnym kalkulatorze, a położenie celu ma na mapie w ATAK-u. Przepisywanie współrzędnych między jednym a drugim zabiera czas i wprowadza błędy.</p>
+<p>SniperTAK liczy poprawkę na tym samym ekranie, na którym leży cel. Odległość i azymut bierze z mapy, nie z klawiatury.</p>
+<h2>Co liczy</h2>
+<p>Poprawkę pionową i poziomą dla wybranego naboju i lufy. Model uwzględnia gęstość wysokości, czyli łączny wpływ temperatury, ciśnienia i wilgotności na opór powietrza.</p>
+<p>Gęstość wysokości jest modelem empirycznym, nie pełnym rozwiązaniem atmosfery. Dane wejściowe są ograniczone do zakresu, w którym model był sprawdzany: temperatura od −20 do 50 °C.</p>
+<p>Wtyczka rysuje też punkt obserwacyjny na mapie i wysyła jego położenie do pozostałych uczestników sieci.</p>
+<h2>Skąd biorą się dane pogodowe</h2>
+<p>Warunki można wpisać ręcznie albo pobrać z wiatromierza Kestrel. Protokół Bluetooth Kestrela nie jest opisany publicznie, więc odtworzyłem go od zera, nasłuchując transmisji. Opis protokołu jest częścią moich notatek z rozkładania sprzętu na części.</p>
+<h2>Znany błąd</h2>
+<p>Podczas przenoszenia silnika balistycznego na komputer wyszło, że całkowanie toru pocisku jest ucięte po czterech sekundach lotu. Powyżej mniej więcej 1600 metrów wyliczona elewacja zaczyna maleć zamiast rosnąć. Na dystansach poniżej tej granicy wynik jest poprawny.</p>
+<h2>Zrzuty ekranu</h2><div class="zrzuty"><img src="../media/wtyczki/snipertak-1.jpg" alt="" loading="lazy"><img src="../media/wtyczki/snipertak-2.jpg" alt="" loading="lazy"><img src="../media/wtyczki/snipertak-3.jpg" alt="" loading="lazy"></div>
+<p><a href="https://github.com/uirapuru/SniperTakPlugin">Kod źródłowy</a> · <a href="https://uirapuru.github.io/sniperTAK/privacy-policy.html">Polityka prywatności aplikacji</a></p>
+  <p><a href="../index.html">← Wróć na stronę główną</a></p>
+</article>
+
+<footer class="stopka">
+  <div class="szeroko">
+    <nav>
+      <a href="../index.html">Strona główna</a>
+      <a href="../kontakt.html">Kontakt</a>
+      <a href="../prywatnosc.html">Prywatność</a>
+      <a href="https://github.com/uirapuru">GitHub</a>
+    </nav>
+    <p>Grzegorz Kaszuba · <a href="mailto:grzegorzkaszuba84@gmail.com">grzegorzkaszuba84@gmail.com</a> ·
+       <span data-telefon>numer widoczny po włączeniu JavaScriptu</span></p>
+    <p>Strona nie jest powiązana z TAK Product Center ani z żadną instytucją publiczną.</p>
+  </div>
+</footer>
+<script src="../js/tel.js"></script>
+</html>

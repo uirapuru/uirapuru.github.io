@@ -1,0 +1,212 @@
+/* Grzegorz Kaszuba — wspólny arkusz stylów.
+   Rozwinięcie stylu polityki prywatności TakLab Hub: ten sam atrament,
+   ta sama typografia systemowa, szersza siatka na stronie głównej. */
+
+:root {
+  --atrament: #16201f;
+  --atrament-slaby: #5d6b6a;
+  --tlo: #ffffff;
+  --tlo-sekcji: #f6f9f8;
+  --akcent: #eef3f2;
+  --kreska: #dfe7e5;
+  --link: #0f6b5c;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --atrament: #e6ecea;
+    --atrament-slaby: #9aa8a6;
+    --tlo: #101615;
+    --tlo-sekcji: #161e1d;
+    --akcent: #1d2726;
+    --kreska: #26312f;
+    --link: #6fd0ba;
+  }
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--tlo);
+  color: var(--atrament);
+  font-family: system-ui, sans-serif;
+  line-height: 1.6;
+  font-size: 1rem;
+}
+
+a { color: var(--link); }
+a:hover { text-decoration: none; }
+
+code {
+  background: var(--akcent);
+  padding: 0 .25rem;
+  border-radius: .2rem;
+  font-size: .95em;
+}
+
+img { max-width: 100%; height: auto; }
+
+/* --- układ --- */
+
+.szeroko { max-width: 64rem; margin: 0 auto; padding: 0 1.2rem; }
+.wasko   { max-width: 40rem; margin: 0 auto; padding: 0 1.2rem; }
+
+/* --- pasek górny --- */
+
+.pasek {
+  border-bottom: 1px solid var(--kreska);
+  font-size: .9rem;
+}
+.pasek .szeroko {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: center;
+  padding-top: .8rem;
+  padding-bottom: .8rem;
+}
+.pasek nav { display: flex; flex-wrap: wrap; gap: 1rem; }
+.pasek .marka { font-weight: 600; color: inherit; text-decoration: none; }
+.pasek .jezyk { margin-left: auto; color: var(--atrament-slaby); }
+
+/* --- hero --- */
+
+.hero {
+  background: var(--tlo-sekcji);
+  border-bottom: 1px solid var(--kreska);
+  padding: 3.5rem 0 3rem;
+}
+.hero h1 { font-size: 2rem; margin: 0 0 .4rem; }
+.hero .motto {
+  font-size: 1.35rem;
+  line-height: 1.4;
+  margin: 0 0 1.2rem;
+  max-width: 34rem;
+}
+.hero blockquote {
+  margin: 0 0 1.6rem;
+  padding-left: 1rem;
+  border-left: 3px solid var(--kreska);
+  color: var(--atrament-slaby);
+  font-size: .95rem;
+  max-width: 32rem;
+}
+.hero blockquote cite { display: block; font-style: normal; margin-top: .3rem; }
+.hero p.robie { max-width: 38rem; }
+
+.kontakt-pasek {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .6rem 1.4rem;
+  margin-top: 1.6rem;
+  font-size: .95rem;
+}
+.kontakt-pasek span, .kontakt-pasek a { white-space: nowrap; }
+
+/* --- sekcje --- */
+
+section { padding: 3rem 0; }
+section.przemienna { background: var(--tlo-sekcji); border-top: 1px solid var(--kreska); border-bottom: 1px solid var(--kreska); }
+section > .szeroko > h2 { font-size: 1.4rem; margin: 0 0 .3rem; }
+section > .szeroko > p.wstep { color: var(--atrament-slaby); margin: 0 0 1.8rem; max-width: 38rem; }
+
+/* --- siatka kart --- */
+
+.siatka {
+  display: grid;
+  gap: 1.4rem;
+  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+}
+
+/* Cztery wtyczki układają się dwie na dwie zamiast trzy plus jedna. */
+.siatka.pary { grid-template-columns: repeat(auto-fit, minmax(21rem, 1fr)); }
+
+.karta {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--kreska);
+  border-radius: .4rem;
+  background: var(--tlo);
+  padding: 1.2rem;
+  text-decoration: none;
+  color: inherit;
+}
+.karta:hover { border-color: var(--link); }
+.karta h3 { margin: 0 0 .1rem; font-size: 1.1rem; }
+.karta .podtytul { color: var(--atrament-slaby); font-size: .85rem; margin: 0 0 .7rem; }
+.karta p { margin: 0 0 1rem; font-size: .95rem; }
+.karta .wiecej { margin-top: auto; color: var(--link); font-size: .9rem; }
+
+.karta-ebook .okladka {
+  align-self: center;
+  width: 9rem;
+  margin-bottom: 1rem;
+  border: 1px solid var(--kreska);
+  border-radius: .2rem;
+}
+.karta-wtyczka .ikona { width: 3rem; height: 3rem; margin-bottom: .8rem; border-radius: .6rem; }
+.ikona-duza { width: 4rem; height: 4rem; border-radius: .8rem; display: block; }
+
+.stan {
+  display: inline-block;
+  align-self: flex-start;   /* w karcie (flex) inline-block sam nie zawęża szerokości */
+  font-size: .75rem;
+  padding: .1rem .5rem;
+  border-radius: 1rem;
+  background: var(--akcent);
+  color: var(--atrament-slaby);
+  margin-bottom: .7rem;
+}
+
+/* --- podstrony --- */
+
+.okruszek { font-size: .85rem; color: var(--atrament-slaby); padding: 1.2rem 0 0; }
+.okruszek a { color: var(--atrament-slaby); }
+
+article { padding: 1.5rem 0 3rem; }
+article h1 { font-size: 1.6rem; margin: .5rem 0 .3rem; }
+article .podtytul { color: var(--atrament-slaby); margin: 0 0 1.5rem; }
+article h2 { font-size: 1.15rem; margin-top: 2rem; }
+article ul, article ol { padding-left: 1.3rem; }
+article table { border-collapse: collapse; width: 100%; font-size: .95rem; margin: 1rem 0; }
+article th, article td { border: 1px solid var(--kreska); padding: .4rem .6rem; text-align: left; vertical-align: top; }
+article th { background: var(--akcent); }
+
+.pobierz {
+  display: inline-block;
+  background: var(--link);
+  color: #fff;
+  padding: .6rem 1.2rem;
+  border-radius: .3rem;
+  text-decoration: none;
+  font-weight: 600;
+  margin: .3rem .5rem .3rem 0;
+}
+.pobierz.drugi { background: transparent; color: var(--link); border: 1px solid var(--link); font-weight: 400; }
+
+.okladka-duza { float: right; width: 11rem; margin: 0 0 1rem 1.5rem; border: 1px solid var(--kreska); border-radius: .2rem; }
+@media (max-width: 34rem) { .okladka-duza { float: none; width: 9rem; margin: 0 0 1rem; display: block; } }
+
+.zrzuty { display: grid; gap: .8rem; grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr)); margin: 1.2rem 0; }
+.zrzuty img { border: 1px solid var(--kreska); border-radius: .3rem; }
+
+.uwaga {
+  background: var(--akcent);
+  border-left: 3px solid var(--kreska);
+  padding: .8rem 1rem;
+  margin: 1.5rem 0;
+  font-size: .95rem;
+}
+
+/* --- stopka --- */
+
+footer.stopka {
+  border-top: 1px solid var(--kreska);
+  background: var(--tlo-sekcji);
+  padding: 2rem 0;
+  font-size: .9rem;
+  color: var(--atrament-slaby);
+}
+footer.stopka nav { display: flex; flex-wrap: wrap; gap: 1rem; margin-bottom: .8rem; }
+footer.stopka p { margin: .3rem 0; }

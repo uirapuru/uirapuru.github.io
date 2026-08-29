@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SniperTAK — Grzegorz Kaszuba</title>
+<meta name="description" content="A ballistic calculator built into the ATAK map. It computes range and wind corrections, accounts for density altitude, and plots an observation post.">
+
+<link rel="stylesheet" href="../../styl.css">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+
+<header class="pasek">
+  <div class="szeroko">
+    <a class="marka" href="../../en/index.html">Grzegorz Kaszuba</a>
+    <nav>
+      <a href="../../en/index.html#wtyczki">Plugins</a>
+      <a href="../../en/index.html#ebooki">Books</a>
+      <a href="../../en/contact.html">Contact</a>
+    </nav>
+    <span class="jezyk"><a href="../../wtyczki/snipertak.html">Polski</a></span>
+  </div>
+</header>
+<div class="wasko okruszek"><a href="../../en/index.html">Home</a> › <a href="../../en/index.html#wtyczki">Plugins</a> › SniperTAK</div>
+<article class="wasko">
+  <p><img class="ikona-duza" src="../../media/wtyczki/snipertak.png" alt=""></p>
+  <span class="stan">On Google Play</span>
+  <h1>SniperTAK</h1>
+  <p class="podtytul">ATAK-CIV plugin</p>
+  <p>A ballistic calculator built into the ATAK map. It computes range and wind corrections, accounts for density altitude, and plots an observation post.</p>
+<h2>Why it exists</h2>
+<p>A shooter computes corrections in one app and keeps the target on the ATAK map in another. Copying coordinates between the two costs time and introduces mistakes.</p>
+<p>SniperTAK computes the correction on the same screen the target sits on. It reads range and bearing from the map, not from the keyboard.</p>
+<h2>What it computes</h2>
+<p>Elevation and windage for the selected cartridge and barrel. The model accounts for density altitude — the combined effect of temperature, pressure and humidity on air resistance.</p>
+<p>Density altitude is an empirical model, not a full atmospheric solver. Input is clamped to the range it was validated against: temperature from −20 to 50 °C.</p>
+<p>The plugin also plots an observation post on the map and shares its position with the rest of the network.</p>
+<h2>Where the weather data comes from</h2>
+<p>Conditions can be typed in or read from a Kestrel weather meter. Kestrel&#x27;s Bluetooth protocol is not publicly documented, so I reconstructed it from scratch by listening to the traffic.</p>
+<h2>Known defect</h2>
+<p>Porting the ballistic engine to the desktop revealed that trajectory integration is cut off after four seconds of flight. Beyond roughly 1600 metres the computed elevation starts falling instead of rising. Below that range the result is correct.</p>
+<h2>Screenshots</h2><div class="zrzuty"><img src="../../media/wtyczki/snipertak-1.jpg" alt="" loading="lazy"><img src="../../media/wtyczki/snipertak-2.jpg" alt="" loading="lazy"><img src="../../media/wtyczki/snipertak-3.jpg" alt="" loading="lazy"></div>
+<p><a href="https://github.com/uirapuru/SniperTakPlugin">Source code</a> · <a href="https://uirapuru.github.io/sniperTAK/privacy-policy.html">App privacy policy</a></p>
+  <p><a href="../../en/index.html">← Back to the home page</a></p>
+</article>
+
+<footer class="stopka">
+  <div class="szeroko">
+    <nav>
+      <a href="../../en/index.html">Home</a>
+      <a href="../../en/contact.html">Contact</a>
+      <a href="../../en/privacy.html">Privacy</a>
+      <a href="https://github.com/uirapuru">GitHub</a>
+    </nav>
+    <p>Grzegorz Kaszuba · <a href="mailto:grzegorzkaszuba84@gmail.com">grzegorzkaszuba84@gmail.com</a> ·
+       <span data-telefon>number shown once JavaScript is enabled</span></p>
+    <p>This site is not affiliated with TAK Product Center or any public institution.</p>
+  </div>
+</footer>
+<script src="../../js/tel.js"></script>
+</html>

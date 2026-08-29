@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PrintPlugin — Grzegorz Kaszuba</title>
+<meta name="description" content="Saves the current map view as A4 sheets in a PNG or PDF file. 300 dpi, optional MGRS grid, selectable scale.">
+
+<link rel="stylesheet" href="../../styl.css">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+
+<header class="pasek">
+  <div class="szeroko">
+    <a class="marka" href="../../en/index.html">Grzegorz Kaszuba</a>
+    <nav>
+      <a href="../../en/index.html#wtyczki">Plugins</a>
+      <a href="../../en/index.html#ebooki">Books</a>
+      <a href="../../en/contact.html">Contact</a>
+    </nav>
+    <span class="jezyk"><a href="../../wtyczki/printplugin.html">Polski</a></span>
+  </div>
+</header>
+<div class="wasko okruszek"><a href="../../en/index.html">Home</a> › <a href="../../en/index.html#wtyczki">Plugins</a> › PrintPlugin</div>
+<article class="wasko">
+  <p><img class="ikona-duza" src="../../media/wtyczki/printplugin.png" alt=""></p>
+  <span class="stan">Working</span>
+  <h1>PrintPlugin</h1>
+  <p class="podtytul">ATAK-CIV 5.8 plugin</p>
+  <p>Saves the current map view as A4 sheets in a PNG or PDF file. 300 dpi, optional MGRS grid, selectable scale.</p>
+<h2>Why it exists</h2>
+<p>Batteries run out, phones get wet, and some places do not allow electronics at all. A paper map has none of those problems.</p>
+<p>The plugin prints exactly what is on screen: the base layer and the map objects in the current view. The ATAK interface is not included.</p>
+<h2>How to use it</h2>
+<p>1. Press the „Print” button on the ATAK toolbar.</p>
+<p>2. Choose format, background, grid and scale.</p>
+<p>3. Review the full-screen preview.</p>
+<p>4. Press „Save” and pick a location.</p>
+<h2>Settings</h2>
+<table><thead><tr><th>Option</th><th>Values</th><th>Default</th></tr></thead><tbody><tr><td>Format</td><td>PNG, PDF</td><td>PNG</td></tr><tr><td>Background</td><td>map tiles, white</td><td>map tiles</td></tr><tr><td>MGRS grid</td><td>on, off</td><td>off</td></tr><tr><td>Scale</td><td>fit to view, 1:10,000, 1:25,000, 1:50,000, 1:100,000</td><td>fit to view</td></tr></tbody></table>
+<h2>The sheet</h2>
+<p>The plugin renders an A4 sheet at 300 dpi with a 10 mm margin. The map area fills the whole printable area except the footer strip.</p>
+<p>The map is never stretched. It keeps the aspect ratio of the extract and leaves the rest of the area white.</p>
+<h2>Screenshots</h2><div class="zrzuty"><img src="../../media/wtyczki/printplugin-1.jpg" alt="" loading="lazy"><img src="../../media/wtyczki/printplugin-2.jpg" alt="" loading="lazy"><img src="../../media/wtyczki/printplugin-3.jpg" alt="" loading="lazy"></div>
+
+  <p><a href="../../en/index.html">← Back to the home page</a></p>
+</article>
+
+<footer class="stopka">
+  <div class="szeroko">
+    <nav>
+      <a href="../../en/index.html">Home</a>
+      <a href="../../en/contact.html">Contact</a>
+      <a href="../../en/privacy.html">Privacy</a>
+      <a href="https://github.com/uirapuru">GitHub</a>
+    </nav>
+    <p>Grzegorz Kaszuba · <a href="mailto:grzegorzkaszuba84@gmail.com">grzegorzkaszuba84@gmail.com</a> ·
+       <span data-telefon>number shown once JavaScript is enabled</span></p>
+    <p>This site is not affiliated with TAK Product Center or any public institution.</p>
+  </div>
+</footer>
+<script src="../../js/tel.js"></script>
+</html>

@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="pl">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PrintPlugin — Grzegorz Kaszuba</title>
+<meta name="description" content="Zapisuje bieżący kadr mapy jako arkusze A4 w pliku PNG albo PDF. 300 dpi, opcjonalna siatka MGRS, wybrana skala.">
+
+<link rel="stylesheet" href="../styl.css">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+
+<header class="pasek">
+  <div class="szeroko">
+    <a class="marka" href="../index.html">Grzegorz Kaszuba</a>
+    <nav>
+      <a href="../index.html#wtyczki">Wtyczki</a>
+      <a href="../index.html#ebooki">Ebooki</a>
+      <a href="../kontakt.html">Kontakt</a>
+    </nav>
+    <span class="jezyk"><a href="../en/plugins/printplugin.html">English</a></span>
+  </div>
+</header>
+<div class="wasko okruszek"><a href="../index.html">Strona główna</a> › <a href="../index.html#wtyczki">Wtyczki</a> › PrintPlugin</div>
+<article class="wasko">
+  <p><img class="ikona-duza" src="../media/wtyczki/printplugin.png" alt=""></p>
+  <span class="stan">Działa</span>
+  <h1>PrintPlugin</h1>
+  <p class="podtytul">Wtyczka ATAK-CIV 5.8</p>
+  <p>Zapisuje bieżący kadr mapy jako arkusze A4 w pliku PNG albo PDF. 300 dpi, opcjonalna siatka MGRS, wybrana skala.</p>
+<h2>Po co to jest</h2>
+<p>Bateria się kończy, telefon tonie albo w danym miejscu nie wolno wnosić elektroniki. Papierowa mapa nie ma tych problemów.</p>
+<p>Wtyczka drukuje dokładnie to, co widać na ekranie: podkład i obiekty mapy w bieżącym kadrze. Interfejs ATAK-a nie trafia do pliku.</p>
+<h2>Jak używać</h2>
+<p>1. Naciśnij przycisk „Print” na pasku narzędzi ATAK.</p>
+<p>2. Wybierz format, tło, siatkę i skalę.</p>
+<p>3. Obejrzyj podgląd pełnoekranowy.</p>
+<p>4. Naciśnij „Zapisz” i wskaż miejsce zapisu.</p>
+<h2>Ustawienia</h2>
+<table><thead><tr><th>Opcja</th><th>Wartości</th><th>Domyślnie</th></tr></thead><tbody><tr><td>Format</td><td>PNG, PDF</td><td>PNG</td></tr><tr><td>Tło</td><td>kafelki mapy, białe tło</td><td>kafelki mapy</td></tr><tr><td>Siatka MGRS</td><td>włączona, wyłączona</td><td>wyłączona</td></tr><tr><td>Skala</td><td>dopasuj do kadru, 1:10 000, 1:25 000, 1:50 000, 1:100 000</td><td>dopasuj do kadru</td></tr></tbody></table>
+<h2>Arkusz</h2>
+<p>Wtyczka rysuje arkusz A4 w rozdzielczości 300 dpi, z marginesem 10 mm. Obszar mapy zajmuje cały obszar druku poza dolnym paskiem stopki.</p>
+<p>Mapa nie jest rozciągana. Zachowuje proporcje wycinka, a resztę obszaru zostawia białą.</p>
+<h2>Zrzuty ekranu</h2><div class="zrzuty"><img src="../media/wtyczki/printplugin-1.jpg" alt="" loading="lazy"><img src="../media/wtyczki/printplugin-2.jpg" alt="" loading="lazy"><img src="../media/wtyczki/printplugin-3.jpg" alt="" loading="lazy"></div>
+
+  <p><a href="../index.html">← Wróć na stronę główną</a></p>
+</article>
+
+<footer class="stopka">
+  <div class="szeroko">
+    <nav>
+      <a href="../index.html">Strona główna</a>
+      <a href="../kontakt.html">Kontakt</a>
+      <a href="../prywatnosc.html">Prywatność</a>
+      <a href="https://github.com/uirapuru">GitHub</a>
+    </nav>
+    <p>Grzegorz Kaszuba · <a href="mailto:grzegorzkaszuba84@gmail.com">grzegorzkaszuba84@gmail.com</a> ·
+       <span data-telefon>numer widoczny po włączeniu JavaScriptu</span></p>
+    <p>Strona nie jest powiązana z TAK Product Center ani z żadną instytucją publiczną.</p>
+  </div>
+</footer>
+<script src="../js/tel.js"></script>
+</html>

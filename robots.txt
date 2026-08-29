@@ -1,0 +1,5 @@
+User-agent: *
+Disallow: /ebooki/fry-the-brain.html
+Disallow: /ebooki/special-reconnaissance.html
+Disallow: /en/books/fry-the-brain.html
+Disallow: /en/books/special-reconnaissance.html

@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="pl">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SimplePlugin — Grzegorz Kaszuba</title>
+<meta name="description" content="Ogranicza interfejs ATAK-a do narzędzi jednego z pięciu scenariuszy. Szósty przycisk cofa wszystkie zmiany.">
+
+<link rel="stylesheet" href="../styl.css">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+
+<header class="pasek">
+  <div class="szeroko">
+    <a class="marka" href="../index.html">Grzegorz Kaszuba</a>
+    <nav>
+      <a href="../index.html#wtyczki">Wtyczki</a>
+      <a href="../index.html#ebooki">Ebooki</a>
+      <a href="../kontakt.html">Kontakt</a>
+    </nav>
+    <span class="jezyk"><a href="../en/plugins/simpleplugin.html">English</a></span>
+  </div>
+</header>
+<div class="wasko okruszek"><a href="../index.html">Strona główna</a> › <a href="../index.html#wtyczki">Wtyczki</a> › SimplePlugin</div>
+<article class="wasko">
+  <p><img class="ikona-duza" src="../media/wtyczki/simpleplugin.png" alt=""></p>
+  <span class="stan">Działa</span>
+  <h1>SimplePlugin</h1>
+  <p class="podtytul">Wtyczka ATAK-CIV 5.8</p>
+  <p>Ogranicza interfejs ATAK-a do narzędzi jednego z pięciu scenariuszy. Szósty przycisk cofa wszystkie zmiany.</p>
+<h2>Po co to jest</h2>
+<p>ATAK ma kilkadziesiąt narzędzi. Ktoś, kto włącza go raz na miesiąc, używa pięciu i szuka ich wśród reszty.</p>
+<p>SimplePlugin zostawia na ekranie tylko te narzędzia, które pasują do wybranego zajęcia: nawigacja, taktyka, monitoring, audio albo zestaw własny.</p>
+<h2>Jak działa</h2>
+<p>Wtyczka nie podmienia interfejsu ATAK-a. Steruje mechanizmami, które ATAK już ma:</p>
+<ul><li>zestawy widocznych narzędzi paska nawigacji (loadouty),</li><li>fabryka menu radialnego, która zawęża menu markera,</li><li>preferencje odpowiadające za czytelność mapy,</li><li>własny pasek z przyciskami rozmowy i czatu, pokazywany tylko w scenariuszu audio.</li></ul>
+<p>Domyślnego zestawu narzędzi ATAK-a wtyczka nigdy nie zapisuje ani nie usuwa. Dlatego przywracanie sprowadza się do przełączenia się na niego i odtworzenia preferencji z migawki zrobionej przed pierwszą zmianą.</p>
+<h2>Czego się przy niej nauczyłem</h2>
+<p>Sześć wad przeszło kompilację, testy jednostkowe i kontrolę pakietu, a wyszło dopiero na uruchomionym ATAK-u. Między innymi: wpis komponentu w pliku opisu wtyczki bywa ignorowany, lista ukrytych narzędzi nie odpowiada slotom paska, a puste nazwy pozycji rozwalają menu radialne.</p>
+<p>Wniosek jest prozaiczny i kosztowny: wtyczki do ATAK-a sprawdza się na urządzeniu, nie w teście.</p>
+
+
+  <p><a href="../index.html">← Wróć na stronę główną</a></p>
+</article>
+
+<footer class="stopka">
+  <div class="szeroko">
+    <nav>
+      <a href="../index.html">Strona główna</a>
+      <a href="../kontakt.html">Kontakt</a>
+      <a href="../prywatnosc.html">Prywatność</a>
+      <a href="https://github.com/uirapuru">GitHub</a>
+    </nav>
+    <p>Grzegorz Kaszuba · <a href="mailto:grzegorzkaszuba84@gmail.com">grzegorzkaszuba84@gmail.com</a> ·
+       <span data-telefon>numer widoczny po włączeniu JavaScriptu</span></p>
+    <p>Strona nie jest powiązana z TAK Product Center ani z żadną instytucją publiczną.</p>
+  </div>
+</footer>
+<script src="../js/tel.js"></script>
+</html>
