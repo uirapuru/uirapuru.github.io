@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="pl">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sarneg — Grzegorz Kaszuba</title>
+<meta name="description" content="Szyfruje liczby w wiadomości szyfrem SARNEG i zostawia resztę tekstu czytelną. Nic nie zapisuje na urządzeniu.">
+
+<link rel="stylesheet" href="../styl.css">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+
+<header class="pasek">
+  <div class="szeroko">
+    <a class="marka" href="../index.html">Grzegorz Kaszuba</a>
+    <nav>
+      <a href="../index.html#wtyczki">Wtyczki</a>
+      <a href="../index.html#ebooki">Ebooki</a>
+      <a href="../kontakt.html">Kontakt</a>
+    </nav>
+    <span class="jezyk"><a href="../en/plugins/sarneg.html">English</a></span>
+  </div>
+</header>
+<div class="wasko okruszek"><a href="../index.html">Strona główna</a> › <a href="../index.html#wtyczki">Wtyczki</a> › Sarneg</div>
+<article class="wasko">
+  <p><img class="ikona-duza" src="../media/wtyczki/sarneg.png" alt=""></p>
+  <span class="stan">W Google Play</span>
+  <h1>Sarneg</h1>
+  <p class="podtytul">Wtyczka ATAK-CIV 5.8</p>
+  <p>Szyfruje liczby w wiadomości szyfrem SARNEG i zostawia resztę tekstu czytelną. Nic nie zapisuje na urządzeniu.</p>
+<h2>Po co to jest</h2>
+<p>Pozycja, godzina, kurs i liczba ludzi to dane, które w wiadomości przez radio albo czat niosą najwięcej. Reszta zdania zwykle nie zdradza nic, czego przeciwnik już nie wie.</p>
+<p>SARNEG chowa same liczby. Zdanie zostaje zrozumiałe dla odbiorcy i puste dla kogoś, kto nie zna słowa klucza.</p>
+<h2>Jak działa szyfr</h2>
+<p>Słowo klucz to dziesięć różnych liter. Pozycja litery w słowie odpowiada cyfrze: pierwsza to 0, ostatnia to 9. Przy słowie POLICJANTU tekst „eta 1430” wychodzi jako „eta OCIP”.</p>
+<p>Wielka litera w wyniku znaczy zaszyfrowaną cyfrę, mała znaczy tekst jawny. Strefa MGRS zostaje jawna, bo to identyfikator miejsca, nie dana liczbowa.</p>
+<p>To szyfr podstawieniowy, nie współczesna kryptografia. Chroni liczby przed kimś, kto nie zna słowa klucza, przez czas jednej rozmowy.</p>
+<h2>Co znika i kiedy</h2>
+<p>Słowo klucz i treść żyją wyłącznie w pamięci. Nie ma pliku, nie ma wpisu w ustawieniach ATAK-a, a dziennik notuje same nazwy zdarzeń.</p>
+<p>Wynik kasuje odliczanie od 30 do 60 sekund, zależnie od długości tekstu. Schowek systemowy wtyczka czyści osobno, 60 sekund po skopiowaniu. Okno wyniku ma włączoną blokadę zrzutu ekranu.</p>
+<h2>Czego się przy niej nauczyłem</h2>
+<p>Przycisk „Wykonaj” miał na XCoverze 5 czternaście pikseli wysokości i leżał na krawędzi ekranu. Kompilacja, 103 testy i kontrola pakietu tego nie widzą - wyszło dopiero przy zrzutach na telefonie.</p>
+
+<p><a href="https://uirapuru.github.io/sarneg/privacy-policy.html">Polityka prywatności aplikacji</a></p>
+  <p><a href="../index.html">← Wróć na stronę główną</a></p>
+</article>
+
+<footer class="stopka">
+  <div class="szeroko">
+    <nav>
+      <a href="../index.html">Strona główna</a>
+      <a href="../kontakt.html">Kontakt</a>
+      <a href="../prywatnosc.html">Prywatność</a>
+      <a href="https://github.com/uirapuru">GitHub</a>
+    </nav>
+    <p>Grzegorz Kaszuba · <a href="mailto:grzegorzkaszuba84@gmail.com">grzegorzkaszuba84@gmail.com</a> ·
+       <span data-telefon>numer widoczny po włączeniu JavaScriptu</span></p>
+    <p>Strona nie jest powiązana z TAK Product Center ani z żadną instytucją publiczną.</p>
+  </div>
+</footer>
+<script src="../js/tel.js"></script>
+</html>

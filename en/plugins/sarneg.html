@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sarneg — Grzegorz Kaszuba</title>
+<meta name="description" content="Encrypts the numbers in a message with the SARNEG cipher and leaves the rest of the text readable. It writes nothing to the device.">
+
+<link rel="stylesheet" href="../../styl.css">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+
+<header class="pasek">
+  <div class="szeroko">
+    <a class="marka" href="../../en/index.html">Grzegorz Kaszuba</a>
+    <nav>
+      <a href="../../en/index.html#wtyczki">Plugins</a>
+      <a href="../../en/index.html#ebooki">Books</a>
+      <a href="../../en/contact.html">Contact</a>
+    </nav>
+    <span class="jezyk"><a href="../../wtyczki/sarneg.html">Polski</a></span>
+  </div>
+</header>
+<div class="wasko okruszek"><a href="../../en/index.html">Home</a> › <a href="../../en/index.html#wtyczki">Plugins</a> › Sarneg</div>
+<article class="wasko">
+  <p><img class="ikona-duza" src="../../media/wtyczki/sarneg.png" alt=""></p>
+  <span class="stan">On Google Play</span>
+  <h1>Sarneg</h1>
+  <p class="podtytul">ATAK-CIV 5.8 plugin</p>
+  <p>Encrypts the numbers in a message with the SARNEG cipher and leaves the rest of the text readable. It writes nothing to the device.</p>
+<h2>Why it exists</h2>
+<p>A position, a time, a heading and a head count carry most of what a radio or chat message is worth. The rest of the sentence usually gives away nothing the other side does not already know.</p>
+<p>SARNEG hides the numbers alone. The sentence stays readable for the recipient and empty for anyone who does not know the key word.</p>
+<h2>How the cipher works</h2>
+<p>The key word is ten distinct letters. A letter&#x27;s position stands for a digit: the first is 0, the last is 9. With the key word POLICJANTU, “eta 1430” comes out as “eta OCIP”.</p>
+<p>A capital letter in the result means an encrypted digit; lowercase means plain text. The MGRS zone stays in the clear, because it identifies a place rather than being a number worth hiding.</p>
+<p>This is a substitution cipher, not modern cryptography. It hides numbers from someone who does not know the key word, for the length of one conversation.</p>
+<h2>What is cleared, and when</h2>
+<p>The key word and the text live in memory only. There is no file, no entry in the ATAK preferences, and the log records event names alone.</p>
+<p>A countdown of 30 to 60 seconds wipes the result, depending on its length. The plugin clears the system clipboard separately, 60 seconds after a copy. The result window blocks screenshots.</p>
+<h2>What it taught me</h2>
+<p>On an XCover 5 the “Run” button was fourteen pixels tall and sat on the edge of the screen. Compilation, 103 tests and the package checks see none of that - it surfaced while taking screenshots on the phone.</p>
+
+<p><a href="https://uirapuru.github.io/sarneg/privacy-policy.html">App privacy policy</a></p>
+  <p><a href="../../en/index.html">← Back to the home page</a></p>
+</article>
+
+<footer class="stopka">
+  <div class="szeroko">
+    <nav>
+      <a href="../../en/index.html">Home</a>
+      <a href="../../en/contact.html">Contact</a>
+      <a href="../../en/privacy.html">Privacy</a>
+      <a href="https://github.com/uirapuru">GitHub</a>
+    </nav>
+    <p>Grzegorz Kaszuba · <a href="mailto:grzegorzkaszuba84@gmail.com">grzegorzkaszuba84@gmail.com</a> ·
+       <span data-telefon>number shown once JavaScript is enabled</span></p>
+    <p>This site is not affiliated with TAK Product Center or any public institution.</p>
+  </div>
+</footer>
+<script src="../../js/tel.js"></script>
+</html>

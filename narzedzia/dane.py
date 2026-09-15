@@ -341,6 +341,86 @@ WTYCZKI = [
             "polityka": None,
         },
     },
+    {
+        "slug": "sarneg",
+        "ikona": "sarneg.png",
+        "zrzuty": [],
+        "repo": None,
+        "pl": {
+            "nazwa": "Sarneg",
+            "podtytul": "Wtyczka ATAK-CIV 5.8",
+            "stan": "W Google Play",
+            "skrot": (
+                "Szyfruje liczby w wiadomości szyfrem SARNEG i zostawia resztę tekstu "
+                "czytelną. Nic nie zapisuje na urządzeniu."
+            ),
+            "sekcje": [
+                ("Po co to jest",
+                 ["Pozycja, godzina, kurs i liczba ludzi to dane, które w wiadomości przez "
+                  "radio albo czat niosą najwięcej. Reszta zdania zwykle nie zdradza nic, "
+                  "czego przeciwnik już nie wie.",
+                  "SARNEG chowa same liczby. Zdanie zostaje zrozumiałe dla odbiorcy i puste "
+                  "dla kogoś, kto nie zna słowa klucza."]),
+                ("Jak działa szyfr",
+                 ["Słowo klucz to dziesięć różnych liter. Pozycja litery w słowie odpowiada "
+                  "cyfrze: pierwsza to 0, ostatnia to 9. Przy słowie POLICJANTU tekst "
+                  "„eta 1430\u201d wychodzi jako „eta OCIP\u201d.",
+                  "Wielka litera w wyniku znaczy zaszyfrowaną cyfrę, mała znaczy tekst jawny. "
+                  "Strefa MGRS zostaje jawna, bo to identyfikator miejsca, nie dana liczbowa.",
+                  "To szyfr podstawieniowy, nie współczesna kryptografia. Chroni liczby przed "
+                  "kimś, kto nie zna słowa klucza, przez czas jednej rozmowy."]),
+                ("Co znika i kiedy",
+                 ["Słowo klucz i treść żyją wyłącznie w pamięci. Nie ma pliku, nie ma wpisu "
+                  "w ustawieniach ATAK-a, a dziennik notuje same nazwy zdarzeń.",
+                  "Wynik kasuje odliczanie od 30 do 60 sekund, zależnie od długości tekstu. "
+                  "Schowek systemowy wtyczka czyści osobno, 60 sekund po skopiowaniu. Okno "
+                  "wyniku ma włączoną blokadę zrzutu ekranu."]),
+                ("Czego się przy niej nauczyłem",
+                 ["Przycisk „Wykonaj\u201d miał na XCoverze 5 czternaście pikseli wysokości "
+                  "i leżał na krawędzi ekranu. Kompilacja, 103 testy i kontrola pakietu tego "
+                  "nie widzą - wyszło dopiero przy zrzutach na telefonie."]),
+            ],
+            "polityka": "https://uirapuru.github.io/sarneg/privacy-policy.html",
+        },
+        "en": {
+            "nazwa": "Sarneg",
+            "podtytul": "ATAK-CIV 5.8 plugin",
+            "stan": "On Google Play",
+            "skrot": (
+                "Encrypts the numbers in a message with the SARNEG cipher and leaves the rest "
+                "of the text readable. It writes nothing to the device."
+            ),
+            "sekcje": [
+                ("Why it exists",
+                 ["A position, a time, a heading and a head count carry most of what a radio "
+                  "or chat message is worth. The rest of the sentence usually gives away "
+                  "nothing the other side does not already know.",
+                  "SARNEG hides the numbers alone. The sentence stays readable for the "
+                  "recipient and empty for anyone who does not know the key word."]),
+                ("How the cipher works",
+                 ["The key word is ten distinct letters. A letter's position stands for a "
+                  "digit: the first is 0, the last is 9. With the key word POLICJANTU, "
+                  "\u201ceta 1430\u201d comes out as \u201ceta OCIP\u201d.",
+                  "A capital letter in the result means an encrypted digit; lowercase means "
+                  "plain text. The MGRS zone stays in the clear, because it identifies a "
+                  "place rather than being a number worth hiding.",
+                  "This is a substitution cipher, not modern cryptography. It hides numbers "
+                  "from someone who does not know the key word, for the length of one "
+                  "conversation."]),
+                ("What is cleared, and when",
+                 ["The key word and the text live in memory only. There is no file, no entry "
+                  "in the ATAK preferences, and the log records event names alone.",
+                  "A countdown of 30 to 60 seconds wipes the result, depending on its length. "
+                  "The plugin clears the system clipboard separately, 60 seconds after a copy. "
+                  "The result window blocks screenshots."]),
+                ("What it taught me",
+                 ["On an XCover 5 the \u201cRun\u201d button was fourteen pixels tall and sat "
+                  "on the edge of the screen. Compilation, 103 tests and the package checks "
+                  "see none of that - it surfaced while taking screenshots on the phone."]),
+            ],
+            "polityka": "https://uirapuru.github.io/sarneg/privacy-policy.html",
+        },
+    },
 ]
 
 # --- ebooki ----------------------------------------------------------------
