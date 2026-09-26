@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Privacy Policy — SniperKIT</title>
+<style>
+body { max-width: 42rem; margin: 3rem auto; padding: 0 1.2rem;
+        font: 16px/1.6 system-ui, sans-serif; color: #17211d; background: #fbfdfc; }
+h1 { font-size: 1.6rem; } h2 { font-size: 1.15rem; margin-top: 2rem; }
+a { color: #1b6f4f; } li { margin: .3rem 0; }
+@media (prefers-color-scheme: dark) {
+  body { color: #e7efea; background: #121a16; } a { color: #7ab298; } }
+</style>
+</head>
+<body>
+<h1>Privacy Policy — SniperKIT</h1>
+
+<p>Last updated: 26 September 2026</p>
+
+<p>SniperKIT is a long-range ballistic calculator with a built-in map, developed by
+Grzegorz Kaszuba ("the developer"). It is a standalone Android app and does not need ATAK.</p>
+
+<h2>Data the developer collects</h2>
+<p>None. SniperKIT sends nothing to the developer. It has no user account, no login, no
+analytics, no advertising, and no tracking libraries. It does not use the advertising
+identifier.</p>
+
+<h2>Connections the app opens</h2>
+<p>The map and the terrain need data from the internet. Each request goes directly from your
+device to the server listed below. Every server receives your IP address and the map area
+you are looking at, because that is what the request asks for. Each server handles that data
+under its own terms.</p>
+<ul>
+  <li>Base map tiles: OpenStreetMap (<code>tile.openstreetmap.org</code>).</li>
+  <li>Satellite layer, when you switch the map source: Google map tile servers
+      (<code>mt0–mt3.google.com</code>).</li>
+  <li>Terrain elevation tiles: the Terrarium data set on Amazon Web Services
+      (<code>elevation-tiles-prod.s3.amazonaws.com</code>).</li>
+  <li>Map label fonts: MapLibre (<code>demotiles.maplibre.org</code>).</li>
+</ul>
+
+<h2>Data you send to other devices</h2>
+<p>SniperKIT can send the shooter position, the observation post, targets, the range card,
+and the observation sector as Cursor on Target (CoT) events. The events go to one of two places:</p>
+<ul>
+  <li>UDP multicast on your local network (group 239.2.3.1, port 6969 by default). The packets
+      have a time-to-live of 1, so routers do not forward them beyond the local network.</li>
+  <li>A TCP address that you enter in the connection settings. An empty address turns TCP
+      sending off.</li>
+</ul>
+<p>The events are not encrypted. Any device on the same local network can read multicast
+events. The developer never receives them. Where the events go after that depends on the
+receiving application.</p>
+
+<h2>Location</h2>
+<p>The current version does not read the device's GPS. The shooter position is the centre
+of the map when the app starts. The app manifest declares the location permission for a
+future version that will use GPS; this policy will be updated before that version is
+released.</p>
+
+<h2>Data stored on the device</h2>
+<ul>
+  <li>Rifle profiles and app settings, in the app's private storage.</li>
+  <li>CoT events that have not been sent yet. They are sent when the connection returns.</li>
+  <li>Cached map and terrain tiles.</li>
+  <li>The shot journal, if you use it.</li>
+</ul>
+<p>Map objects (targets, observation post) are kept in memory only and disappear when the app
+closes. Uninstalling the app removes all of the data above. Exporting profiles, a range card,
+or a CSV file creates a copy in the location you choose; that copy stays after uninstalling.</p>
+
+<h2>Distribution through Google Play</h2>
+<p>Google Play collects installation and crash data on its own terms, independently of the
+app. See the <a href="https://policies.google.com/privacy">Google Privacy Policy</a>.</p>
+
+<h2>Children</h2>
+<p>SniperKIT is intended for users aged 18 or over. It is not directed at children.</p>
+
+<h2>Changes to this policy</h2>
+<p>Changes will be published on this page with a new date at the top.</p>
+
+<h2>Contact</h2>
+<p>Questions about this policy: <a href="mailto:uirapuruadg@gmail.com">uirapuruadg@gmail.com</a></p>
+</body>
+</html>
