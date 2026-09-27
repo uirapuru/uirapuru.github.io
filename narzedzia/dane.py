@@ -113,6 +113,7 @@ WTYCZKI = [
         "ikona": "snipertak.png",
         "zrzuty": ["snipertak-1.jpg", "snipertak-2.jpg", "snipertak-3.jpg"],
         "repo": "https://github.com/uirapuru/SniperTakPlugin",
+        "sklep": "https://play.google.com/store/apps/details?id=com.snipertak.plugin",
         "pl": {
             "nazwa": "SniperTAK",
             "podtytul": "Wtyczka ATAK-CIV",
@@ -142,11 +143,6 @@ WTYCZKI = [
                   "Bluetooth Kestrela nie jest opisany publicznie, więc odtworzyłem go od zera, "
                   "nasłuchując transmisji. Opis protokołu jest częścią moich notatek "
                   "z rozkładania sprzętu na części."]),
-                ("Znany błąd",
-                 ["Podczas przenoszenia silnika balistycznego na komputer wyszło, że całkowanie "
-                  "toru pocisku jest ucięte po czterech sekundach lotu. Powyżej mniej więcej "
-                  "1600 metrów wyliczona elewacja zaczyna maleć zamiast rosnąć. Na dystansach "
-                  "poniżej tej granicy wynik jest poprawny."]),
             ],
             "polityka": "https://uirapuru.github.io/sniperTAK/privacy-policy.html",
         },
@@ -178,11 +174,6 @@ WTYCZKI = [
                  ["Conditions can be typed in or read from a Kestrel weather meter. Kestrel's "
                   "Bluetooth protocol is not publicly documented, so I reconstructed it from "
                   "scratch by listening to the traffic."]),
-                ("Known defect",
-                 ["Porting the ballistic engine to the desktop revealed that trajectory "
-                  "integration is cut off after four seconds of flight. Beyond roughly 1600 "
-                  "metres the computed elevation starts falling instead of rising. Below that "
-                  "range the result is correct."]),
             ],
             "polityka": "https://uirapuru.github.io/sniperTAK/privacy-policy.html",
         },

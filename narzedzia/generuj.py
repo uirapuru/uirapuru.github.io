@@ -39,6 +39,7 @@ E = {
         "zrzuty": "Zrzuty ekranu",
         "polityka_apki": "Polityka prywatności aplikacji",
         "repo": "Kod źródłowy",
+        "sklep": "Pobierz z Google Play",
         "wroc": "Wróć na stronę główną",
         "prawa_naglowek": "Prawa autorskie",
         "stopka_zastrzezenie": "Strona nie jest powiązana z TAK Product Center ani z żadną "
@@ -67,6 +68,7 @@ E = {
         "zrzuty": "Screenshots",
         "polityka_apki": "App privacy policy",
         "repo": "Source code",
+        "sklep": "Get it on Google Play",
         "wroc": "Back to the home page",
         "prawa_naglowek": "Copyright",
         "stopka_zastrzezenie": "This site is not affiliated with TAK Product Center or any "
@@ -341,6 +343,8 @@ def strona_wtyczki(w, jezyk):
     if d["polityka"]:
         linki.append(f'<a href="{u(d["polityka"])}">{u(e["polityka_apki"])}</a>')
     linki_html = f'<p>{" · ".join(linki)}</p>' if linki else ""
+    sklep = (f'\n  <p><a class="pobierz" href="{u(w["sklep"])}">{u(e["sklep"])}</a></p>'
+             if w.get("sklep") else "")
 
     czesci.append(f"""
 <article class="wasko">
@@ -348,7 +352,7 @@ def strona_wtyczki(w, jezyk):
   <span class="stan">{u(d['stan'])}</span>
   <h1>{u(d['nazwa'])}</h1>
   <p class="podtytul">{u(d['podtytul'])}</p>
-  <p>{u(d['skrot'])}</p>
+  <p>{u(d['skrot'])}</p>{sklep}
 {sekcje_html(d['sekcje'])}
 {zrzuty}
 {linki_html}

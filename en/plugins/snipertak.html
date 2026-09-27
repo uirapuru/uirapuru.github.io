@@ -26,6 +26,7 @@
   <h1>SniperTAK</h1>
   <p class="podtytul">ATAK-CIV plugin</p>
   <p>A ballistic calculator built into the ATAK map. It computes range and wind corrections, accounts for density altitude, and plots an observation post.</p>
+  <p><a class="pobierz" href="https://play.google.com/store/apps/details?id=com.snipertak.plugin">Get it on Google Play</a></p>
 <h2>Why it exists</h2>
 <p>A shooter computes corrections in one app and keeps the target on the ATAK map in another. Copying coordinates between the two costs time and introduces mistakes.</p>
 <p>SniperTAK computes the correction on the same screen the target sits on. It reads range and bearing from the map, not from the keyboard.</p>
@@ -35,8 +36,6 @@
 <p>The plugin also plots an observation post on the map and shares its position with the rest of the network.</p>
 <h2>Where the weather data comes from</h2>
 <p>Conditions can be typed in or read from a Kestrel weather meter. Kestrel&#x27;s Bluetooth protocol is not publicly documented, so I reconstructed it from scratch by listening to the traffic.</p>
-<h2>Known defect</h2>
-<p>Porting the ballistic engine to the desktop revealed that trajectory integration is cut off after four seconds of flight. Beyond roughly 1600 metres the computed elevation starts falling instead of rising. Below that range the result is correct.</p>
 <h2>Screenshots</h2><div class="zrzuty"><img src="../../media/wtyczki/snipertak-1.jpg" alt="" loading="lazy"><img src="../../media/wtyczki/snipertak-2.jpg" alt="" loading="lazy"><img src="../../media/wtyczki/snipertak-3.jpg" alt="" loading="lazy"></div>
 <p><a href="https://github.com/uirapuru/SniperTakPlugin">Source code</a> · <a href="https://uirapuru.github.io/sniperTAK/privacy-policy.html">App privacy policy</a></p>
   <p><a href="../../en/index.html">← Back to the home page</a></p>
