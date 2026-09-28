@@ -16,7 +16,7 @@ a { color: #1b6f4f; } li { margin: .3rem 0; }
 <body>
 <h1>Privacy Policy — Modern UI</h1>
 
-<p>Last updated: 28 September 2026</p>
+<p>Last updated: 28 September 2026 (version 0.3)</p>
 
 <p>Modern UI is a plugin for ATAK-CIV developed by Grzegorz Kaszuba ("the developer").</p>
 <p>The plugin replaces the ATAK toolbar with a compact portrait interface. It adds no features of
@@ -54,10 +54,18 @@ anywhere. The plugin does not read your position coordinates, phone number, or S
 
 <h2>Settings the plugin stores</h2>
 
-<p>The plugin writes two entries into the ATAK settings on the device: which interface is
-selected (new or standard) and the screen orientation you had before the new interface was first
-turned on, so it can be restored. It also switches the existing ATAK setting that forces portrait
-orientation. It creates no files and no database.</p>
+<p>The plugin writes these entries into the ATAK settings on the device: which interface is
+selected (new or standard), the screen orientation you had before the new interface was first
+turned on, the position of the status box, the position of the tool bar, and the list of tools you
+placed on that bar. It also switches the existing ATAK setting that forces portrait orientation.
+It creates no files and no database.</p>
+
+<h2>Information the plugin reads to build the tool bar</h2>
+
+<p>To offer tools for the bar, the plugin reads the list of ATAK toolbar tools and the toolbar
+buttons of other installed plugins (name and icon), and the number of unread chat messages that
+ATAK already shows on its own contacts button. This happens on the device. The plugin does not
+read message contents or contact details.</p>
 
 <h2>Distribution through Google Play</h2>
 
