@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>StarlinkTAK — Grzegorz Kaszuba</title>
+<meta name="description" content="Helps you align a Starlink dish in the field. Shows the current and recommended dish direction in 3D on the ATAK map, with obstructions and Starlink satellites.">
+
+<link rel="stylesheet" href="../../styl.css">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+
+<header class="pasek">
+  <div class="szeroko">
+    <a class="marka" href="../../en/index.html">Grzegorz Kaszuba</a>
+    <nav>
+      <a href="../../en/index.html#wtyczki">Plugins</a>
+      <a href="../../en/index.html#ebooki">Books</a>
+      <a href="../../en/contact.html">Contact</a>
+    </nav>
+    <span class="jezyk"><a href="../../wtyczki/starlinktak.html">Polski</a></span>
+  </div>
+</header>
+<div class="wasko okruszek"><a href="../../en/index.html">Home</a> › <a href="../../en/index.html#wtyczki">Plugins</a> › StarlinkTAK</div>
+<article class="wasko">
+  <p><img class="ikona-duza" src="../../media/wtyczki/starlinktak.png" alt=""></p>
+  <span class="stan">Closed testing on Google Play</span>
+  <h1>StarlinkTAK</h1>
+  <p class="podtytul">Plugin for ATAK-CIV 5.5 and newer</p>
+  <p>Helps you align a Starlink dish in the field. Shows the current and recommended dish direction in 3D on the ATAK map, with obstructions and Starlink satellites.</p>
+<h2>Why it exists</h2>
+<p>A Starlink dish reports the direction it should point in. In the field you also need to know how many degrees to rotate and tilt the dish, and what blocks the sky.</p>
+<p>The plugin reads the dish over its Wi-Fi network and draws both directions as beams on the ATAK map. Below the sky chart it gives a command: how far to rotate the dish and how far to tilt it.</p>
+<h2>What else it shows</h2>
+<p>The obstruction map recorded by the dish, Starlink satellites above the horizon, including those visible to the naked eye, and the link history of the last 15 minutes. Satellite positions come from public CelesTrak orbit data.</p>
+<h2>The serving satellite is an estimate</h2>
+<p>The dish does not report which satellite it is connected to. The plugin infers it from two obstruction maps and always labels the result as an estimate. “Find satellite” mode clears the dish obstruction map every 15 seconds, so the plugin warns you before it starts that the collected map will be lost.</p>
+<h2>What it taught me</h2>
+<p>In steady state the dish obstruction map barely changes: the measurement showed 0 changed cells in 15 seconds and about 9 new cells per hour. A plain reading cannot identify the satellite. Hence the mode that clears the map.</p>
+
+<p><a href="https://uirapuru.github.io/starlinktak/privacy-policy.html">App privacy policy</a></p>
+  <p><a href="../../en/index.html">← Back to the home page</a></p>
+</article>
+
+<footer class="stopka">
+  <div class="szeroko">
+    <nav>
+      <a href="../../en/index.html">Home</a>
+      <a href="../../en/contact.html">Contact</a>
+      <a href="../../en/privacy.html">Privacy</a>
+      <a href="https://github.com/uirapuru">GitHub</a>
+    </nav>
+    <p>Grzegorz Kaszuba · <a href="mailto:grzegorzkaszuba84@gmail.com">grzegorzkaszuba84@gmail.com</a> ·
+       <span data-telefon>number shown once JavaScript is enabled</span></p>
+    <p>This site is not affiliated with TAK Product Center or any public institution.</p>
+  </div>
+</footer>
+<script src="../../js/tel.js"></script>
+</html>

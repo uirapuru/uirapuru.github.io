@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="pl">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>StarlinkTAK — Grzegorz Kaszuba</title>
+<meta name="description" content="Pomaga ustawić antenę Starlink w terenie. Pokazuje na mapie ATAK w 3D bieżący i zalecany kierunek anteny, przeszkody i satelity Starlink.">
+
+<link rel="stylesheet" href="../styl.css">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+
+<header class="pasek">
+  <div class="szeroko">
+    <a class="marka" href="../index.html">Grzegorz Kaszuba</a>
+    <nav>
+      <a href="../index.html#wtyczki">Wtyczki</a>
+      <a href="../index.html#ebooki">Ebooki</a>
+      <a href="../kontakt.html">Kontakt</a>
+    </nav>
+    <span class="jezyk"><a href="../en/plugins/starlinktak.html">English</a></span>
+  </div>
+</header>
+<div class="wasko okruszek"><a href="../index.html">Strona główna</a> › <a href="../index.html#wtyczki">Wtyczki</a> › StarlinkTAK</div>
+<article class="wasko">
+  <p><img class="ikona-duza" src="../media/wtyczki/starlinktak.png" alt=""></p>
+  <span class="stan">Test zamknięty w Google Play</span>
+  <h1>StarlinkTAK</h1>
+  <p class="podtytul">Wtyczka ATAK-CIV 5.5 i nowszych</p>
+  <p>Pomaga ustawić antenę Starlink w terenie. Pokazuje na mapie ATAK w 3D bieżący i zalecany kierunek anteny, przeszkody i satelity Starlink.</p>
+<h2>Po co to jest</h2>
+<p>Antena Starlink podaje kierunek, w którym powinna patrzeć. W terenie trzeba jeszcze wiedzieć, o ile stopni ją obrócić i pochylić oraz co zasłania niebo.</p>
+<p>Wtyczka czyta antenę przez jej sieć Wi-Fi i rysuje oba kierunki jako wiązki na mapie ATAK. Pod wykresem nieba podaje polecenie: o ile obrócić i o ile pochylić antenę.</p>
+<h2>Co jeszcze pokazuje</h2>
+<p>Mapę przeszkód zapisaną przez antenę, satelity Starlink nad horyzontem, w tym widoczne gołym okiem, oraz historię łącza z ostatnich 15 minut. Pozycje satelitów wtyczka liczy z publicznych danych orbit CelesTrak.</p>
+<h2>Satelita obsługujący to szacunek</h2>
+<p>Antena nie podaje, z którym satelitą jest połączona. Wtyczka zgaduje go z dwóch map przeszkód i zawsze oznacza wynik jako szacunek. Tryb „Szukaj satelity” co 15 sekund czyści mapę przeszkód anteny, więc przed włączeniem ostrzega, że zebrana mapa zniknie.</p>
+<h2>Czego się przy niej nauczyłem</h2>
+<p>W stanie ustalonym mapa przeszkód anteny prawie się nie zmienia: w pomiarze 0 zmienionych komórek w 15 sekund i około 9 nowych na godzinę. Z samego odczytu nie da się więc rozpoznać satelity. Stąd tryb, który mapę czyści.</p>
+
+<p><a href="https://uirapuru.github.io/starlinktak/privacy-policy.html">Polityka prywatności aplikacji</a></p>
+  <p><a href="../index.html">← Wróć na stronę główną</a></p>
+</article>
+
+<footer class="stopka">
+  <div class="szeroko">
+    <nav>
+      <a href="../index.html">Strona główna</a>
+      <a href="../kontakt.html">Kontakt</a>
+      <a href="../prywatnosc.html">Prywatność</a>
+      <a href="https://github.com/uirapuru">GitHub</a>
+    </nav>
+    <p>Grzegorz Kaszuba · <a href="mailto:grzegorzkaszuba84@gmail.com">grzegorzkaszuba84@gmail.com</a> ·
+       <span data-telefon>numer widoczny po włączeniu JavaScriptu</span></p>
+    <p>Strona nie jest powiązana z TAK Product Center ani z żadną instytucją publiczną.</p>
+  </div>
+</footer>
+<script src="../js/tel.js"></script>
+</html>

@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Privacy Policy — StarlinkTAK</title>
+<style>
+body { max-width: 42rem; margin: 3rem auto; padding: 0 1.2rem;
+        font: 16px/1.6 system-ui, sans-serif; color: #17211d; background: #fbfdfc; }
+h1 { font-size: 1.6rem; } h2 { font-size: 1.15rem; margin-top: 2rem; }
+a { color: #1b6f4f; } li { margin: .3rem 0; }
+@media (prefers-color-scheme: dark) {
+  body { color: #e7efea; background: #121a16; } a { color: #7ab298; } }
+</style>
+</head>
+<body>
+<h1>Privacy Policy — StarlinkTAK</h1>
+
+<p>Last updated: 30 September 2026</p>
+
+<p>StarlinkTAK is a plugin for ATAK-CIV 5.5 or newer, developed by Grzegorz Kaszuba
+("the developer"). It helps you align a Starlink dish: it reads the dish over its local
+Wi-Fi network and shows the current and recommended dish direction, obstructions and Starlink
+satellites on the ATAK map.</p>
+
+<p>StarlinkTAK is an independent plugin. It is not a SpaceX or Starlink product and is not
+affiliated with either company. Starlink is a trademark of its owner.</p>
+
+<h2>Data the plugin collects</h2>
+
+<p>None. The plugin does not collect personal data and sends nothing to the developer.</p>
+
+<ul>
+<li>The plugin contains no analytics, advertising, or tracking libraries.</li>
+<li>The plugin does not use the advertising identifier.</li>
+<li>The plugin has no user account, no login, and never asks for an email address.</li>
+</ul>
+
+<h2>Network connections</h2>
+
+<p>The plugin connects to exactly two places:</p>
+
+<ul>
+<li><strong>The Starlink dish on the local network</strong> (<code>192.168.100.1</code>). The
+  plugin reads the dish status, its obstruction map and its link history. This connection
+  works only while the phone is on the Wi-Fi network of the dish and never leaves that network.
+  In "Find satellite" mode, which you turn on yourself after a warning, the plugin also asks
+  the dish to clear its obstruction map.</li>
+<li><strong>CelesTrak</strong> (<code>celestrak.org</code>). The plugin downloads public orbit
+  data of Starlink satellites. The request contains no data about you, your device or your
+  position. CelesTrak sees the IP address of the request, as any web server does, under its
+  own terms.</li>
+</ul>
+
+<h2>Your location</h2>
+
+<p>The plugin takes your GPS position from ATAK and uses it on the device to compute where the
+satellites are in your sky. The position is not sent to the dish, to CelesTrak, to the
+developer or to anyone else.</p>
+
+<h2>Data stored on the device</h2>
+
+<ul>
+<li>Downloaded orbit data, in the ATAK storage on the device, so the plugin can work without
+  internet.</li>
+<li>Two display settings (satellites and obstructions shown or hidden), in the ATAK
+  preferences.</li>
+</ul>
+
+<p>Readings from the dish are kept in memory only while the plugin runs. Uninstalling ATAK or
+clearing its data removes everything listed above.</p>
+
+<h2>Distribution through Google Play</h2>
+
+<p>Google Play collects installation and crash data on its own terms, independently of the plugin.
+See the <a href="https://policies.google.com/privacy">Google privacy policy</a>.</p>
+
+<h2>Children</h2>
+
+<p>The plugin is intended for users aged 18 or over. It is not directed at children.</p>
+
+<h2>Changes to this policy</h2>
+
+<p>Changes will be published on this page with a new date at the top.</p>
+
+<h2>Contact</h2>
+
+<p>Questions about this policy: <a href="mailto:grzegorzkaszuba84@gmail.com">grzegorzkaszuba84@gmail.com</a></p>
+
+</body>
+</html>

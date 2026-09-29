@@ -412,6 +412,78 @@ WTYCZKI = [
             "polityka": "https://uirapuru.github.io/sarneg/privacy-policy.html",
         },
     },
+    {
+        "slug": "starlinktak",
+        "ikona": "starlinktak.png",
+        "zrzuty": [],
+        "repo": None,
+        "pl": {
+            "nazwa": "StarlinkTAK",
+            "podtytul": "Wtyczka ATAK-CIV 5.5 i nowszych",
+            "stan": "Test zamknięty w Google Play",
+            "skrot": (
+                "Pomaga ustawić antenę Starlink w terenie. Pokazuje na mapie ATAK w 3D "
+                "bieżący i zalecany kierunek anteny, przeszkody i satelity Starlink."
+            ),
+            "sekcje": [
+                ("Po co to jest",
+                 ["Antena Starlink podaje kierunek, w którym powinna patrzeć. W terenie trzeba "
+                  "jeszcze wiedzieć, o ile stopni ją obrócić i pochylić oraz co zasłania niebo.",
+                  "Wtyczka czyta antenę przez jej sieć Wi-Fi i rysuje oba kierunki jako wiązki "
+                  "na mapie ATAK. Pod wykresem nieba podaje polecenie: o ile obrócić i o ile "
+                  "pochylić antenę."]),
+                ("Co jeszcze pokazuje",
+                 ["Mapę przeszkód zapisaną przez antenę, satelity Starlink nad horyzontem, "
+                  "w tym widoczne gołym okiem, oraz historię łącza z ostatnich 15 minut. "
+                  "Pozycje satelitów wtyczka liczy z publicznych danych orbit CelesTrak."]),
+                ("Satelita obsługujący to szacunek",
+                 ["Antena nie podaje, z którym satelitą jest połączona. Wtyczka zgaduje go "
+                  "z dwóch map przeszkód i zawsze oznacza wynik jako szacunek. Tryb „Szukaj "
+                  "satelity\u201d co 15 sekund czyści mapę przeszkód anteny, więc przed "
+                  "włączeniem ostrzega, że zebrana mapa zniknie."]),
+                ("Czego się przy niej nauczyłem",
+                 ["W stanie ustalonym mapa przeszkód anteny prawie się nie zmienia: w pomiarze "
+                  "0 zmienionych komórek w 15 sekund i około 9 nowych na godzinę. Z samego "
+                  "odczytu nie da się więc rozpoznać satelity. Stąd tryb, który mapę czyści."]),
+            ],
+            "polityka": "https://uirapuru.github.io/starlinktak/privacy-policy.html",
+        },
+        "en": {
+            "nazwa": "StarlinkTAK",
+            "podtytul": "Plugin for ATAK-CIV 5.5 and newer",
+            "stan": "Closed testing on Google Play",
+            "skrot": (
+                "Helps you align a Starlink dish in the field. Shows the current and "
+                "recommended dish direction in 3D on the ATAK map, with obstructions and "
+                "Starlink satellites."
+            ),
+            "sekcje": [
+                ("Why it exists",
+                 ["A Starlink dish reports the direction it should point in. In the field you also "
+                  "need to know how many degrees to rotate and tilt the dish, and what blocks "
+                  "the sky.",
+                  "The plugin reads the dish over its Wi-Fi network and draws both directions "
+                  "as beams on the ATAK map. Below the sky chart it gives a command: how far "
+                  "to rotate the dish and how far to tilt it."]),
+                ("What else it shows",
+                 ["The obstruction map recorded by the dish, Starlink satellites above the "
+                  "horizon, including those visible to the naked eye, and the link history of "
+                  "the last 15 minutes. Satellite positions come from public CelesTrak orbit "
+                  "data."]),
+                ("The serving satellite is an estimate",
+                 ["The dish does not report which satellite it is connected to. The plugin "
+                  "infers it from two obstruction maps and always labels the result as an "
+                  "estimate. \u201cFind satellite\u201d mode clears the dish obstruction map "
+                  "every 15 seconds, so the plugin warns you before it starts that the "
+                  "collected map will be lost."]),
+                ("What it taught me",
+                 ["In steady state the dish obstruction map barely changes: the measurement "
+                  "showed 0 changed cells in 15 seconds and about 9 new cells per hour. A plain "
+                  "reading cannot identify the satellite. Hence the mode that clears the map."]),
+            ],
+            "polityka": "https://uirapuru.github.io/starlinktak/privacy-policy.html",
+        },
+    },
 ]
 
 # --- ebooki ----------------------------------------------------------------
