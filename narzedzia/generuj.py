@@ -25,8 +25,8 @@ E = {
         "kontakt": "Kontakt",
         "prywatnosc": "Prywatność",
         "drugi_jezyk": "English",
-        "wtyczki_wstep": "Wtyczki i aplikacje, które napisałem do ekosystemu TAK. "
-                         "Każda powstała, bo czegoś w ATAK-u brakowało mnie samemu.",
+        "wtyczki_wstep": "Wtyczki do ATAK-a i aplikacje na Androida. "
+                         "Każda powstała, bo czegoś brakowało mnie samemu.",
         "ebooki_wstep": "Książki do pobrania za darmo, w formacie PDF. "
                         "Część napisałem, część przetłumaczyłem.",
         "wiecej": "Czytaj dalej",
@@ -46,6 +46,8 @@ E = {
                                "instytucją publiczną.",
         "narzedzia_naglowek": "Narzędzia w przeglądarce",
         "narzedzia_wstep": "Rzeczy, które działają bez instalowania czegokolwiek.",
+        "serwisy_naglowek": "Serwisy",
+        "serwisy_wstep": "Strony, które prowadzę.",
     },
     "en": {
         "kod": "en",
@@ -55,8 +57,8 @@ E = {
         "kontakt": "Contact",
         "prywatnosc": "Privacy",
         "drugi_jezyk": "Polski",
-        "wtyczki_wstep": "Plugins and apps I wrote for the TAK ecosystem. Each exists because "
-                         "something in ATAK was missing for me first.",
+        "wtyczki_wstep": "ATAK plugins and Android apps. Each exists because something was "
+                         "missing for me first.",
         "ebooki_wstep": "Free PDF downloads. Some I wrote, some I translated.",
         "wiecej": "Read more",
         "pobierz": "Download PDF",
@@ -75,6 +77,8 @@ E = {
                                "public institution.",
         "narzedzia_naglowek": "Browser tools",
         "narzedzia_wstep": "Things that work without installing anything.",
+        "serwisy_naglowek": "Sites",
+        "serwisy_wstep": "Sites I run.",
     },
 }
 
@@ -90,6 +94,27 @@ NARZEDZIA = [
         "url": "ballistics/",
         "pl": ("Kalkulator balistyczny", "Tor pocisku liczony w przeglądarce."),
         "en": ("Ballistic calculator", "Trajectory solved in the browser."),
+    },
+]
+
+SERWISY = [
+    {
+        "url": "https://atakplugins.eu/",
+        "pl": ("atakplugins.eu", "Katalog wtyczek, aplikacji i klientów TAK ze zrzutami "
+                                 "ekranu i odnośnikami do pobrania. Wtyczki, które ładują się "
+                                 "na ATAK-CIV 5.8, mają odznakę „Zweryfikowano”."),
+        "en": ("atakplugins.eu", "A catalogue of TAK plugins, apps and clients with "
+                                 "screenshots and download links. Plugins that load on "
+                                 "ATAK-CIV 5.8 carry a „Verified” badge."),
+    },
+    {
+        "url": "https://taklab.eu/",
+        "pl": ("taklab.eu", "Własny serwer TAK na ćwiczenie, kurs albo akcję, postawiony "
+                            "w chmurze w pięć minut. Z mapą CloudTAK, czatem i łącznością "
+                            "głosową."),
+        "en": ("taklab.eu", "Your own TAK server for an exercise, a course or an operation, "
+                            "up in the cloud in five minutes. With a CloudTAK map, chat and "
+                            "voice."),
     },
 ]
 
@@ -307,6 +332,27 @@ def strona_glowna(jezyk):
 </section>
 """)
 
+    # serwisy
+    karty = []
+    for n in SERWISY:
+        tytul, opis = n[jezyk]
+        karty.append(f"""    <a class="karta" href="{u(n['url'])}">
+      <h3>{u(tytul)}</h3>
+      <p>{u(opis)}</p>
+      <span class="wiecej">{u(e['wiecej'])} →</span>
+    </a>""")
+    czesci.append(f"""
+<section id="serwisy" class="przemienna">
+  <div class="szeroko">
+    <h2>{u(e['serwisy_naglowek'])}</h2>
+    <p class="wstep">{u(e['serwisy_wstep'])}</p>
+    <div class="siatka">
+{chr(10).join(karty)}
+    </div>
+  </div>
+</section>
+""")
+
     czesci.append(stopka(jezyk, glebokosc))
     return "".join(czesci)
 
@@ -435,8 +481,20 @@ TRESC_PRYWATNOSC = {
           ("odnosniki", [("TakLab Hub — polityka prywatności", "taklab-hub/prywatnosc.html"),
                          ("TakLab Hub — usunięcie konta i danych",
                           "taklab-hub/usuwanie-konta.html"),
-                         ("SniperTAK — polityka prywatności",
-                          "sniperTAK/privacy-policy.html")])]),
+                         ("SniperTAK — polityka prywatności (po angielsku)",
+                          "sniperTAK/privacy-policy.html"),
+                         ("SniperKIT — polityka prywatności (po angielsku)",
+                          "sniperkit/privacy-policy.html"),
+                         ("PrintPlugin — polityka prywatności (po angielsku)",
+                          "printplugin/privacy-policy.html"),
+                         ("Sarneg — polityka prywatności (po angielsku)",
+                          "sarneg/privacy-policy.html"),
+                         ("StarlinkTAK — polityka prywatności (po angielsku)",
+                          "starlinktak/privacy-policy.html"),
+                         ("Modern UI — polityka prywatności (po angielsku)",
+                          "modernui/privacy-policy.html"),
+                         ("Ułan — polityka prywatności",
+                          "ulan/polityka-prywatnosci.html")])]),
         ("Kontakt w sprawie danych",
          [f"Pytania o dane kieruj na adres {EMAIL}. Odpowiadam w ciągu 30 dni."]),
     ],
@@ -458,7 +516,19 @@ TRESC_PRYWATNOSC = {
                          ("TakLab Hub — account and data deletion (Polish)",
                           "taklab-hub/usuwanie-konta.html"),
                          ("SniperTAK — privacy policy",
-                          "sniperTAK/privacy-policy.html")])]),
+                          "sniperTAK/privacy-policy.html"),
+                         ("SniperKIT — privacy policy",
+                          "sniperkit/privacy-policy.html"),
+                         ("PrintPlugin — privacy policy",
+                          "printplugin/privacy-policy.html"),
+                         ("Sarneg — privacy policy",
+                          "sarneg/privacy-policy.html"),
+                         ("StarlinkTAK — privacy policy",
+                          "starlinktak/privacy-policy.html"),
+                         ("Modern UI — privacy policy",
+                          "modernui/privacy-policy.html"),
+                         ("Ułan — privacy policy (Polish)",
+                          "ulan/polityka-prywatnosci.html")])]),
         ("Data enquiries",
          [f"Send data enquiries to {EMAIL}. I reply within 30 days."]),
     ],

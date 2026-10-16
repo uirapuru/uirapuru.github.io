@@ -11,13 +11,14 @@ ani żadnego innego kroku budowania po stronie GitHuba — plik `.nojekyll` to w
 | Ścieżka | Zawartość |
 |---|---|
 | `narzedzia/dane.py` | Cała treść strony: opisy wtyczek, ebooków, hero, polityki. Obie wersje językowe obok siebie |
-| `narzedzia/generuj.py` | Szablony i generator. Zapisuje 24 pliki HTML |
+| `narzedzia/generuj.py` | Szablony i generator. Zapisuje 32 pliki HTML |
 | `styl.css` | Wspólny arkusz stylów. Tryb ciemny przez `prefers-color-scheme` |
 | `js/tel.js` | Składa numer telefonu w przeglądarce, żeby nie leżał w kodzie strony |
 | `media/okladki/` | Miniatury okładek, pierwsza strona każdego PDF-a |
 | `media/wtyczki/` | Ikony i zrzuty ekranu wtyczek |
 | `taklab-hub/` | Polityka prywatności i usuwanie konta dla aplikacji TakLab Hub |
-| `sniperTAK/` | Polityka prywatności wtyczki SniperTAK |
+| `sniperTAK/`, `sniperkit/`, `printplugin/`, `sarneg/`, `starlinktak/`, `modernui/`, `ulan/` | Polityki prywatności aplikacji, pisane ręcznie, poza generatorem |
+| `lrss/` | Symulator strzelania na dystans, bez odnośnika ze strony głównej i poza wyszukiwarkami |
 | `kestrel/`, `ballistics/`, `calculator/`, `simulator/` | Narzędzia w przeglądarce, starsze niż ta strona |
 
 ## Zmiana treści

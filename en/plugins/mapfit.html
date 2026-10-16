@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MapFit — Grzegorz Kaszuba</title>
+<meta name="description" content="Places a photo of a paper map on the ATAK map. Point pairs are enough, or a single intersection of the kilometre grid.">
+
+<link rel="stylesheet" href="../../styl.css">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+
+<header class="pasek">
+  <div class="szeroko">
+    <a class="marka" href="../../en/index.html">Grzegorz Kaszuba</a>
+    <nav>
+      <a href="../../en/index.html#wtyczki">Plugins</a>
+      <a href="../../en/index.html#ebooki">Books</a>
+      <a href="../../en/contact.html">Contact</a>
+    </nav>
+    <span class="jezyk"><a href="../../wtyczki/mapfit.html">Polski</a></span>
+  </div>
+</header>
+<div class="wasko okruszek"><a href="../../en/index.html">Home</a> › <a href="../../en/index.html#wtyczki">Plugins</a> › MapFit</div>
+<article class="wasko">
+  
+  <span class="stan">Working</span>
+  <h1>MapFit</h1>
+  <p class="podtytul">ATAK-CIV 5.8 plugin</p>
+  <p>Places a photo of a paper map on the ATAK map. Point pairs are enough, or a single intersection of the kilometre grid.</p>
+<h2>Why it exists</h2>
+<p>A paper map from a briefing, a range plan or a photocopy with an MGRS grid holds data that ATAK does not have. The built-in Rubber Sheet tool can overlay a photo, but rotating and scaling it by hand takes long and ends up imprecise.</p>
+<p>MapFit computes where the photo lies. The user taps a point on the photo and the same place on the map. From the second pair the plugin shows the photo on the map; from the third it reports a control error in metres for every pair.</p>
+<h2>Grid mode</h2>
+<p>When the photo has a kilometre grid, the plugin detects the line intersections itself, offline and without machine learning. The user taps one intersection and types its two-digit labels from the map margin. Every detected intersection becomes a point pair.</p>
+<p>A folded sheet is fitted cell by cell. On a plan of the Wędrzyn training area, photographed with a phone, it found 143 intersections and the median error at control points was 20 m.</p>
+<h2>Manual adjustment</h2>
+<p>Handles on the map move, rotate and scale the photo after the fit. When the user finishes, the photo stays in ATAK as an ordinary Rubber Sheet overlay.</p>
+<h2>What it taught me</h2>
+<p>The first grid detector, tuned on two photos, returned a wrong scale without any warning once the photo was scaled slightly. A guard on cell density and a separate trial on 92 photos fixed that.</p>
+<h2>Screenshots</h2><div class="zrzuty"><img src="../../media/wtyczki/mapfit-1.jpg" alt="" loading="lazy"><img src="../../media/wtyczki/mapfit-2.jpg" alt="" loading="lazy"><img src="../../media/wtyczki/mapfit-3.jpg" alt="" loading="lazy"></div>
+
+  <p><a href="../../en/index.html">← Back to the home page</a></p>
+</article>
+
+<footer class="stopka">
+  <div class="szeroko">
+    <nav>
+      <a href="../../en/index.html">Home</a>
+      <a href="../../en/contact.html">Contact</a>
+      <a href="../../en/privacy.html">Privacy</a>
+      <a href="https://github.com/uirapuru">GitHub</a>
+    </nav>
+    <p>Grzegorz Kaszuba · <a href="mailto:grzegorzkaszuba84@gmail.com">grzegorzkaszuba84@gmail.com</a> ·
+       <span data-telefon>number shown once JavaScript is enabled</span></p>
+    <p>This site is not affiliated with TAK Product Center or any public institution.</p>
+  </div>
+</footer>
+<script src="../../js/tel.js"></script>
+</html>

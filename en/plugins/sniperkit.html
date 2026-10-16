@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SniperKIT — Grzegorz Kaszuba</title>
+<meta name="description" content="The SniperTAK ballistic calculator as a standalone app with its own map. No ATAK and no TAK server needed.">
+
+<link rel="stylesheet" href="../../styl.css">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+
+<header class="pasek">
+  <div class="szeroko">
+    <a class="marka" href="../../en/index.html">Grzegorz Kaszuba</a>
+    <nav>
+      <a href="../../en/index.html#wtyczki">Plugins</a>
+      <a href="../../en/index.html#ebooki">Books</a>
+      <a href="../../en/contact.html">Contact</a>
+    </nav>
+    <span class="jezyk"><a href="../../wtyczki/sniperkit.html">Polski</a></span>
+  </div>
+</header>
+<div class="wasko okruszek"><a href="../../en/index.html">Home</a> › <a href="../../en/index.html#wtyczki">Plugins</a> › SniperKIT</div>
+<article class="wasko">
+  <p><img class="ikona-duza" src="../../media/wtyczki/sniperkit.png" alt=""></p>
+  <span class="stan">Closed testing on Google Play</span>
+  <h1>SniperKIT</h1>
+  <p class="podtytul">Android app</p>
+  <p>The SniperTAK ballistic calculator as a standalone app with its own map. No ATAK and no TAK server needed.</p>
+<h2>Why it exists</h2>
+<p>Not every shooter has ATAK. The military build needs clearance, and the civilian one is a separate app to install and learn.</p>
+<p>SniperKIT uses the same engine as the SniperTAK plugin, but on its own OpenStreetMap map. A tap on the map places a target. The app reads range, bearing and shot angle from the map and the terrain.</p>
+<h2>What it computes</h2>
+<ul><li>elevation and windage in mils, recalculated after every change,</li><li>time of flight, velocity and energy at the target, hit probability, danger space,</li><li>a target table and a range card for an observation post, with CSV export,</li><li>ballistic tables at fixed distance steps,</li><li>WEZ, the hit probability derived from the uncertainty of your inputs.</li></ul>
+<p>The solution is computed only from a complete rifle profile. An empty field gets no default value. The app tells you which value is missing.</p>
+<h2>Sharing with TAK clients</h2>
+<p>The app sends the shooter position, the observation post and targets as Cursor on Target events, the format TAK clients use. Events go over multicast on the local network or over TCP to an address you enter. Unsent events wait on the phone until the connection returns.</p>
+<h2>How it was made</h2>
+<p>Of the 124 files in the SniperTAK plugin, only 8 touched the ATAK library. 47 engine files moved into the app unchanged, together with 470 tests. The weight of the port sat in one interface file of 7,724 lines.</p>
+<h2>Screenshots</h2><div class="zrzuty"><img src="../../media/wtyczki/sniperkit-1.jpg" alt="" loading="lazy"><img src="../../media/wtyczki/sniperkit-2.jpg" alt="" loading="lazy"><img src="../../media/wtyczki/sniperkit-3.jpg" alt="" loading="lazy"></div>
+<p><a href="https://uirapuru.github.io/sniperkit/privacy-policy.html">App privacy policy</a></p>
+  <p><a href="../../en/index.html">← Back to the home page</a></p>
+</article>
+
+<footer class="stopka">
+  <div class="szeroko">
+    <nav>
+      <a href="../../en/index.html">Home</a>
+      <a href="../../en/contact.html">Contact</a>
+      <a href="../../en/privacy.html">Privacy</a>
+      <a href="https://github.com/uirapuru">GitHub</a>
+    </nav>
+    <p>Grzegorz Kaszuba · <a href="mailto:grzegorzkaszuba84@gmail.com">grzegorzkaszuba84@gmail.com</a> ·
+       <span data-telefon>number shown once JavaScript is enabled</span></p>
+    <p>This site is not affiliated with TAK Product Center or any public institution.</p>
+  </div>
+</footer>
+<script src="../../js/tel.js"></script>
+</html>

@@ -116,7 +116,7 @@ WTYCZKI = [
         "sklep": "https://play.google.com/store/apps/details?id=com.snipertak.plugin",
         "pl": {
             "nazwa": "SniperTAK",
-            "podtytul": "Wtyczka ATAK-CIV",
+            "podtytul": "Wtyczka ATAK-CIV 5.5 i nowszych",
             "stan": "W Google Play",
             "skrot": (
                 "Kalkulator balistyczny wbudowany w mapę ATAK-a. Liczy poprawkę na odległość "
@@ -148,7 +148,7 @@ WTYCZKI = [
         },
         "en": {
             "nazwa": "SniperTAK",
-            "podtytul": "ATAK-CIV plugin",
+            "podtytul": "Plugin for ATAK-CIV 5.5 and newer",
             "stan": "On Google Play",
             "skrot": (
                 "A ballistic calculator built into the ATAK map. It computes range and wind "
@@ -185,8 +185,8 @@ WTYCZKI = [
         "repo": None,
         "pl": {
             "nazwa": "PrintPlugin",
-            "podtytul": "Wtyczka ATAK-CIV 5.8",
-            "stan": "Działa",
+            "podtytul": "Wtyczka ATAK-CIV 5.5 i nowszych",
+            "stan": "Test zamknięty w Google Play",
             "skrot": (
                 "Zapisuje bieżący kadr mapy jako arkusze A4 w pliku PNG albo PDF. "
                 "300 dpi, opcjonalna siatka MGRS, wybrana skala."
@@ -214,14 +214,19 @@ WTYCZKI = [
                  ["Wtyczka rysuje arkusz A4 w rozdzielczości 300 dpi, z marginesem 10 mm. "
                   "Obszar mapy zajmuje cały obszar druku poza dolnym paskiem stopki.",
                   "Mapa nie jest rozciągana. Zachowuje proporcje wycinka, a resztę obszaru "
-                  "zostawia białą."]),
+                  "zostawia białą.",
+                  "Przy skali stałej wtyczka pobiera kafelki mapy także spoza ekranu. Arkusze "
+                  "na brzegu eksportu są pokryte mapą na całej powierzchni."]),
+                ("Na czym działa",
+                 ["Wtyczka zgłasza zgodność z ATAK 5.5, a ATAK ładuje ją też w wersjach 5.7 "
+                  "i 5.8. Jedna paczka działa na wszystkich trzech."]),
             ],
-            "polityka": None,
+            "polityka": "https://uirapuru.github.io/printplugin/privacy-policy.html",
         },
         "en": {
             "nazwa": "PrintPlugin",
-            "podtytul": "ATAK-CIV 5.8 plugin",
-            "stan": "Working",
+            "podtytul": "Plugin for ATAK-CIV 5.5 and newer",
+            "stan": "Closed testing on Google Play",
             "skrot": (
                 "Saves the current map view as A4 sheets in a PNG or PDF file. 300 dpi, "
                 "optional MGRS grid, selectable scale."
@@ -249,9 +254,14 @@ WTYCZKI = [
                  ["The plugin renders an A4 sheet at 300 dpi with a 10 mm margin. The map area "
                   "fills the whole printable area except the footer strip.",
                   "The map is never stretched. It keeps the aspect ratio of the extract and "
-                  "leaves the rest of the area white."]),
+                  "leaves the rest of the area white.",
+                  "At a fixed scale the plugin fetches map tiles beyond the screen too. Sheets "
+                  "at the edge of the export are covered by the map in full."]),
+                ("What it runs on",
+                 ["The plugin declares ATAK 5.5, and ATAK also loads it on 5.7 and 5.8. One "
+                  "package runs on all three."]),
             ],
-            "polityka": None,
+            "polityka": "https://uirapuru.github.io/printplugin/privacy-policy.html",
         },
     },
     {
@@ -482,6 +492,356 @@ WTYCZKI = [
                   "reading cannot identify the satellite. Hence the mode that clears the map."]),
             ],
             "polityka": "https://uirapuru.github.io/starlinktak/privacy-policy.html",
+        },
+    },
+    {
+        "slug": "modernui",
+        "ikona": "modernui.png",
+        "zrzuty": ["modernui-1.jpg", "modernui-2.jpg", "modernui-3.jpg"],
+        "repo": None,
+        "pl": {
+            "nazwa": "Modern UI",
+            "podtytul": "Wtyczka ATAK-CIV 5.5 i nowszych",
+            "stan": "Test zamknięty w Google Play",
+            "skrot": (
+                "Chowa pasek narzędzi ATAK-a i układa najczęściej używane funkcje przy "
+                "krawędziach ekranu, w zasięgu kciuka. Telefon w pionie, jedną ręką."
+            ),
+            "sekcje": [
+                ("Po co to jest",
+                 ["ATAK powstał na tablet trzymany poziomo. Na telefonie w pionie pasek "
+                  "narzędzi zasłania mapę, a ikony leżą poza zasięgiem kciuka.",
+                  "Modern UI chowa ten pasek i stawia dwie kolumny ikon w dolnej połowie "
+                  "ekranu. Nie dodaje nowych funkcji. Każda ikona uruchamia to, co ATAK już "
+                  "potrafi."]),
+                ("Co widać na ekranie",
+                 [("lista",
+                   ["lewa kolumna: mapy, warstwy, postawienie punktu, pomiar odległości "
+                    "i kierunku,",
+                    "prawa kolumna: mapa 3D, obracanie mapy, kompas, własna pozycja, "
+                    "powiększenie i pomniejszenie,",
+                    "dolny rząd: czat, kontakty, menu „Więcej” i tryb „Tylko mapa”,",
+                    "ramka stanów: godzina oraz stan serwera TAK, GPS i sieci komórkowej, "
+                    "każdy w swoim kolorze."])]),
+                ("Okna nad mapą",
+                 ["Okna ATAK-a, na przykład kontakty albo menedżer nakładek, pływają nad "
+                  "mapą. Da się je przesuwać, zmieniać ich rozmiar i chować do paska w rogu "
+                  "ekranu. Mapa zostaje pod nimi w pełnym rozmiarze.",
+                  "Położenie i rozmiar każdego okna wtyczka pamięta osobno dla pionu "
+                  "i poziomu."]),
+                ("Własny pasek i motywy",
+                 ["W menu „Więcej” → „Dostosuj” wybierasz do sześciu narzędzi ATAK-a albo "
+                  "innych wtyczek i ustawiasz ich kolejność. Motyw określa kolor przewodni, "
+                  "tło i wielkość tekstu. Da się go zapisać do pliku i przenieść na inny "
+                  "telefon."]),
+                ("Czego się przy niej nauczyłem",
+                 ["Obrót ekranu z wtyczki działa tylko przez intencję ATAK-a, nie przez "
+                  "zapis ustawienia. Sam zapis zostawia okna po lewej stronie, a prawą "
+                  "połowę ekranu szarą. Tę wadę pokazał telefon, nie emulator."]),
+            ],
+            "polityka": "https://uirapuru.github.io/modernui/privacy-policy.html",
+        },
+        "en": {
+            "nazwa": "Modern UI",
+            "podtytul": "Plugin for ATAK-CIV 5.5 and newer",
+            "stan": "Closed testing on Google Play",
+            "skrot": (
+                "Hides the ATAK toolbar and lays the most used functions along the screen "
+                "edges, within reach of a thumb. Phone in portrait, one hand."
+            ),
+            "sekcje": [
+                ("Why it exists",
+                 ["ATAK was designed for a tablet held in landscape. On a phone in portrait "
+                  "the toolbar covers the map and the icons sit out of the thumb's reach.",
+                  "Modern UI hides that toolbar and puts two columns of icons in the lower "
+                  "half of the screen. It adds no features. Every icon runs something ATAK "
+                  "already does."]),
+                ("What is on screen",
+                 [("lista",
+                   ["left column: maps, layers, drop a point, measure distance and bearing,",
+                    "right column: 3D map, map rotation, compass, own position, zoom in and "
+                    "out,",
+                    "bottom row: chat, contacts, the „More” menu and „Map only” mode,",
+                    "status frame: the time plus TAK server, GPS and cellular status, each "
+                    "in its own colour."])]),
+                ("Windows above the map",
+                 ["ATAK windows such as contacts or the overlay manager float above the map. "
+                  "They can be moved, resized and collapsed into a strip in the screen "
+                  "corner. The map stays at full size underneath.",
+                  "The plugin remembers each window's position and size separately for "
+                  "portrait and landscape."]),
+                ("Custom toolbar and themes",
+                 ["In „More” → „Customise” you pick up to six ATAK tools, or tools of other "
+                  "plugins, and set their order. A theme sets the accent colour, the "
+                  "background and the text size. It can be saved to a file and moved to "
+                  "another phone."]),
+                ("What it taught me",
+                 ["Rotating the screen from a plugin works only through an ATAK intent, not "
+                  "by writing the preference. The write alone leaves windows on the left "
+                  "and the right half of the screen grey. The phone showed that defect, "
+                  "the emulator did not."]),
+            ],
+            "polityka": "https://uirapuru.github.io/modernui/privacy-policy.html",
+        },
+    },
+    {
+        "slug": "mapfit",
+        "ikona": "",
+        "zrzuty": ["mapfit-1.jpg", "mapfit-2.jpg", "mapfit-3.jpg"],
+        "repo": None,
+        "pl": {
+            "nazwa": "MapFit",
+            "podtytul": "Wtyczka ATAK-CIV 5.8",
+            "stan": "Działa",
+            "skrot": (
+                "Nakłada zdjęcie papierowej mapy na mapę ATAK-a. Wystarczą pary punktów "
+                "albo jedno przecięcie siatki kilometrowej."
+            ),
+            "sekcje": [
+                ("Po co to jest",
+                 ["Papierowa mapa z odprawy, plan strzelnicy albo kserówka z siatką MGRS "
+                  "zawierają dane, których nie ma w ATAK-u. Wbudowane narzędzie Rubber Sheet "
+                  "pozwala nałożyć zdjęcie, ale obracanie i skalowanie palcem trwa długo "
+                  "i wychodzi niedokładnie.",
+                  "MapFit liczy położenie zdjęcia sam. Użytkownik wskazuje punkt na zdjęciu "
+                  "i to samo miejsce na mapie. Od drugiej pary wtyczka pokazuje zdjęcie na "
+                  "mapie, od trzeciej podaje błąd kontrolny w metrach dla każdej pary."]),
+                ("Tryb siatki",
+                 ["Gdy zdjęcie ma siatkę kilometrową, wtyczka wykrywa przecięcia linii sama, "
+                  "bez sieci i bez uczenia maszynowego. Użytkownik stuka jedno przecięcie "
+                  "i wpisuje jego dwucyfrowe opisy z brzegu mapy. Każde wykryte przecięcie "
+                  "staje się parą punktów.",
+                  "Zgiętą kartkę wtyczka dopasowuje kratka po kratce. Na planie poligonu "
+                  "Wędrzyn, sfotografowanym telefonem, wykryła 143 przecięcia, a mediana "
+                  "błędu na punktach kontrolnych wyniosła 20 m."]),
+                ("Poprawka ręczna",
+                 ["Uchwyty na mapie pozwalają przesunąć, obrócić i przeskalować zdjęcie po "
+                  "dopasowaniu. Po zakończeniu zdjęcie zostaje w ATAK-u jako zwykła nakładka "
+                  "Rubber Sheet."]),
+                ("Czego się przy niej nauczyłem",
+                 ["Pierwszy detektor siatki, dostrojony do dwóch zdjęć, po lekkim "
+                  "przeskalowaniu zdjęcia dawał złą skalę bez żadnego ostrzeżenia. Pomógł "
+                  "dopiero strażnik gęstości kratek i osobna próba na 92 zdjęciach."]),
+            ],
+            "polityka": None,
+        },
+        "en": {
+            "nazwa": "MapFit",
+            "podtytul": "ATAK-CIV 5.8 plugin",
+            "stan": "Working",
+            "skrot": (
+                "Places a photo of a paper map on the ATAK map. Point pairs are enough, or "
+                "a single intersection of the kilometre grid."
+            ),
+            "sekcje": [
+                ("Why it exists",
+                 ["A paper map from a briefing, a range plan or a photocopy with an MGRS "
+                  "grid holds data that ATAK does not have. The built-in Rubber Sheet tool "
+                  "can overlay a photo, but rotating and scaling it by hand takes long and "
+                  "ends up imprecise.",
+                  "MapFit computes where the photo lies. The user taps a point on the photo "
+                  "and the same place on the map. From the second pair the plugin shows the "
+                  "photo on the map; from the third it reports a control error in metres "
+                  "for every pair."]),
+                ("Grid mode",
+                 ["When the photo has a kilometre grid, the plugin detects the line "
+                  "intersections itself, offline and without machine learning. The user "
+                  "taps one intersection and types its two-digit labels from the map "
+                  "margin. Every detected intersection becomes a point pair.",
+                  "A folded sheet is fitted cell by cell. On a plan of the Wędrzyn training "
+                  "area, photographed with a phone, it found 143 intersections and the "
+                  "median error at control points was 20 m."]),
+                ("Manual adjustment",
+                 ["Handles on the map move, rotate and scale the photo after the fit. When "
+                  "the user finishes, the photo stays in ATAK as an ordinary Rubber Sheet "
+                  "overlay."]),
+                ("What it taught me",
+                 ["The first grid detector, tuned on two photos, returned a wrong scale "
+                  "without any warning once the photo was scaled slightly. A guard on cell "
+                  "density and a separate trial on 92 photos fixed that."]),
+            ],
+            "polityka": None,
+        },
+    },
+    {
+        "slug": "sniperkit",
+        "ikona": "sniperkit.png",
+        "zrzuty": ["sniperkit-1.jpg", "sniperkit-2.jpg", "sniperkit-3.jpg"],
+        "repo": None,
+        "pl": {
+            "nazwa": "SniperKIT",
+            "podtytul": "Aplikacja na Androida",
+            "stan": "Test zamknięty w Google Play",
+            "skrot": (
+                "Kalkulator balistyczny SniperTAK jako osobna aplikacja z własną mapą. "
+                "Nie potrzebuje ATAK-a ani serwera TAK."
+            ),
+            "sekcje": [
+                ("Po co to jest",
+                 ["Nie każdy strzelec ma ATAK-a. Wersja wojskowa wymaga uprawnień, "
+                  "a cywilna to osobna aplikacja, którą trzeba zainstalować i poznać.",
+                  "SniperKIT liczy tym samym silnikiem co wtyczka SniperTAK, ale na własnej "
+                  "mapie OpenStreetMap. Stuknięcie w mapę stawia cel. Odległość, azymut "
+                  "i kąt strzału aplikacja czyta z mapy i z ukształtowania terenu."]),
+                ("Co liczy",
+                 [("lista",
+                   ["poprawkę w pionie i w poziomie w tysięcznych, przeliczaną po każdej "
+                    "zmianie,",
+                    "czas lotu, prędkość i energię na celu, szansę trafienia, strefę "
+                    "rażenia,",
+                    "tabelę celów i kartę odległości dla punktu obserwacyjnego, z eksportem "
+                    "do CSV,",
+                    "tabele balistyczne co stały krok odległości,",
+                    "WEZ, czyli szansę trafienia wyliczoną z niepewności danych "
+                    "wejściowych."]),
+                  "Nastawa liczy się tylko z kompletnego profilu broni. Puste pole nie "
+                  "dostaje wartości domyślnej. Aplikacja pokazuje, której wartości brakuje."]),
+                ("Wysyłka do klientów TAK",
+                 ["Pozycję strzelca, punkt obserwacyjny i cele aplikacja wysyła jako "
+                  "zdarzenia Cursor on Target, czyli w formacie, którego używają klienci "
+                  "TAK. Zdarzenia idą multicastem w sieci lokalnej albo po TCP na wskazany "
+                  "adres. Niewysłane czekają w telefonie, aż połączenie wróci."]),
+                ("Jak powstała",
+                 ["Ze 124 plików wtyczki SniperTAK tylko 8 dotykało biblioteki ATAK-a. "
+                  "47 plików silnika przeszło do aplikacji bez zmian, razem z 470 testami. "
+                  "Ciężar przenosin leżał w jednym pliku interfejsu, który miał 7724 "
+                  "wiersze."]),
+            ],
+            "polityka": "https://uirapuru.github.io/sniperkit/privacy-policy.html",
+        },
+        "en": {
+            "nazwa": "SniperKIT",
+            "podtytul": "Android app",
+            "stan": "Closed testing on Google Play",
+            "skrot": (
+                "The SniperTAK ballistic calculator as a standalone app with its own map. "
+                "No ATAK and no TAK server needed."
+            ),
+            "sekcje": [
+                ("Why it exists",
+                 ["Not every shooter has ATAK. The military build needs clearance, and the "
+                  "civilian one is a separate app to install and learn.",
+                  "SniperKIT uses the same engine as the SniperTAK plugin, but on its own "
+                  "OpenStreetMap map. A tap on the map places a target. The app reads range, "
+                  "bearing and shot angle from the map and the terrain."]),
+                ("What it computes",
+                 [("lista",
+                   ["elevation and windage in mils, recalculated after every change,",
+                    "time of flight, velocity and energy at the target, hit probability, "
+                    "danger space,",
+                    "a target table and a range card for an observation post, with CSV "
+                    "export,",
+                    "ballistic tables at fixed distance steps,",
+                    "WEZ, the hit probability derived from the uncertainty of your "
+                    "inputs."]),
+                  "The solution is computed only from a complete rifle profile. An empty "
+                  "field gets no default value. The app tells you which value is missing."]),
+                ("Sharing with TAK clients",
+                 ["The app sends the shooter position, the observation post and targets as "
+                  "Cursor on Target events, the format TAK clients use. Events go over "
+                  "multicast on the local network or over TCP to an address you enter. "
+                  "Unsent events wait on the phone until the connection returns."]),
+                ("How it was made",
+                 ["Of the 124 files in the SniperTAK plugin, only 8 touched the ATAK "
+                  "library. 47 engine files moved into the app unchanged, together with "
+                  "470 tests. The weight of the port sat in one interface file of 7,724 "
+                  "lines."]),
+            ],
+            "polityka": "https://uirapuru.github.io/sniperkit/privacy-policy.html",
+        },
+    },
+    {
+        "slug": "ulan",
+        "ikona": "ulan.png",
+        "zrzuty": ["ulan-1.jpg", "ulan-2.jpg", "ulan-3.jpg"],
+        "repo": None,
+        "pl": {
+            "nazwa": "Ułan",
+            "podtytul": "Aplikacja na Androida",
+            "stan": "Test zamknięty w Google Play",
+            "skrot": (
+                "Kalkulatory, filmy z lektorem i karty wiedzy do szkolenia indywidualnego "
+                "żołnierza. Działa bez internetu i nie zbiera żadnych danych."
+            ),
+            "sekcje": [
+                ("Po co to jest",
+                 ["Żołnierz dostaje wiedzę w kilkunastu źródłach: instrukcje, prezentacje, "
+                  "notatki z zajęć, filmy. W polu nie ma do nich dostępu, a telefon ma "
+                  "zawsze.",
+                  "Ułan zbiera tę wiedzę w jednej aplikacji, która działa bez sieci. Nie ma "
+                  "konta, reklam ani analityki."]),
+                ("Co zawiera",
+                 [("lista",
+                   ["strzelectwo: kalkulator balistyczny z profilami Grota, Beryla, Bora "
+                    "i Sako TRG M10, przeliczniki MOA i tysięcznych, ćwiczenia bezstrzałowe, "
+                    "dziennik strzelań,",
+                    "nawigacja lądowa: współrzędne w stopniach, UTM i MGRS, azymut, "
+                    "deklinacja, kompas, marsz na azymut,",
+                    "rozpoznawanie sprzętu: 152 karty sprzętu rosyjskiego i 79 kart sprzętu "
+                    "polskiego i NATO, quiz w dwóch trybach,",
+                    "medycyna: TCCC z kartą MARCHE, pierwsza pomoc według wytycznych ERC "
+                    "2025, 17 616 defibrylatorów AED z OpenStreetMap zapisanych "
+                    "w aplikacji,",
+                    "wiedza ogólnowojskowa: formularze meldunków SALUTE, SALT, GOTWA, LACE "
+                    "i MIST, rozkaz bojowy, szyfr SARNEG, alfabet NATO,",
+                    "14 filmów szkoleniowych z lektorem: azymut, Gwiazda Polarna, MGRS, "
+                    "siatka mildot, opaska uciskowa, zasadzka liniowa i inne."])]),
+                ("Czego jeszcze nie ma",
+                 ["Karty przetrwania, TCCC i pierwszej pomocy nie przeszły przeglądu "
+                  "instruktora. Każda ma o tym dopisek i nie zastępuje szkolenia. Cechy "
+                  "rozpoznawcze sprzętu napisał model AI i czekają na sprawdzenie przez "
+                  "człowieka, który ten sprzęt zna."]),
+                ("Prywatność",
+                 ["Aplikacja prosi o jedno uprawnienie: lokalizację, tylko na ekranie "
+                  "wyszukiwania AED. Nie ma uprawnienia do internetu. Wszystko, co wpiszesz, "
+                  "zostaje w telefonie i znika po przyciśnięciu „Usuń wszystkie dane”."]),
+            ],
+            "polityka": "https://uirapuru.github.io/ulan/polityka-prywatnosci.html",
+        },
+        "en": {
+            "nazwa": "Ułan",
+            "podtytul": "Android app",
+            "stan": "Closed testing on Google Play",
+            "skrot": (
+                "Calculators, narrated videos and knowledge cards for the individual "
+                "training of a soldier. Works offline and collects no data."
+            ),
+            "sekcje": [
+                ("Why it exists",
+                 ["A soldier gets knowledge from a dozen sources: manuals, slides, class "
+                  "notes, videos. In the field none of them is at hand, but the phone "
+                  "always is.",
+                  "Ułan gathers that knowledge in one app that works without a network. "
+                  "There is no account, no adverts and no analytics."]),
+                ("What is inside",
+                 [("lista",
+                   ["shooting: a ballistic calculator with profiles for the Grot, Beryl, "
+                    "Bor and Sako TRG M10, MOA and mil converters, dry-fire drills, "
+                    "a shooting log,",
+                    "land navigation: coordinates in degrees, UTM and MGRS, azimuth, "
+                    "declination, compass, marching on a bearing,",
+                    "equipment recognition: 152 cards of Russian equipment and 79 cards of "
+                    "Polish and NATO equipment, a quiz in two modes,",
+                    "medicine: TCCC with the MARCHE card, first aid under the ERC 2025 "
+                    "guidelines, 17,616 AED defibrillators from OpenStreetMap stored in "
+                    "the app,",
+                    "general military knowledge: report forms SALUTE, SALT, GOTWA, LACE "
+                    "and MIST, the combat order, the SARNEG cipher, the NATO alphabet,",
+                    "14 narrated training videos: azimuth, Polaris, MGRS, the mil-dot "
+                    "reticle, the tourniquet, the linear ambush and more."])]),
+                ("What is not there yet",
+                 ["The survival, TCCC and first-aid cards have not been reviewed by an "
+                  "instructor. Each says so and none replaces training. The recognition "
+                  "features of the equipment cards were written by an AI model and await "
+                  "a check by someone who knows the equipment."]),
+                ("Privacy",
+                 ["The app asks for one permission: location, only on the AED search "
+                  "screen. It has no internet permission. Everything you type stays on "
+                  "the phone and goes away with „Delete all data”."]),
+                ("Language",
+                 ["The app is in Polish."]),
+            ],
+            "polityka": "https://uirapuru.github.io/ulan/polityka-prywatnosci.html",
         },
     },
 ]

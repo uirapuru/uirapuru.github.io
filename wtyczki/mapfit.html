@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="pl">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MapFit — Grzegorz Kaszuba</title>
+<meta name="description" content="Nakłada zdjęcie papierowej mapy na mapę ATAK-a. Wystarczą pary punktów albo jedno przecięcie siatki kilometrowej.">
+
+<link rel="stylesheet" href="../styl.css">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+
+<header class="pasek">
+  <div class="szeroko">
+    <a class="marka" href="../index.html">Grzegorz Kaszuba</a>
+    <nav>
+      <a href="../index.html#wtyczki">Wtyczki</a>
+      <a href="../index.html#ebooki">Ebooki</a>
+      <a href="../kontakt.html">Kontakt</a>
+    </nav>
+    <span class="jezyk"><a href="../en/plugins/mapfit.html">English</a></span>
+  </div>
+</header>
+<div class="wasko okruszek"><a href="../index.html">Strona główna</a> › <a href="../index.html#wtyczki">Wtyczki</a> › MapFit</div>
+<article class="wasko">
+  
+  <span class="stan">Działa</span>
+  <h1>MapFit</h1>
+  <p class="podtytul">Wtyczka ATAK-CIV 5.8</p>
+  <p>Nakłada zdjęcie papierowej mapy na mapę ATAK-a. Wystarczą pary punktów albo jedno przecięcie siatki kilometrowej.</p>
+<h2>Po co to jest</h2>
+<p>Papierowa mapa z odprawy, plan strzelnicy albo kserówka z siatką MGRS zawierają dane, których nie ma w ATAK-u. Wbudowane narzędzie Rubber Sheet pozwala nałożyć zdjęcie, ale obracanie i skalowanie palcem trwa długo i wychodzi niedokładnie.</p>
+<p>MapFit liczy położenie zdjęcia sam. Użytkownik wskazuje punkt na zdjęciu i to samo miejsce na mapie. Od drugiej pary wtyczka pokazuje zdjęcie na mapie, od trzeciej podaje błąd kontrolny w metrach dla każdej pary.</p>
+<h2>Tryb siatki</h2>
+<p>Gdy zdjęcie ma siatkę kilometrową, wtyczka wykrywa przecięcia linii sama, bez sieci i bez uczenia maszynowego. Użytkownik stuka jedno przecięcie i wpisuje jego dwucyfrowe opisy z brzegu mapy. Każde wykryte przecięcie staje się parą punktów.</p>
+<p>Zgiętą kartkę wtyczka dopasowuje kratka po kratce. Na planie poligonu Wędrzyn, sfotografowanym telefonem, wykryła 143 przecięcia, a mediana błędu na punktach kontrolnych wyniosła 20 m.</p>
+<h2>Poprawka ręczna</h2>
+<p>Uchwyty na mapie pozwalają przesunąć, obrócić i przeskalować zdjęcie po dopasowaniu. Po zakończeniu zdjęcie zostaje w ATAK-u jako zwykła nakładka Rubber Sheet.</p>
+<h2>Czego się przy niej nauczyłem</h2>
+<p>Pierwszy detektor siatki, dostrojony do dwóch zdjęć, po lekkim przeskalowaniu zdjęcia dawał złą skalę bez żadnego ostrzeżenia. Pomógł dopiero strażnik gęstości kratek i osobna próba na 92 zdjęciach.</p>
+<h2>Zrzuty ekranu</h2><div class="zrzuty"><img src="../media/wtyczki/mapfit-1.jpg" alt="" loading="lazy"><img src="../media/wtyczki/mapfit-2.jpg" alt="" loading="lazy"><img src="../media/wtyczki/mapfit-3.jpg" alt="" loading="lazy"></div>
+
+  <p><a href="../index.html">← Wróć na stronę główną</a></p>
+</article>
+
+<footer class="stopka">
+  <div class="szeroko">
+    <nav>
+      <a href="../index.html">Strona główna</a>
+      <a href="../kontakt.html">Kontakt</a>
+      <a href="../prywatnosc.html">Prywatność</a>
+      <a href="https://github.com/uirapuru">GitHub</a>
+    </nav>
+    <p>Grzegorz Kaszuba · <a href="mailto:grzegorzkaszuba84@gmail.com">grzegorzkaszuba84@gmail.com</a> ·
+       <span data-telefon>numer widoczny po włączeniu JavaScriptu</span></p>
+    <p>Strona nie jest powiązana z TAK Product Center ani z żadną instytucją publiczną.</p>
+  </div>
+</footer>
+<script src="../js/tel.js"></script>
+</html>

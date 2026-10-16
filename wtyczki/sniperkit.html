@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="pl">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SniperKIT — Grzegorz Kaszuba</title>
+<meta name="description" content="Kalkulator balistyczny SniperTAK jako osobna aplikacja z własną mapą. Nie potrzebuje ATAK-a ani serwera TAK.">
+
+<link rel="stylesheet" href="../styl.css">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+
+<header class="pasek">
+  <div class="szeroko">
+    <a class="marka" href="../index.html">Grzegorz Kaszuba</a>
+    <nav>
+      <a href="../index.html#wtyczki">Wtyczki</a>
+      <a href="../index.html#ebooki">Ebooki</a>
+      <a href="../kontakt.html">Kontakt</a>
+    </nav>
+    <span class="jezyk"><a href="../en/plugins/sniperkit.html">English</a></span>
+  </div>
+</header>
+<div class="wasko okruszek"><a href="../index.html">Strona główna</a> › <a href="../index.html#wtyczki">Wtyczki</a> › SniperKIT</div>
+<article class="wasko">
+  <p><img class="ikona-duza" src="../media/wtyczki/sniperkit.png" alt=""></p>
+  <span class="stan">Test zamknięty w Google Play</span>
+  <h1>SniperKIT</h1>
+  <p class="podtytul">Aplikacja na Androida</p>
+  <p>Kalkulator balistyczny SniperTAK jako osobna aplikacja z własną mapą. Nie potrzebuje ATAK-a ani serwera TAK.</p>
+<h2>Po co to jest</h2>
+<p>Nie każdy strzelec ma ATAK-a. Wersja wojskowa wymaga uprawnień, a cywilna to osobna aplikacja, którą trzeba zainstalować i poznać.</p>
+<p>SniperKIT liczy tym samym silnikiem co wtyczka SniperTAK, ale na własnej mapie OpenStreetMap. Stuknięcie w mapę stawia cel. Odległość, azymut i kąt strzału aplikacja czyta z mapy i z ukształtowania terenu.</p>
+<h2>Co liczy</h2>
+<ul><li>poprawkę w pionie i w poziomie w tysięcznych, przeliczaną po każdej zmianie,</li><li>czas lotu, prędkość i energię na celu, szansę trafienia, strefę rażenia,</li><li>tabelę celów i kartę odległości dla punktu obserwacyjnego, z eksportem do CSV,</li><li>tabele balistyczne co stały krok odległości,</li><li>WEZ, czyli szansę trafienia wyliczoną z niepewności danych wejściowych.</li></ul>
+<p>Nastawa liczy się tylko z kompletnego profilu broni. Puste pole nie dostaje wartości domyślnej. Aplikacja pokazuje, której wartości brakuje.</p>
+<h2>Wysyłka do klientów TAK</h2>
+<p>Pozycję strzelca, punkt obserwacyjny i cele aplikacja wysyła jako zdarzenia Cursor on Target, czyli w formacie, którego używają klienci TAK. Zdarzenia idą multicastem w sieci lokalnej albo po TCP na wskazany adres. Niewysłane czekają w telefonie, aż połączenie wróci.</p>
+<h2>Jak powstała</h2>
+<p>Ze 124 plików wtyczki SniperTAK tylko 8 dotykało biblioteki ATAK-a. 47 plików silnika przeszło do aplikacji bez zmian, razem z 470 testami. Ciężar przenosin leżał w jednym pliku interfejsu, który miał 7724 wiersze.</p>
+<h2>Zrzuty ekranu</h2><div class="zrzuty"><img src="../media/wtyczki/sniperkit-1.jpg" alt="" loading="lazy"><img src="../media/wtyczki/sniperkit-2.jpg" alt="" loading="lazy"><img src="../media/wtyczki/sniperkit-3.jpg" alt="" loading="lazy"></div>
+<p><a href="https://uirapuru.github.io/sniperkit/privacy-policy.html">Polityka prywatności aplikacji</a></p>
+  <p><a href="../index.html">← Wróć na stronę główną</a></p>
+</article>
+
+<footer class="stopka">
+  <div class="szeroko">
+    <nav>
+      <a href="../index.html">Strona główna</a>
+      <a href="../kontakt.html">Kontakt</a>
+      <a href="../prywatnosc.html">Prywatność</a>
+      <a href="https://github.com/uirapuru">GitHub</a>
+    </nav>
+    <p>Grzegorz Kaszuba · <a href="mailto:grzegorzkaszuba84@gmail.com">grzegorzkaszuba84@gmail.com</a> ·
+       <span data-telefon>numer widoczny po włączeniu JavaScriptu</span></p>
+    <p>Strona nie jest powiązana z TAK Product Center ani z żadną instytucją publiczną.</p>
+  </div>
+</footer>
+<script src="../js/tel.js"></script>
+</html>
