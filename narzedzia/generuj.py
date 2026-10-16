@@ -147,7 +147,7 @@ def naglowek(jezyk, glebokosc, tytul, opis, druga_wersja, bez_indeksu=False):
 <title>{u(tytul)}</title>
 <meta name="description" content="{u(opis)}">
 {robots}
-<link rel="stylesheet" href="{r('styl.css')}">
+<link rel="stylesheet" href="{r('styl.css')}?v=2">
 <link rel="icon" href="{r('favicon.svg')}" type="image/svg+xml">
 
 <header class="pasek">

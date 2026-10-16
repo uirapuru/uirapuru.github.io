@@ -12,7 +12,8 @@ ani żadnego innego kroku budowania po stronie GitHuba — plik `.nojekyll` to w
 |---|---|
 | `narzedzia/dane.py` | Cała treść strony: opisy wtyczek, ebooków, hero, polityki. Obie wersje językowe obok siebie |
 | `narzedzia/generuj.py` | Szablony i generator. Zapisuje 32 pliki HTML |
-| `styl.css` | Wspólny arkusz stylów. Tryb ciemny przez `prefers-color-scheme` |
+| `styl.css` | Wspólny arkusz stylów: motyw marki taklab (paleta, Rajdhani, smugi w tle) przepisany z `~/taklab-panel/assets/styles/brand.css` |
+| `fonts/rajdhani/` | Krój Rajdhani z własnego serwera, bez Google Fonts. Licencja SIL OFL w `OFL.txt` |
 | `js/tel.js` | Składa numer telefonu w przeglądarce, żeby nie leżał w kodzie strony |
 | `media/okladki/` | Miniatury okładek, pierwsza strona każdego PDF-a |
 | `media/wtyczki/` | Ikony i zrzuty ekranu wtyczek |
