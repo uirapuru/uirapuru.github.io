@@ -968,6 +968,7 @@ EBOOKI = [
     },
     {
         "slug": "mindful-shooter",
+        "ukryty": True,   # tymczasowo poza serwisem: bez strony i bez karty
         "okladka": "mindful-shooter.jpg",
         "drive": "1yetU7iRrjH2G0hg7gUOSk09OYedR6CMB",
         "drive_maly": "1FmmA3rsoAc9bMzwTBWeUx5xWH2s8cUQP",

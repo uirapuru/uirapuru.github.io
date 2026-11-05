@@ -13,6 +13,8 @@ import sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from dane import MARKA, EMAIL, GITHUB, HERO, WTYCZKI, EBOOKI  # noqa: E402
 
+EBOOKI = [b for b in EBOOKI if not b.get("ukryty")]
+
 KORZEN = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # Etykiety interfejsu w obu językach.
