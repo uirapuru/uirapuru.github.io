@@ -985,9 +985,6 @@ EBOOKI = [
                   "serię niż ten, który się na tym strzale zatrzymał.",
                   "Kompendium opisuje techniki uważności przełożone na konkretne czynności na "
                   "osi: oddech, rutynę przedstrzałową, pracę z myślami po błędzie."]),
-                ("Skąd się wzięło",
-                 ["Opracowanie powstało na podstawie kursu internetowego prowadzonego przez "
-                  "psychologa sportu. Nie jest to podręcznik techniki strzeleckiej."]),
                 ("Dla kogo",
                  ["Dla zawodników i instruktorów, którzy mają opanowaną technikę, a wyniki "
                   "wahają się z dnia na dzień."]),
@@ -1005,9 +1002,6 @@ EBOOKI = [
                   "string than one who stayed with that shot.",
                   "The book translates mindfulness techniques into concrete actions on the "
                   "line: breathing, the pre-shot routine, handling thoughts after a mistake."]),
-                ("Where it came from",
-                 ["It is based on an online course run by a sport psychologist. It is not a "
-                  "manual of shooting technique."]),
                 ("Who it is for",
                  ["Competitors and coaches whose technique is solid but whose scores swing from "
                   "day to day."]),
