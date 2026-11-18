@@ -785,7 +785,9 @@ WTYCZKI = [
         "slug": "snipersticky",
         "rodzaj": "urzadzenie",
         "ikona": None,
-        "zrzuty": ["snipersticky-1.png", "snipersticky-2.png", "snipersticky-3.png"],
+        "zrzuty": ["snipersticky-foto-1.jpg", "snipersticky-foto-2.jpg",
+                   "snipersticky-foto-3.jpg"],
+        "film": {"plik": "snipersticky-film.mp4", "plakat": "snipersticky-film.jpg"},
         "repo": None,
         "pl": {
             "nazwa": "sniperSticky",
@@ -828,8 +830,8 @@ WTYCZKI = [
                   "Następna wersja dodaje nastawy w minutach kątowych (MOA). W przygotowaniu "
                   "są połączenia z dalmierzami Vortex Impact 4000 i Leica CRF 2700-B oraz "
                   "wymiana celów i profili z wtyczką SniperTAK.",
-                  "Zrzuty poniżej to obraz ekranu wygenerowany na komputerze, piksel w piksel "
-                  "taki sam jak na urządzeniu."]),
+                  "Zdjęcia i film poniżej pokazują urządzenie w wersji z początku listopada "
+                  "2026, z Kestrelem 5700 obok."]),
             ],
             "polityka": None,
         },
@@ -876,8 +878,8 @@ WTYCZKI = [
                   "The next version adds corrections in minutes of angle (MOA). Links to the "
                   "Vortex Impact 4000 and Leica CRF 2700-B rangefinders and target and "
                   "profile exchange with the SniperTAK plugin are in progress.",
-                  "The screenshots below are rendered on a computer, pixel for pixel the "
-                  "same as on the device."]),
+                  "The photos and the video below show the device as of early November "
+                  "2026, with a Kestrel 5700 next to it."]),
             ],
             "polityka": None,
         },

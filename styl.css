@@ -339,6 +339,7 @@ article th { background: var(--accent-soft); }
 
 .zrzuty { display: grid; gap: .8rem; grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr)); margin: 1.2rem 0; }
 .zrzuty img { border: 1px solid var(--border); border-radius: .3rem; }
+.film { display: block; width: 100%; max-width: 36rem; margin: 1.2rem 0; border: 1px solid var(--border); border-radius: .3rem; background: #000; }
 
 .uwaga {
   background: rgba(255, 43, 61, 0.12);

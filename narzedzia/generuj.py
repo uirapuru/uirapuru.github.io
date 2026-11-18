@@ -47,6 +47,8 @@ E = {
         "telefon_etykieta": "Telefon",
         "telefon_bez_js": "numer widoczny po włączeniu JavaScriptu",
         "zrzuty": "Zrzuty ekranu",
+        "film": "Film",
+        "zdjecia": "Zdjęcia",
         "polityka_apki": "Polityka prywatności aplikacji",
         "repo": "Kod źródłowy",
         "sklep": "Pobierz z Google Play",
@@ -86,6 +88,8 @@ E = {
         "telefon_etykieta": "Phone",
         "telefon_bez_js": "number shown once JavaScript is enabled",
         "zrzuty": "Screenshots",
+        "film": "Video",
+        "zdjecia": "Photos",
         "polityka_apki": "App privacy policy",
         "repo": "Source code",
         "sklep": "Get it on Google Play",
@@ -167,7 +171,7 @@ def naglowek(jezyk, glebokosc, tytul, opis, druga_wersja, bez_indeksu=False):
 <title>{u(tytul)}</title>
 <meta name="description" content="{u(opis)}">
 {robots}
-<link rel="stylesheet" href="{r('styl.css')}?v=2">
+<link rel="stylesheet" href="{r('styl.css')}?v=3">
 <link rel="icon" href="{r('favicon.svg')}" type="image/svg+xml">
 
 <header class="pasek">
@@ -431,7 +435,15 @@ def strona_wtyczki(w, jezyk):
         obrazy = "".join(
             f'<img src="{r("media/wtyczki/" + z)}" alt="" loading="lazy">' for z in w["zrzuty"]
         )
-        zrzuty = f'<h2>{u(e["zrzuty"])}</h2><div class="zrzuty">{obrazy}</div>'
+        naglowek_zrzutow = e["zdjecia"] if w.get("film") else e["zrzuty"]
+        zrzuty = f'<h2>{u(naglowek_zrzutow)}</h2><div class="zrzuty">{obrazy}</div>'
+    if w.get("film"):
+        f = w["film"]
+        zrzuty = (f'<h2>{u(e["film"])}</h2>'
+                  f'<video class="film" controls muted playsinline preload="none" '
+                  f'poster="{r("media/wtyczki/" + f["plakat"])}">'
+                  f'<source src="{r("media/wtyczki/" + f["plik"])}" type="video/mp4"></video>'
+                  + zrzuty)
 
     linki = []
     if w["repo"]:
