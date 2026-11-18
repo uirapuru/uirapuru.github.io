@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Modern UI — Support — Grzegorz Kaszuba</title>
+<meta name="description" content="Contact, bug reports, privacy, frequently asked questions and known issues for Modern UI.">
+
+<link rel="stylesheet" href="../../styl.css?v=3">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+
+<header class="pasek">
+  <div class="szeroko">
+    <a class="marka" href="../../en/index.html">Grzegorz Kaszuba</a>
+    <nav>
+      <a href="../../en/index.html#urzadzenia">Devices</a>
+      <a href="../../en/index.html#aplikacje">Apps</a>
+      <a href="../../en/index.html#wtyczki">Plugins</a>
+      <a href="../../en/index.html#kursy">Courses</a>
+      <a href="../../en/index.html#ebooki">Books</a>
+      <a href="../../en/contact.html">Contact</a>
+    </nav>
+    <span class="jezyk"><a href="../../wtyczki/modernui-wsparcie.html">Polski</a></span>
+  </div>
+</header>
+<div class="wasko okruszek"><a href="../../en/index.html">Home</a> › <a href="../../en/index.html#wtyczki">Plugins</a> › <a href="../../en/plugins/modernui.html">Modern UI</a> › Support</div>
+<article class="wasko">
+  <h1>Modern UI — Support</h1>
+  <p class="podtytul">Contact, bug reports, privacy, frequently asked questions and known issues for Modern UI.</p>
+<h2>Contact</h2>
+<p>Send questions and reports by email to uirapuruadg@gmail.com. I reply within a few days, in English or Polish.</p>
+<h2>How to report a bug</h2>
+<p>Send an email with the subject „Modern UI – bug” and include:</p>
+<ul><li>the plugin version, for example „Version 0.13.0 (build 20)”; it is shown on the start screen opened by the Modern UI icon in the phone&#x27;s app menu, and under More → About,</li><li>the ATAK-CIV version; you will find it in Android settings under Apps → ATAK,</li><li>the phone model and Android version,</li><li>the screen orientation in which the bug appears: portrait or landscape,</li><li>the steps that lead to the bug and the result you expected,</li><li>a screenshot. For a plugin that changes how ATAK looks, a screenshot shows more than a description.</li></ul>
+<p>Without the plugin and ATAK-CIV versions the bug cannot be reproduced. The plugin sends no reports by itself, so your email is the only source of information about the bug.</p>
+<h2>Privacy</h2>
+<p>The plugin collects no data and sends nothing over the internet. It has no networking code, no analytics libraries and no adverts. It declares no Android permissions.</p>
+<p>For the status box the plugin reads, on the device, the connection state of your TAK servers, the GPS accuracy and the mobile network state. It shows them on screen and stores them nowhere. It does not read your coordinates, phone number or message contents.</p>
+<p>In the ATAK settings the plugin stores the selected interface mode, the screen orientation, the tool bar layout, bar and window positions, and themes. A theme goes to a file only when you export it yourself.</p>
+<p><a href="../../modernui/privacy-policy.html">Full privacy policy</a></p>
+<h2>Frequently asked questions</h2>
+<h3>How do I go back to the standard ATAK look?</h3><p>Choose More → Standard ATAK interface. The plugin restores the ATAK toolbar, the system bar, the normal windows and the screen orientation from before it was turned on. The plugin button on the ATAK toolbar turns the new interface back on.</p><h3>The Modern UI icon in the phone menu does not change ATAK. Why?</h3><p>The icon only opens a start screen with instructions and the version. The plugin works inside ATAK: once loaded from the Plugins menu, the new interface turns on by itself.</p><h3>Which ATAK versions does it run on?</h3><p>ATAK-CIV 5.5, 5.7 and 5.8. One package runs on all three.</p><h3>A bar or window ended up in an awkward place. How do I restore it?</h3><p>Choose More → Reset window positions. Bars and windows return to their default places.</p><h3>All the buttons are gone. What happened?</h3><p>„Map only” mode is on. The button in the bottom right corner brings the buttons back.</p><h3>How do I put a tool or another plugin&#x27;s button on the bar?</h3><p>Choose More → Customize. The bar holds up to 6 tools. Set the order with the arrows.</p><h3>How do I switch ATAK to landscape?</h3><p>Choose More → Portrait / landscape. The plugin remembers the choice after ATAK restarts.</p><h3>How do I join the test?</h3><p>The plugin is in closed testing on Google Play. Email me the Gmail address you use in the Play Store and I will add it to the tester list.</p>
+<h2>Known issues and limitations</h2>
+<table><thead><tr><th>Symptom</th><th>Cause</th><th>What to do</th></tr></thead><tbody><tr><td>In landscape the left column slides under the status box, or the right column covers the TAK connection icon.</td><td>Bars can be moved to places where they cover other elements.</td><td>Move the bar with a long press, or choose More → Reset window positions.</td></tr><tr><td>The 3D map icon does not show whether 3D view is on.</td><td>ATAK does not expose the 3D view state to plugins.</td><td>Check the tilt of the map itself.</td></tr><tr><td>Chat timestamps keep ATAK&#x27;s colour instead of the theme colour.</td><td>ATAK sets their style every time a message is shown.</td><td>No workaround.</td></tr><tr><td>Text in ATAK list rows does not change size with the theme.</td><td>ATAK sets the text size every time a row is shown.</td><td>No workaround.</td></tr><tr><td>The plugin speaks a different language from ATAK.</td><td>The plugin follows the phone language. ATAK does not allow a separate per-app language.</td><td>Change the phone language. Polish and English are supported.</td></tr></tbody></table>
+  <p><a href="modernui.html">← Modern UI</a></p>
+</article>
+
+<footer class="stopka">
+  <div class="szeroko">
+    <nav>
+      <a href="../../en/index.html">Home</a>
+      <a href="../../en/contact.html">Contact</a>
+      <a href="../../en/privacy.html">Privacy</a>
+      <a href="https://github.com/uirapuru">GitHub</a>
+    </nav>
+    <p>Grzegorz Kaszuba · <a href="mailto:grzegorzkaszuba84@gmail.com">grzegorzkaszuba84@gmail.com</a> ·
+       <span data-telefon>number shown once JavaScript is enabled</span></p>
+    <p>This site is not affiliated with TAK Product Center or any public institution.</p>
+  </div>
+</footer>
+<script src="../../js/tel.js"></script>
+</html>

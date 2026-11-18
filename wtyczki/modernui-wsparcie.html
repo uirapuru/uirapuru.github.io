@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="pl">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Modern UI — Wsparcie — Grzegorz Kaszuba</title>
+<meta name="description" content="Kontakt, zgłaszanie błędów, prywatność, częste pytania i znane błędy wtyczki Modern UI.">
+
+<link rel="stylesheet" href="../styl.css?v=3">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+
+<header class="pasek">
+  <div class="szeroko">
+    <a class="marka" href="../index.html">Grzegorz Kaszuba</a>
+    <nav>
+      <a href="../index.html#urzadzenia">Urządzenia</a>
+      <a href="../index.html#aplikacje">Aplikacje</a>
+      <a href="../index.html#wtyczki">Wtyczki</a>
+      <a href="../index.html#kursy">Kursy</a>
+      <a href="../index.html#ebooki">Ebooki</a>
+      <a href="../kontakt.html">Kontakt</a>
+    </nav>
+    <span class="jezyk"><a href="../en/plugins/modernui-support.html">English</a></span>
+  </div>
+</header>
+<div class="wasko okruszek"><a href="../index.html">Strona główna</a> › <a href="../index.html#wtyczki">Wtyczki</a> › <a href="../wtyczki/modernui.html">Modern UI</a> › Wsparcie</div>
+<article class="wasko">
+  <h1>Modern UI — Wsparcie</h1>
+  <p class="podtytul">Kontakt, zgłaszanie błędów, prywatność, częste pytania i znane błędy wtyczki Modern UI.</p>
+<h2>Kontakt</h2>
+<p>Pytania i zgłoszenia wysyłaj e-mailem na adres uirapuruadg@gmail.com. Odpowiadam w ciągu kilku dni. Piszę po polsku i po angielsku.</p>
+<h2>Jak zgłosić błąd</h2>
+<p>Wyślij e-mail z tematem „Modern UI – błąd” i dołącz:</p>
+<ul><li>wersję wtyczki, na przykład „Wersja 0.13.0 (paczka 20)”; pokazuje ją ekran startowy, który otwiera ikona Modern UI w menu aplikacji telefonu, albo pozycja Więcej → O wtyczce,</li><li>wersję ATAK-CIV; znajdziesz ją w ustawieniach Androida, w części Aplikacje → ATAK,</li><li>model telefonu i wersję Androida,</li><li>orientację ekranu, w której pojawia się błąd: pion albo poziom,</li><li>opis kroków, po których pojawia się błąd, i oczekiwany wynik,</li><li>zrzut ekranu. Przy wtyczce, która zmienia wygląd ATAK-a, zrzut pokazuje więcej niż opis.</li></ul>
+<p>Bez wersji wtyczki i wersji ATAK-CIV nie da się odtworzyć błędu. Wtyczka nie wysyła raportów sama, więc e-mail jest jedynym źródłem informacji o błędzie.</p>
+<h2>Prywatność</h2>
+<p>Wtyczka nie zbiera danych i nie wysyła niczego przez internet. Nie ma kodu sieciowego, bibliotek analitycznych ani reklam. Nie deklaruje żadnych uprawnień Androida.</p>
+<p>Do ramki stanów wtyczka odczytuje na urządzeniu stan połączenia z serwerami TAK, dokładność GPS i stan sieci komórkowej. Pokazuje je na ekranie i nigdzie nie zapisuje. Nie czyta współrzędnych, numeru telefonu ani treści wiadomości.</p>
+<p>W ustawieniach ATAK-a wtyczka zapisuje wybrany tryb interfejsu, orientację ekranu, układ paska narzędzi, położenie pasków i okien oraz motywy. Motyw trafia do pliku tylko wtedy, gdy wyeksportujesz go sam.</p>
+<p><a href="../modernui/privacy-policy.html">Pełna polityka prywatności (po angielsku)</a></p>
+<h2>Najczęściej zadawane pytania</h2>
+<h3>Jak wrócić do zwykłego wyglądu ATAK-a?</h3><p>Wybierz Więcej → Standardowy interfejs ATAK. Wtyczka przywraca pasek ATAK-a, pasek systemu, zwykłe okna i orientację ekranu sprzed włączenia. Nowy interfejs włączysz z powrotem przyciskiem wtyczki na pasku ATAK-a.</p><h3>Ikona Modern UI w menu telefonu nie zmienia ATAK-a. Dlaczego?</h3><p>Ikona otwiera tylko ekran startowy z instrukcją i wersją. Wtyczka działa w ATAK-u: po załadowaniu w menu Wtyczki nowy interfejs włącza się sam.</p><h3>Na jakich wersjach ATAK-a działa wtyczka?</h3><p>Na ATAK-CIV 5.5, 5.7 i 5.8. Jedna paczka działa na wszystkich trzech.</p><h3>Pasek albo okno wyjechało w niewygodne miejsce. Jak je przywrócić?</h3><p>Wybierz Więcej → Resetuj pozycje okien. Paski i okna wrócą na miejsca domyślne.</p><h3>Zniknęły wszystkie przyciski. Co się stało?</h3><p>Włączony jest tryb „Tylko mapa”. Przycisk w prawym dolnym rogu przywraca przyciski.</p><h3>Jak dodać narzędzie albo przycisk innej wtyczki na pasek?</h3><p>Wybierz Więcej → Dostosuj. Na pasku zmieści się do 6 narzędzi. Kolejność ustawisz strzałkami.</p><h3>Jak przełączyć ATAK-a w poziom?</h3><p>Wybierz Więcej → Pion / poziom. Wtyczka pamięta wybór po ponownym uruchomieniu ATAK-a.</p><h3>Jak dołączyć do testów?</h3><p>Wtyczka jest w teście zamkniętym w Google Play. Napisz e-mail z adresem Gmail, którego używasz w Sklepie Play, a dopiszę go do listy testerów.</p>
+<h2>Znane błędy i ograniczenia</h2>
+<table><thead><tr><th>Objaw</th><th>Przyczyna</th><th>Co zrobić</th></tr></thead><tbody><tr><td>W poziomie lewa kolumna chowa się pod ramką stanów albo prawa kolumna zachodzi na ikonę połączenia z serwerem TAK.</td><td>Paski da się przesunąć w miejsca, które zasłaniają inne elementy.</td><td>Przesuń pasek długim przytrzymaniem albo wybierz Więcej → Resetuj pozycje okien.</td></tr><tr><td>Ikona mapy 3D nie pokazuje, czy widok 3D jest włączony.</td><td>ATAK nie udostępnia wtyczkom stanu widoku 3D.</td><td>Sprawdź pochylenie samej mapy.</td></tr><tr><td>Godziny w czacie mają kolor ATAK-a, a nie kolor motywu.</td><td>ATAK ustawia ich wygląd przy każdym wyświetleniu wiadomości.</td><td>Brak obejścia.</td></tr><tr><td>Tekst w wierszach list ATAK-a nie zmienia wielkości razem z motywem.</td><td>ATAK ustawia wielkość tekstu przy wyświetlaniu każdego wiersza.</td><td>Brak obejścia.</td></tr><tr><td>Wtyczka mówi w innym języku niż ATAK.</td><td>Wtyczka bierze język z ustawień telefonu. ATAK nie pozwala ustawić osobnego języka dla aplikacji.</td><td>Zmień język telefonu. Obsługiwane są polski i angielski.</td></tr></tbody></table>
+  <p><a href="modernui.html">← Modern UI</a></p>
+</article>
+
+<footer class="stopka">
+  <div class="szeroko">
+    <nav>
+      <a href="../index.html">Strona główna</a>
+      <a href="../kontakt.html">Kontakt</a>
+      <a href="../prywatnosc.html">Prywatność</a>
+      <a href="https://github.com/uirapuru">GitHub</a>
+    </nav>
+    <p>Grzegorz Kaszuba · <a href="mailto:grzegorzkaszuba84@gmail.com">grzegorzkaszuba84@gmail.com</a> ·
+       <span data-telefon>numer widoczny po włączeniu JavaScriptu</span></p>
+    <p>Strona nie jest powiązana z TAK Product Center ani z żadną instytucją publiczną.</p>
+  </div>
+</footer>
+<script src="../js/tel.js"></script>
+</html>

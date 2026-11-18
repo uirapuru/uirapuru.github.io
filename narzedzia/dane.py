@@ -754,6 +754,94 @@ WTYCZKI = [
                   "połowę ekranu szarą. Tę wadę pokazał telefon, nie emulator."]),
             ],
             "polityka": "https://uirapuru.github.io/modernui/privacy-policy.html",
+            "wsparcie": {
+                "wstep": "Kontakt, zgłaszanie błędów, prywatność, częste pytania i znane błędy "
+                         "wtyczki Modern UI.",
+                "sekcje": [
+                    ("Kontakt",
+                     ["Pytania i zgłoszenia wysyłaj e-mailem na adres uirapuruadg@gmail.com. "
+                      "Odpowiadam w ciągu kilku dni. Piszę po polsku i po angielsku."]),
+                    ("Jak zgłosić błąd",
+                     ["Wyślij e-mail z tematem „Modern UI – błąd” i dołącz:",
+                      ("lista",
+                       ["wersję wtyczki, na przykład „Wersja 0.13.0 (paczka 20)”; pokazuje ją "
+                        "ekran startowy, który otwiera ikona Modern UI w menu aplikacji "
+                        "telefonu, albo pozycja Więcej → O wtyczce,",
+                        "wersję ATAK-CIV; znajdziesz ją w ustawieniach Androida, w części "
+                        "Aplikacje → ATAK,",
+                        "model telefonu i wersję Androida,",
+                        "orientację ekranu, w której pojawia się błąd: pion albo poziom,",
+                        "opis kroków, po których pojawia się błąd, i oczekiwany wynik,",
+                        "zrzut ekranu. Przy wtyczce, która zmienia wygląd ATAK-a, zrzut "
+                        "pokazuje więcej niż opis."]),
+                      "Bez wersji wtyczki i wersji ATAK-CIV nie da się odtworzyć błędu. "
+                      "Wtyczka nie wysyła raportów sama, więc e-mail jest jedynym źródłem "
+                      "informacji o błędzie."]),
+                    ("Prywatność",
+                     ["Wtyczka nie zbiera danych i nie wysyła niczego przez internet. Nie ma "
+                      "kodu sieciowego, bibliotek analitycznych ani reklam. Nie deklaruje "
+                      "żadnych uprawnień Androida.",
+                      "Do ramki stanów wtyczka odczytuje na urządzeniu stan połączenia "
+                      "z serwerami TAK, dokładność GPS i stan sieci komórkowej. Pokazuje je na "
+                      "ekranie i nigdzie nie zapisuje. Nie czyta współrzędnych, numeru "
+                      "telefonu ani treści wiadomości.",
+                      "W ustawieniach ATAK-a wtyczka zapisuje wybrany tryb interfejsu, "
+                      "orientację ekranu, układ paska narzędzi, położenie pasków i okien oraz "
+                      "motywy. Motyw trafia do pliku tylko wtedy, gdy wyeksportujesz go sam.",
+                      ("odnosnik", "Pełna polityka prywatności (po angielsku)",
+                       "modernui/privacy-policy.html")]),
+                    ("Najczęściej zadawane pytania",
+                     [("pytania",
+                       [("Jak wrócić do zwykłego wyglądu ATAK-a?",
+                         "Wybierz Więcej → Standardowy interfejs ATAK. Wtyczka przywraca pasek "
+                         "ATAK-a, pasek systemu, zwykłe okna i orientację ekranu sprzed "
+                         "włączenia. Nowy interfejs włączysz z powrotem przyciskiem wtyczki na "
+                         "pasku ATAK-a."),
+                        ("Ikona Modern UI w menu telefonu nie zmienia ATAK-a. Dlaczego?",
+                         "Ikona otwiera tylko ekran startowy z instrukcją i wersją. Wtyczka "
+                         "działa w ATAK-u: po załadowaniu w menu Wtyczki nowy interfejs włącza "
+                         "się sam."),
+                        ("Na jakich wersjach ATAK-a działa wtyczka?",
+                         "Na ATAK-CIV 5.5, 5.7 i 5.8. Jedna paczka działa na wszystkich trzech."),
+                        ("Pasek albo okno wyjechało w niewygodne miejsce. Jak je przywrócić?",
+                         "Wybierz Więcej → Resetuj pozycje okien. Paski i okna wrócą na "
+                         "miejsca domyślne."),
+                        ("Zniknęły wszystkie przyciski. Co się stało?",
+                         "Włączony jest tryb „Tylko mapa”. Przycisk w prawym dolnym rogu "
+                         "przywraca przyciski."),
+                        ("Jak dodać narzędzie albo przycisk innej wtyczki na pasek?",
+                         "Wybierz Więcej → Dostosuj. Na pasku zmieści się do 6 narzędzi. "
+                         "Kolejność ustawisz strzałkami."),
+                        ("Jak przełączyć ATAK-a w poziom?",
+                         "Wybierz Więcej → Pion / poziom. Wtyczka pamięta wybór po ponownym "
+                         "uruchomieniu ATAK-a."),
+                        ("Jak dołączyć do testów?",
+                         "Wtyczka jest w teście zamkniętym w Google Play. Napisz e-mail "
+                         "z adresem Gmail, którego używasz w Sklepie Play, a dopiszę go do "
+                         "listy testerów.")])]),
+                    ("Znane błędy i ograniczenia",
+                     [("tabela",
+                       ["Objaw", "Przyczyna", "Co zrobić"],
+                       [["W poziomie lewa kolumna chowa się pod ramką stanów albo prawa "
+                         "kolumna zachodzi na ikonę połączenia z serwerem TAK.",
+                         "Paski da się przesunąć w miejsca, które zasłaniają inne elementy.",
+                         "Przesuń pasek długim przytrzymaniem albo wybierz Więcej → Resetuj "
+                         "pozycje okien."],
+                        ["Ikona mapy 3D nie pokazuje, czy widok 3D jest włączony.",
+                         "ATAK nie udostępnia wtyczkom stanu widoku 3D.",
+                         "Sprawdź pochylenie samej mapy."],
+                        ["Godziny w czacie mają kolor ATAK-a, a nie kolor motywu.",
+                         "ATAK ustawia ich wygląd przy każdym wyświetleniu wiadomości.",
+                         "Brak obejścia."],
+                        ["Tekst w wierszach list ATAK-a nie zmienia wielkości razem z motywem.",
+                         "ATAK ustawia wielkość tekstu przy wyświetlaniu każdego wiersza.",
+                         "Brak obejścia."],
+                        ["Wtyczka mówi w innym języku niż ATAK.",
+                         "Wtyczka bierze język z ustawień telefonu. ATAK nie pozwala ustawić "
+                         "osobnego języka dla aplikacji.",
+                         "Zmień język telefonu. Obsługiwane są polski i angielski."]])]),
+                ],
+            },
         },
         "en": {
             "nazwa": "Modern UI",
@@ -796,6 +884,94 @@ WTYCZKI = [
                   "the emulator did not."]),
             ],
             "polityka": "https://uirapuru.github.io/modernui/privacy-policy.html",
+            "wsparcie": {
+                "wstep": "Contact, bug reports, privacy, frequently asked questions and known "
+                         "issues for Modern UI.",
+                "sekcje": [
+                    ("Contact",
+                     ["Send questions and reports by email to uirapuruadg@gmail.com. I reply "
+                      "within a few days, in English or Polish."]),
+                    ("How to report a bug",
+                     ["Send an email with the subject „Modern UI – bug” and include:",
+                      ("lista",
+                       ["the plugin version, for example „Version 0.13.0 (build 20)”; it is "
+                        "shown on the start screen opened by the Modern UI icon in the "
+                        "phone's app menu, and under More → About,",
+                        "the ATAK-CIV version; you will find it in Android settings under "
+                        "Apps → ATAK,",
+                        "the phone model and Android version,",
+                        "the screen orientation in which the bug appears: portrait or "
+                        "landscape,",
+                        "the steps that lead to the bug and the result you expected,",
+                        "a screenshot. For a plugin that changes how ATAK looks, a screenshot "
+                        "shows more than a description."]),
+                      "Without the plugin and ATAK-CIV versions the bug cannot be reproduced. "
+                      "The plugin sends no reports by itself, so your email is the only source "
+                      "of information about the bug."]),
+                    ("Privacy",
+                     ["The plugin collects no data and sends nothing over the internet. It has "
+                      "no networking code, no analytics libraries and no adverts. It declares "
+                      "no Android permissions.",
+                      "For the status box the plugin reads, on the device, the connection "
+                      "state of your TAK servers, the GPS accuracy and the mobile network "
+                      "state. It shows them on screen and stores them nowhere. It does not "
+                      "read your coordinates, phone number or message contents.",
+                      "In the ATAK settings the plugin stores the selected interface mode, the "
+                      "screen orientation, the tool bar layout, bar and window positions, and "
+                      "themes. A theme goes to a file only when you export it yourself.",
+                      ("odnosnik", "Full privacy policy", "modernui/privacy-policy.html")]),
+                    ("Frequently asked questions",
+                     [("pytania",
+                       [("How do I go back to the standard ATAK look?",
+                         "Choose More → Standard ATAK interface. The plugin restores the ATAK "
+                         "toolbar, the system bar, the normal windows and the screen "
+                         "orientation from before it was turned on. The plugin button on the "
+                         "ATAK toolbar turns the new interface back on."),
+                        ("The Modern UI icon in the phone menu does not change ATAK. Why?",
+                         "The icon only opens a start screen with instructions and the "
+                         "version. The plugin works inside ATAK: once loaded from the Plugins "
+                         "menu, the new interface turns on by itself."),
+                        ("Which ATAK versions does it run on?",
+                         "ATAK-CIV 5.5, 5.7 and 5.8. One package runs on all three."),
+                        ("A bar or window ended up in an awkward place. How do I restore it?",
+                         "Choose More → Reset window positions. Bars and windows return to "
+                         "their default places."),
+                        ("All the buttons are gone. What happened?",
+                         "„Map only” mode is on. The button in the bottom right corner brings "
+                         "the buttons back."),
+                        ("How do I put a tool or another plugin's button on the bar?",
+                         "Choose More → Customize. The bar holds up to 6 tools. Set the order "
+                         "with the arrows."),
+                        ("How do I switch ATAK to landscape?",
+                         "Choose More → Portrait / landscape. The plugin remembers the choice "
+                         "after ATAK restarts."),
+                        ("How do I join the test?",
+                         "The plugin is in closed testing on Google Play. Email me the Gmail "
+                         "address you use in the Play Store and I will add it to the tester "
+                         "list.")])]),
+                    ("Known issues and limitations",
+                     [("tabela",
+                       ["Symptom", "Cause", "What to do"],
+                       [["In landscape the left column slides under the status box, or the "
+                         "right column covers the TAK connection icon.",
+                         "Bars can be moved to places where they cover other elements.",
+                         "Move the bar with a long press, or choose More → Reset window "
+                         "positions."],
+                        ["The 3D map icon does not show whether 3D view is on.",
+                         "ATAK does not expose the 3D view state to plugins.",
+                         "Check the tilt of the map itself."],
+                        ["Chat timestamps keep ATAK's colour instead of the theme colour.",
+                         "ATAK sets their style every time a message is shown.",
+                         "No workaround."],
+                        ["Text in ATAK list rows does not change size with the theme.",
+                         "ATAK sets the text size every time a row is shown.",
+                         "No workaround."],
+                        ["The plugin speaks a different language from ATAK.",
+                         "The plugin follows the phone language. ATAK does not allow a "
+                         "separate per-app language.",
+                         "Change the phone language. Polish and English are supported."]])]),
+                ],
+            },
         },
     },
     {
