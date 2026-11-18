@@ -1170,6 +1170,7 @@ WTYCZKI = [
     },
     {
         "slug": "snipersticky",
+        "miniatura": "snipersticky-miniatura.jpg",
         "wersja": "0.6.5",
         "data": "2026-11-09",
         "rodzaj": "urzadzenie",
@@ -1275,6 +1276,7 @@ WTYCZKI = [
     },
     {
         "slug": "stickytak",
+        "miniatura": "stickytak-1.png",
         "wersja": "0.1.4",
         "data": "2026-11-10",
         "rodzaj": "urzadzenie",

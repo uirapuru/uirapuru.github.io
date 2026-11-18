@@ -226,7 +226,7 @@ def naglowek(jezyk, glebokosc, tytul, opis, druga_wersja, bez_indeksu=False):
 <title>{u(tytul)}</title>
 <meta name="description" content="{u(opis)}">
 {robots}
-<link rel="stylesheet" href="{r('styl.css')}?v=4">
+<link rel="stylesheet" href="{r('styl.css')}?v=5">
 <link rel="icon" href="{r('favicon.svg')}" type="image/svg+xml">
 
 <header class="pasek">
@@ -360,6 +360,9 @@ def strona_glowna(jezyk):
             d = w[jezyk]
             ikona = (f'<img class="ikona" src="{r("media/wtyczki/" + w["ikona"])}" alt="">'
                      if w["ikona"] else "")
+            if w.get("miniatura"):
+                ikona = (f'<img class="miniatura" src="{r("media/wtyczki/" + w["miniatura"])}" '
+                         f'alt="" loading="lazy">' + ikona)
             karty.append(f"""    <a class="karta karta-wtyczka" href="{r(sciezka(jezyk, kat_wtyczki, w['slug'] + '.html'))}">
       {ikona}
       <span class="stan">{u(d['stan'])}</span>
