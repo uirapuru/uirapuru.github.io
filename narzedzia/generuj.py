@@ -7,6 +7,7 @@ Wynik:         pliki HTML w katalogu repozytorium.
 """
 
 import html
+import re
 import os
 import sys
 
@@ -107,6 +108,9 @@ E = {
         "serwisy_wstep": "Sites I run.",
     },
 }
+
+KOLEJNOSC_SEKCJI = ["urzadzenia", "serwisy", "aplikacje", "wtyczki", "kursy", "ebooki",
+                    "narzedzia"]
 
 SEKCJA = {"urzadzenie": "urzadzenia", "aplikacja": "aplikacje", "wtyczka": "wtyczki"}
 
@@ -230,6 +234,7 @@ def naglowek(jezyk, glebokosc, tytul, opis, druga_wersja, bez_indeksu=False):
     <a class="marka" href="{r(sciezka(jezyk, 'index.html'))}">{u(MARKA)}</a>
     <nav>
       <a href="{r(sciezka(jezyk, 'index.html'))}#urzadzenia">{u(e['urzadzenia'])}</a>
+      <a href="{r(sciezka(jezyk, 'index.html'))}#serwisy">{u(e['serwisy_naglowek'])}</a>
       <a href="{r(sciezka(jezyk, 'index.html'))}#aplikacje">{u(e['aplikacje'])}</a>
       <a href="{r(sciezka(jezyk, 'index.html'))}#wtyczki">{u(e['wtyczki'])}</a>
       <a href="{r(sciezka(jezyk, 'index.html'))}#kursy">{u(e['kursy'])}</a>
@@ -463,8 +468,17 @@ def strona_glowna(jezyk):
 </section>
 """)
 
-    czesci.append(stopka(jezyk, glebokosc))
-    return "".join(czesci)
+    # Kolejność sekcji i naprzemienne tło ustalane w jednym miejscu.
+    sekcje = {re.search(r'<section id="([a-z]+)"', c).group(1): c
+              for c in czesci if '<section id="' in c}
+    reszta = [c for c in czesci if '<section id="' not in c]
+    for i, klucz in enumerate(KOLEJNOSC_SEKCJI):
+        c = re.sub(r'<section id="([a-z]+)"[^>]*>', r'<section id="\1">', sekcje[klucz], count=1)
+        if i % 2:
+            c = c.replace(f'<section id="{klucz}">', f'<section id="{klucz}" class="przemienna">', 1)
+        reszta.append(c)
+    reszta.append(stopka(jezyk, glebokosc))
+    return "".join(reszta)
 
 
 # --- podstrony -------------------------------------------------------------
