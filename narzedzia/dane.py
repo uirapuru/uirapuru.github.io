@@ -41,6 +41,7 @@ HERO = {
 WTYCZKI = [
     {
         "slug": "taklab-hub",
+        "rodzaj": "aplikacja",
         "ikona": "taklab-hub.png",
         "zrzuty": ["taklab-hub-1.jpg", "taklab-hub-2.jpg", "taklab-hub-3.jpg"],
         "repo": None,
@@ -118,6 +119,7 @@ WTYCZKI = [
     },
     {
         "slug": "snipertak",
+        "rodzaj": "wtyczka",
         "ikona": "snipertak.png",
         "zrzuty": ["snipertak-1.jpg", "snipertak-2.jpg", "snipertak-3.jpg"],
         "repo": "https://github.com/uirapuru/SniperTakPlugin",
@@ -202,6 +204,7 @@ WTYCZKI = [
     },
     {
         "slug": "printplugin",
+        "rodzaj": "wtyczka",
         "ikona": "printplugin.png",
         "zrzuty": ["printplugin-1.jpg", "printplugin-2.jpg", "printplugin-3.jpg"],
         "repo": None,
@@ -288,6 +291,7 @@ WTYCZKI = [
     },
     {
         "slug": "simpleplugin",
+        "rodzaj": "wtyczka",
         "ikona": "simpleplugin.png",
         "zrzuty": [],
         "repo": None,
@@ -366,6 +370,7 @@ WTYCZKI = [
     },
     {
         "slug": "sarneg",
+        "rodzaj": "wtyczka",
         "ikona": "sarneg.png",
         "zrzuty": [],
         "repo": None,
@@ -446,6 +451,7 @@ WTYCZKI = [
     },
     {
         "slug": "starlinktak",
+        "rodzaj": "wtyczka",
         "ikona": "starlinktak.png",
         "zrzuty": [],
         "repo": None,
@@ -518,6 +524,7 @@ WTYCZKI = [
     },
     {
         "slug": "modernui",
+        "rodzaj": "wtyczka",
         "ikona": "modernui.png",
         "zrzuty": ["modernui-1.jpg", "modernui-2.jpg", "modernui-3.jpg"],
         "repo": None,
@@ -608,6 +615,7 @@ WTYCZKI = [
     },
     {
         "slug": "mapfit",
+        "rodzaj": "wtyczka",
         "ikona": "",
         "zrzuty": ["mapfit-1.jpg", "mapfit-2.jpg", "mapfit-3.jpg"],
         "repo": None,
@@ -687,6 +695,7 @@ WTYCZKI = [
     },
     {
         "slug": "sniperkit",
+        "rodzaj": "aplikacja",
         "ikona": "sniperkit.png",
         "zrzuty": ["sniperkit-1.jpg", "sniperkit-2.jpg", "sniperkit-3.jpg"],
         "repo": None,
@@ -774,6 +783,7 @@ WTYCZKI = [
     },
     {
         "slug": "snipersticky",
+        "rodzaj": "urzadzenie",
         "ikona": None,
         "zrzuty": ["snipersticky-1.png", "snipersticky-2.png", "snipersticky-3.png"],
         "repo": None,
@@ -873,7 +883,91 @@ WTYCZKI = [
         },
     },
     {
+        "slug": "stickytak",
+        "rodzaj": "urzadzenie",
+        "ikona": None,
+        "zrzuty": ["stickytak-1.png"],
+        "repo": None,
+        "pl": {
+            "nazwa": "stickyTAK",
+            "podtytul": "Urządzenie z ekranem e-papierowym i wtyczka ATAK-CIV 5.6 i nowszych",
+            "stan": "W budowie, etap 1",
+            "skrot": (
+                "Zapasowy ekran ATAK-a na oporządzeniu. Pokazuje mapę, własne położenie, "
+                "markery i alarmy, a po padnięciu telefonu zostaje z ostatnim stanem."
+            ),
+            "sekcje": [
+                ("Po co to jest",
+                 ["Na zawodach telefon z ATAK-iem zalała woda i zespół stracił nawigację. "
+                  "Jeden telefon to pojedynczy punkt awarii.",
+                  "stickyTAK to drugi ekran. Telefon leży pod kurtką, a reTerminal Sticky "
+                  "przypięty do oporządzenia pokazuje to, co trzeba widzieć w ruchu. Gdy "
+                  "telefon padnie, Sticky zostaje z mapą i ostatnim stanem misji zapisanym "
+                  "na karcie microSD."]),
+                ("Jak działa",
+                 ["Wtyczka w ATAK-u wysyła do Sticky przez Bluetooth własne położenie, "
+                  "markery, trasy i alarmy. Mapę przygotowuje z danych OpenStreetMap "
+                  "i przesyła jako paczkę: obszar o promieniu 10 km zajmuje 196 KiB "
+                  "i przechodzi w około 2 sekundy.",
+                  "Pasek stanu pokazuje odległość i azymut do następnego punktu trasy. "
+                  "Ze Sticky można wysłać alarm i postawić marker w swoim położeniu."]),
+                ("Deszcz i rękawice",
+                 ["Ekran dotykowy w deszczu nie nadaje się do pracy: w próbie woda dała "
+                  "około 80 fałszywych dotknięć na minutę. Dlatego każdą funkcję da się "
+                  "wywołać samymi przyciskami, które działają w deszczu i w rękawicach."]),
+                ("Stan prac",
+                 ["Etap 1 jest w testach na urządzeniu: mapa, położenie, markery, alarmy "
+                  "i aktualizacja przez Wi-Fi. Jedna paczka wtyczki ładuje się na ATAK-CIV "
+                  "5.6, 5.7 i 5.8.",
+                  "Etap 2 doda czat. W etapie 3 Sticky połączy się z serwerem TAK sam, przez "
+                  "Wi-Fi, bez telefonu.",
+                  "Zrzut poniżej to obraz ekranu wygenerowany na komputerze, piksel w piksel "
+                  "taki sam jak na urządzeniu."]),
+            ],
+            "polityka": None,
+        },
+        "en": {
+            "nazwa": "stickyTAK",
+            "podtytul": "E-paper device and a plugin for ATAK-CIV 5.6 and newer",
+            "stan": "In development, stage 1",
+            "skrot": (
+                "A backup ATAK screen worn on the kit. It shows the map, your position, "
+                "markers and alerts, and keeps the last state when the phone dies."
+            ),
+            "sekcje": [
+                ("Why it exists",
+                 ["At a competition water got into a phone running ATAK and the team lost "
+                  "navigation. One phone is a single point of failure.",
+                  "stickyTAK is a second screen. The phone stays under the jacket, and a "
+                  "reTerminal Sticky clipped to the kit shows what you need on the move. "
+                  "When the phone dies, the Sticky keeps the map and the last mission state "
+                  "stored on a microSD card."]),
+                ("How it works",
+                 ["The ATAK plugin sends your position, markers, routes and alerts to the "
+                  "Sticky over Bluetooth. It builds the map from OpenStreetMap data and "
+                  "sends it as a package: an area with a 10 km radius takes 196 KiB and "
+                  "transfers in about 2 seconds.",
+                  "The status bar shows distance and bearing to the next route point. From "
+                  "the Sticky you can send an alert and drop a marker at your position."]),
+                ("Rain and gloves",
+                 ["A touch screen is useless in rain: in a trial, water produced about 80 "
+                  "false touches a minute. Every function can therefore be reached with the "
+                  "physical buttons alone, which work in rain and with gloves."]),
+                ("Status",
+                 ["Stage 1 is being tested on the device: map, position, markers, alerts "
+                  "and updates over Wi-Fi. A single plugin package loads on ATAK-CIV 5.6, "
+                  "5.7 and 5.8.",
+                  "Stage 2 adds chat. In stage 3 the Sticky connects to a TAK server by "
+                  "itself, over Wi-Fi, with no phone.",
+                  "The screenshot below is rendered on a computer, pixel for pixel the same "
+                  "as on the device."]),
+            ],
+            "polityka": None,
+        },
+    },
+    {
         "slug": "ulan",
+        "rodzaj": "aplikacja",
         "ikona": "ulan.png",
         "zrzuty": ["ulan-1.jpg", "ulan-2.jpg", "ulan-3.jpg"],
         "repo": None,

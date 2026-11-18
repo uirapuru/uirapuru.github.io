@@ -23,6 +23,11 @@ E = {
         "kod": "pl",
         "start": "Strona główna",
         "wtyczki": "Wtyczki",
+        "urzadzenia": "Urządzenia",
+        "aplikacje": "Aplikacje",
+        "urzadzenia_wstep": "Własne oprogramowanie na reTerminal Sticky, mały komputer z ekranem "
+                            "e-papierowym, który mocuje się na broni albo na oporządzeniu.",
+        "aplikacje_wstep": "Samodzielne aplikacje na Androida. Nie potrzebują ATAK-a.",
         "ebooki": "Ebooki",
         "kursy": "Kursy",
         "kursy_wstep": "Kursy wideo, które prowadzę na strzelecwyborowy.pl.",
@@ -30,8 +35,8 @@ E = {
         "kontakt": "Kontakt",
         "prywatnosc": "Prywatność",
         "drugi_jezyk": "English",
-        "wtyczki_wstep": "Wtyczki do ATAK-a, aplikacje na Androida i jedno urządzenie. "
-                         "Każda powstała, bo czegoś brakowało mnie samemu.",
+        "wtyczki_wstep": "Wtyczki do ATAK-a. Każda powstała, bo czegoś brakowało mnie "
+                         "samemu.",
         "ebooki_wstep": "Książki do pobrania za darmo, w formacie PDF. "
                         "Część napisałem, część przetłumaczyłem.",
         "wiecej": "Czytaj dalej",
@@ -58,6 +63,11 @@ E = {
         "kod": "en",
         "start": "Home",
         "wtyczki": "Plugins",
+        "urzadzenia": "Devices",
+        "aplikacje": "Apps",
+        "urzadzenia_wstep": "My own firmware for the reTerminal Sticky, a small computer with an "
+                            "e-paper screen that mounts on a rifle or on the kit.",
+        "aplikacje_wstep": "Standalone Android apps. They do not need ATAK.",
         "ebooki": "Books",
         "kursy": "Courses",
         "kursy_wstep": "Video courses I run on strzelecwyborowy.pl.",
@@ -65,8 +75,8 @@ E = {
         "kontakt": "Contact",
         "prywatnosc": "Privacy",
         "drugi_jezyk": "Polski",
-        "wtyczki_wstep": "ATAK plugins, Android apps and one device. Each exists because something was "
-                         "missing for me first.",
+        "wtyczki_wstep": "ATAK plugins. Each exists because something was missing for me "
+                         "first.",
         "ebooki_wstep": "Free PDF downloads. Some I wrote, some I translated.",
         "wiecej": "Read more",
         "pobierz": "Download PDF",
@@ -89,6 +99,8 @@ E = {
         "serwisy_wstep": "Sites I run.",
     },
 }
+
+SEKCJA = {"urzadzenie": "urzadzenia", "aplikacja": "aplikacje", "wtyczka": "wtyczki"}
 
 NARZEDZIA = [
     {
@@ -162,6 +174,8 @@ def naglowek(jezyk, glebokosc, tytul, opis, druga_wersja, bez_indeksu=False):
   <div class="szeroko">
     <a class="marka" href="{r(sciezka(jezyk, 'index.html'))}">{u(MARKA)}</a>
     <nav>
+      <a href="{r(sciezka(jezyk, 'index.html'))}#urzadzenia">{u(e['urzadzenia'])}</a>
+      <a href="{r(sciezka(jezyk, 'index.html'))}#aplikacje">{u(e['aplikacje'])}</a>
       <a href="{r(sciezka(jezyk, 'index.html'))}#wtyczki">{u(e['wtyczki'])}</a>
       <a href="{r(sciezka(jezyk, 'index.html'))}#kursy">{u(e['kursy'])}</a>
       <a href="{r(sciezka(jezyk, 'index.html'))}#ebooki">{u(e['ebooki'])}</a>
@@ -270,13 +284,18 @@ def strona_glowna(jezyk):
 </div>
 """)
 
-    # wtyczki
-    karty = []
-    for w in WTYCZKI:
-        d = w[jezyk]
-        ikona = (f'<img class="ikona" src="{r("media/wtyczki/" + w["ikona"])}" alt="">'
-                 if w["ikona"] else "")
-        karty.append(f"""    <a class="karta karta-wtyczka" href="{r(sciezka(jezyk, kat_wtyczki, w['slug'] + '.html'))}">
+    # urządzenia, aplikacje, wtyczki
+    for rodzaj, klucz, tlo in (("urzadzenie", "urzadzenia", ""),
+                               ("aplikacja", "aplikacje", ' class="przemienna"'),
+                               ("wtyczka", "wtyczki", "")):
+        karty = []
+        for w in WTYCZKI:
+            if w["rodzaj"] != rodzaj:
+                continue
+            d = w[jezyk]
+            ikona = (f'<img class="ikona" src="{r("media/wtyczki/" + w["ikona"])}" alt="">'
+                     if w["ikona"] else "")
+            karty.append(f"""    <a class="karta karta-wtyczka" href="{r(sciezka(jezyk, kat_wtyczki, w['slug'] + '.html'))}">
       {ikona}
       <span class="stan">{u(d['stan'])}</span>
       <h3>{u(d['nazwa'])}</h3>
@@ -284,11 +303,11 @@ def strona_glowna(jezyk):
       <p>{u(d['skrot'])}</p>
       <span class="wiecej">{u(e['wiecej'])} →</span>
     </a>""")
-    czesci.append(f"""
-<section id="wtyczki">
+        czesci.append(f"""
+<section id="{klucz}"{tlo}>
   <div class="szeroko">
-    <h2>{u(e['wtyczki'])}</h2>
-    <p class="wstep">{u(e['wtyczki_wstep'])}</p>
+    <h2>{u(e[klucz])}</h2>
+    <p class="wstep">{u(e[klucz + '_wstep'])}</p>
     <div class="siatka pary">
 {chr(10).join(karty)}
     </div>
@@ -400,7 +419,8 @@ def strona_wtyczki(w, jezyk):
 
     czesci = [naglowek(jezyk, glebokosc, f"{d['nazwa']} — {MARKA}", d["skrot"], druga)]
     czesci.append(okruszek(jezyk, glebokosc,
-                           [(e["wtyczki"], sciezka(jezyk, "index.html") + "#wtyczki"),
+                           [(e[SEKCJA[w["rodzaj"]]],
+                             sciezka(jezyk, "index.html") + "#" + SEKCJA[w["rodzaj"]]),
                             (d["nazwa"], None)]))
 
     ikona = (f'<p><img class="ikona-duza" src="{r("media/wtyczki/" + w["ikona"])}" alt=""></p>'

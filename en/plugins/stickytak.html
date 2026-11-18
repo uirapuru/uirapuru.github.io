@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>stickyTAK — Grzegorz Kaszuba</title>
+<meta name="description" content="A backup ATAK screen worn on the kit. It shows the map, your position, markers and alerts, and keeps the last state when the phone dies.">
+
+<link rel="stylesheet" href="../../styl.css?v=2">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+
+<header class="pasek">
+  <div class="szeroko">
+    <a class="marka" href="../../en/index.html">Grzegorz Kaszuba</a>
+    <nav>
+      <a href="../../en/index.html#urzadzenia">Devices</a>
+      <a href="../../en/index.html#aplikacje">Apps</a>
+      <a href="../../en/index.html#wtyczki">Plugins</a>
+      <a href="../../en/index.html#kursy">Courses</a>
+      <a href="../../en/index.html#ebooki">Books</a>
+      <a href="../../en/contact.html">Contact</a>
+    </nav>
+    <span class="jezyk"><a href="../../wtyczki/stickytak.html">Polski</a></span>
+  </div>
+</header>
+<div class="wasko okruszek"><a href="../../en/index.html">Home</a> › <a href="../../en/index.html#urzadzenia">Devices</a> › stickyTAK</div>
+<article class="wasko">
+  
+  <span class="stan">In development, stage 1</span>
+  <h1>stickyTAK</h1>
+  <p class="podtytul">E-paper device and a plugin for ATAK-CIV 5.6 and newer</p>
+  <p>A backup ATAK screen worn on the kit. It shows the map, your position, markers and alerts, and keeps the last state when the phone dies.</p>
+<h2>Why it exists</h2>
+<p>At a competition water got into a phone running ATAK and the team lost navigation. One phone is a single point of failure.</p>
+<p>stickyTAK is a second screen. The phone stays under the jacket, and a reTerminal Sticky clipped to the kit shows what you need on the move. When the phone dies, the Sticky keeps the map and the last mission state stored on a microSD card.</p>
+<h2>How it works</h2>
+<p>The ATAK plugin sends your position, markers, routes and alerts to the Sticky over Bluetooth. It builds the map from OpenStreetMap data and sends it as a package: an area with a 10 km radius takes 196 KiB and transfers in about 2 seconds.</p>
+<p>The status bar shows distance and bearing to the next route point. From the Sticky you can send an alert and drop a marker at your position.</p>
+<h2>Rain and gloves</h2>
+<p>A touch screen is useless in rain: in a trial, water produced about 80 false touches a minute. Every function can therefore be reached with the physical buttons alone, which work in rain and with gloves.</p>
+<h2>Status</h2>
+<p>Stage 1 is being tested on the device: map, position, markers, alerts and updates over Wi-Fi. A single plugin package loads on ATAK-CIV 5.6, 5.7 and 5.8.</p>
+<p>Stage 2 adds chat. In stage 3 the Sticky connects to a TAK server by itself, over Wi-Fi, with no phone.</p>
+<p>The screenshot below is rendered on a computer, pixel for pixel the same as on the device.</p>
+<h2>Screenshots</h2><div class="zrzuty"><img src="../../media/wtyczki/stickytak-1.png" alt="" loading="lazy"></div>
+
+  <p><a href="../../en/index.html">← Back to the home page</a></p>
+</article>
+
+<footer class="stopka">
+  <div class="szeroko">
+    <nav>
+      <a href="../../en/index.html">Home</a>
+      <a href="../../en/contact.html">Contact</a>
+      <a href="../../en/privacy.html">Privacy</a>
+      <a href="https://github.com/uirapuru">GitHub</a>
+    </nav>
+    <p>Grzegorz Kaszuba · <a href="mailto:grzegorzkaszuba84@gmail.com">grzegorzkaszuba84@gmail.com</a> ·
+       <span data-telefon>number shown once JavaScript is enabled</span></p>
+    <p>This site is not affiliated with TAK Product Center or any public institution.</p>
+  </div>
+</footer>
+<script src="../../js/tel.js"></script>
+</html>

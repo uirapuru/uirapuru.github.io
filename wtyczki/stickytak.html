@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="pl">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>stickyTAK — Grzegorz Kaszuba</title>
+<meta name="description" content="Zapasowy ekran ATAK-a na oporządzeniu. Pokazuje mapę, własne położenie, markery i alarmy, a po padnięciu telefonu zostaje z ostatnim stanem.">
+
+<link rel="stylesheet" href="../styl.css?v=2">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+
+<header class="pasek">
+  <div class="szeroko">
+    <a class="marka" href="../index.html">Grzegorz Kaszuba</a>
+    <nav>
+      <a href="../index.html#urzadzenia">Urządzenia</a>
+      <a href="../index.html#aplikacje">Aplikacje</a>
+      <a href="../index.html#wtyczki">Wtyczki</a>
+      <a href="../index.html#kursy">Kursy</a>
+      <a href="../index.html#ebooki">Ebooki</a>
+      <a href="../kontakt.html">Kontakt</a>
+    </nav>
+    <span class="jezyk"><a href="../en/plugins/stickytak.html">English</a></span>
+  </div>
+</header>
+<div class="wasko okruszek"><a href="../index.html">Strona główna</a> › <a href="../index.html#urzadzenia">Urządzenia</a> › stickyTAK</div>
+<article class="wasko">
+  
+  <span class="stan">W budowie, etap 1</span>
+  <h1>stickyTAK</h1>
+  <p class="podtytul">Urządzenie z ekranem e-papierowym i wtyczka ATAK-CIV 5.6 i nowszych</p>
+  <p>Zapasowy ekran ATAK-a na oporządzeniu. Pokazuje mapę, własne położenie, markery i alarmy, a po padnięciu telefonu zostaje z ostatnim stanem.</p>
+<h2>Po co to jest</h2>
+<p>Na zawodach telefon z ATAK-iem zalała woda i zespół stracił nawigację. Jeden telefon to pojedynczy punkt awarii.</p>
+<p>stickyTAK to drugi ekran. Telefon leży pod kurtką, a reTerminal Sticky przypięty do oporządzenia pokazuje to, co trzeba widzieć w ruchu. Gdy telefon padnie, Sticky zostaje z mapą i ostatnim stanem misji zapisanym na karcie microSD.</p>
+<h2>Jak działa</h2>
+<p>Wtyczka w ATAK-u wysyła do Sticky przez Bluetooth własne położenie, markery, trasy i alarmy. Mapę przygotowuje z danych OpenStreetMap i przesyła jako paczkę: obszar o promieniu 10 km zajmuje 196 KiB i przechodzi w około 2 sekundy.</p>
+<p>Pasek stanu pokazuje odległość i azymut do następnego punktu trasy. Ze Sticky można wysłać alarm i postawić marker w swoim położeniu.</p>
+<h2>Deszcz i rękawice</h2>
+<p>Ekran dotykowy w deszczu nie nadaje się do pracy: w próbie woda dała około 80 fałszywych dotknięć na minutę. Dlatego każdą funkcję da się wywołać samymi przyciskami, które działają w deszczu i w rękawicach.</p>
+<h2>Stan prac</h2>
+<p>Etap 1 jest w testach na urządzeniu: mapa, położenie, markery, alarmy i aktualizacja przez Wi-Fi. Jedna paczka wtyczki ładuje się na ATAK-CIV 5.6, 5.7 i 5.8.</p>
+<p>Etap 2 doda czat. W etapie 3 Sticky połączy się z serwerem TAK sam, przez Wi-Fi, bez telefonu.</p>
+<p>Zrzut poniżej to obraz ekranu wygenerowany na komputerze, piksel w piksel taki sam jak na urządzeniu.</p>
+<h2>Zrzuty ekranu</h2><div class="zrzuty"><img src="../media/wtyczki/stickytak-1.png" alt="" loading="lazy"></div>
+
+  <p><a href="../index.html">← Wróć na stronę główną</a></p>
+</article>
+
+<footer class="stopka">
+  <div class="szeroko">
+    <nav>
+      <a href="../index.html">Strona główna</a>
+      <a href="../kontakt.html">Kontakt</a>
+      <a href="../prywatnosc.html">Prywatność</a>
+      <a href="https://github.com/uirapuru">GitHub</a>
+    </nav>
+    <p>Grzegorz Kaszuba · <a href="mailto:grzegorzkaszuba84@gmail.com">grzegorzkaszuba84@gmail.com</a> ·
+       <span data-telefon>numer widoczny po włączeniu JavaScriptu</span></p>
+    <p>Strona nie jest powiązana z TAK Product Center ani z żadną instytucją publiczną.</p>
+  </div>
+</footer>
+<script src="../js/tel.js"></script>
+</html>
