@@ -41,6 +41,8 @@ HERO = {
 WTYCZKI = [
     {
         "slug": "taklab-hub",
+        "wersja": "0.29",
+        "data": "2026-11-02",
         "rodzaj": "aplikacja",
         "ikona": "taklab-hub.png",
         "zrzuty": ["taklab-hub-1.jpg", "taklab-hub-2.jpg", "taklab-hub-3.jpg"],
@@ -119,6 +121,8 @@ WTYCZKI = [
     },
     {
         "slug": "snipertak",
+        "wersja": "0.11.1",
+        "data": "2026-10-26",
         "rodzaj": "wtyczka",
         "ikona": "snipertak.png",
         "zrzuty": ["snipertak-1.jpg", "snipertak-2.jpg", "snipertak-3.jpg"],
@@ -204,6 +208,8 @@ WTYCZKI = [
     },
     {
         "slug": "printplugin",
+        "wersja": "1.0.1",
+        "data": "2026-10-18",
         "rodzaj": "wtyczka",
         "ikona": "printplugin.png",
         "zrzuty": ["printplugin-1.jpg", "printplugin-2.jpg", "printplugin-3.jpg"],
@@ -476,6 +482,8 @@ WTYCZKI = [
     },
     {
         "slug": "simpleplugin",
+        "wersja": "0.1",
+        "data": "2026-08-29",
         "rodzaj": "wtyczka",
         "ikona": "simpleplugin.png",
         "zrzuty": [],
@@ -555,6 +563,8 @@ WTYCZKI = [
     },
     {
         "slug": "sarneg",
+        "wersja": "0.1",
+        "data": "2026-09-15",
         "rodzaj": "wtyczka",
         "ikona": "sarneg.png",
         "zrzuty": [],
@@ -636,6 +646,8 @@ WTYCZKI = [
     },
     {
         "slug": "starlinktak",
+        "wersja": "0.2.1",
+        "data": "2026-09-30",
         "rodzaj": "wtyczka",
         "ikona": "starlinktak.png",
         "zrzuty": [],
@@ -709,6 +721,8 @@ WTYCZKI = [
     },
     {
         "slug": "modernui",
+        "wersja": "0.13.0",
+        "data": "2026-10-28",
         "rodzaj": "wtyczka",
         "ikona": "modernui.png",
         "zrzuty": ["modernui-1.jpg", "modernui-2.jpg", "modernui-3.jpg"],
@@ -976,6 +990,8 @@ WTYCZKI = [
     },
     {
         "slug": "mapfit",
+        "wersja": "0.2.2",
+        "data": "2026-10-02",
         "rodzaj": "wtyczka",
         "ikona": "",
         "zrzuty": ["mapfit-1.jpg", "mapfit-2.jpg", "mapfit-3.jpg"],
@@ -1056,6 +1072,8 @@ WTYCZKI = [
     },
     {
         "slug": "sniperkit",
+        "wersja": "0.2",
+        "data": "2026-10-26",
         "rodzaj": "aplikacja",
         "ikona": "sniperkit.png",
         "zrzuty": ["sniperkit-1.jpg", "sniperkit-2.jpg", "sniperkit-3.jpg"],
@@ -1144,6 +1162,8 @@ WTYCZKI = [
     },
     {
         "slug": "snipersticky",
+        "wersja": "0.6.5",
+        "data": "2026-11-09",
         "rodzaj": "urzadzenie",
         "ikona": None,
         "zrzuty": ["snipersticky-foto-1.jpg", "snipersticky-foto-2.jpg",
@@ -1153,7 +1173,7 @@ WTYCZKI = [
         "pl": {
             "nazwa": "sniperSticky",
             "podtytul": "Urządzenie z ekranem e-papierowym",
-            "stan": "Działa, wersja 0.6.5",
+            "stan": "Działa",
             "skrot": (
                 "Kalkulator balistyczny na ekranie e-papierowym, mocowany przy lunecie. "
                 "Liczy poprawki bez telefonu i bez sieci, pogodę i wiatr bierze z Kestrela."
@@ -1199,7 +1219,7 @@ WTYCZKI = [
         "en": {
             "nazwa": "sniperSticky",
             "podtytul": "E-paper device",
-            "stan": "Working, version 0.6.5",
+            "stan": "Working",
             "skrot": (
                 "A ballistic calculator on an e-paper screen, mounted next to the scope. "
                 "It computes corrections with no phone and no network, and reads weather "
@@ -1247,6 +1267,8 @@ WTYCZKI = [
     },
     {
         "slug": "stickytak",
+        "wersja": "0.1.4",
+        "data": "2026-11-10",
         "rodzaj": "urzadzenie",
         "ikona": None,
         "zrzuty": ["stickytak-1.png"],
@@ -1330,6 +1352,8 @@ WTYCZKI = [
     },
     {
         "slug": "ulan",
+        "wersja": "1.8.1",
+        "data": "2026-11-05",
         "rodzaj": "aplikacja",
         "ikona": "ulan.png",
         "zrzuty": ["ulan-1.jpg", "ulan-2.jpg", "ulan-3.jpg"],

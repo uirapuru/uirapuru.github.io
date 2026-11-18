@@ -147,6 +147,23 @@ SERWISY = [
 ]
 
 
+MIESIACE = {
+    "pl": ["stycznia", "lutego", "marca", "kwietnia", "maja", "czerwca", "lipca",
+           "sierpnia", "września", "października", "listopada", "grudnia"],
+    "en": ["January", "February", "March", "April", "May", "June", "July", "August",
+           "September", "October", "November", "December"],
+}
+
+
+def wersja_i_data(w, jezyk):
+    """Napis „Wersja 1.0.1 · 18 października 2026” albo pusty, gdy brak danych."""
+    if not w.get("wersja"):
+        return ""
+    r, m, d = (int(x) for x in w["data"].split("-"))
+    etykieta = "Wersja" if jezyk == "pl" else "Version"
+    return f"{etykieta} {w['wersja']} · {d} {MIESIACE[jezyk][m - 1]} {r}"
+
+
 def u(t):
     return html.escape(str(t), quote=True)
 
@@ -175,7 +192,7 @@ def naglowek(jezyk, glebokosc, tytul, opis, druga_wersja, bez_indeksu=False):
 <title>{u(tytul)}</title>
 <meta name="description" content="{u(opis)}">
 {robots}
-<link rel="stylesheet" href="{r('styl.css')}?v=3">
+<link rel="stylesheet" href="{r('styl.css')}?v=4">
 <link rel="icon" href="{r('favicon.svg')}" type="image/svg+xml">
 
 <header class="pasek">
@@ -312,6 +329,7 @@ def strona_glowna(jezyk):
       {ikona}
       <span class="stan">{u(d['stan'])}</span>
       <h3>{u(d['nazwa'])}</h3>
+      <p class="wersja">{u(wersja_i_data(w, jezyk))}</p>
       <p class="podtytul">{u(d['podtytul'])}</p>
       <p>{u(d['skrot'])}</p>
       <span class="wiecej">{u(e['wiecej'])} →</span>
@@ -471,6 +489,7 @@ def strona_wtyczki(w, jezyk):
   {ikona}
   <span class="stan">{u(d['stan'])}</span>
   <h1>{u(d['nazwa'])}</h1>
+  <p class="wersja">{u(wersja_i_data(w, jezyk))}</p>
   <p class="podtytul">{u(d['podtytul'])}</p>
   <p>{u(d['skrot'])}</p>{sklep}
 {sekcje_html(d['sekcje'])}

@@ -251,6 +251,7 @@ section > .szeroko > p.wstep { color: var(--muted); margin: 0 0 1.8rem; max-widt
 .karta:hover { border-color: var(--accent); color: inherit; transform: translateY(-2px); }
 .karta h3 { margin: 0 0 .1rem; font-size: 1.25rem; letter-spacing: 0.08em; text-transform: uppercase; }
 .karta .podtytul { color: var(--muted); font-size: .95rem; margin: 0 0 .7rem; }
+.karta .wersja, article .wersja { color: var(--accent, #3ee6d6); font-size: .8rem; letter-spacing: .08em; margin: -.2rem 0 .3rem; }
 .karta p { margin: 0 0 1rem; font-size: 1.02rem; }
 .karta .wiecej {
   margin-top: auto;
