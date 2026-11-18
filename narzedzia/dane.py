@@ -11,12 +11,12 @@ HERO = {
         "cytat": "To nie problem jest problemem. Problemem jest twoje nastawienie do problemu.",
         "cytat_autor": "kapitan Jack Sparrow",
         "robie": (
-            "Piszę wtyczki do ATAK-a — aplikacji, na której wojsko i służby prowadzą mapę "
-            "sytuacyjną na telefonie. Stawiam serwery TAK, od Raspberry Pi po Kubernetes. "
-            "Rozgryzam protokoły urządzeń, których producent nie opisał: wiatromierza Kestrel, "
-            "radia Baofeng, dalmierza Leica. Z tego, czego się dowiem, robię ebooki po polsku, "
-            "bo po polsku nikt tego nie napisał. Na strzelecwyborowy.pl prowadzę kursy wideo "
-            "ze strzelania długodystansowego i z ATAK-a."
+            "Zawodowo zajmuję się tworzeniem oprogramowania. Z zamiłowania strzelec "
+            "długodystansowy i grappler. Na strzelecwyborowy.pl prowadzę kursy wideo ze "
+            "strzelania długodystansowego i z ATAK-a. Piszę wtyczki do ATAK-a — aplikacji, na "
+            "której wojsko i służby prowadzą mapę sytuacyjną na telefonie. Stawiam serwery TAK, "
+            "od Raspberry Pi po Kubernetes. Z tego, czego się dowiem, robię ebooki po polsku, "
+            "bo po polsku nikt tego nie napisał."
         ),
         "co_robie_naglowek": "Czym się zajmuję",
     },
@@ -25,12 +25,12 @@ HERO = {
         "cytat": "The problem is not the problem. The problem is your attitude about the problem.",
         "cytat_autor": "Captain Jack Sparrow",
         "robie": (
-            "I write plugins for ATAK — the app the military and emergency services use to run "
-            "a situational map on a phone. I build TAK servers, from a Raspberry Pi to Kubernetes. "
-            "I reverse-engineer device protocols their makers never documented: the Kestrel weather "
-            "meter, Baofeng radios, Leica rangefinders. What I learn goes into books, written in "
-            "Polish, because nobody had written them in Polish. On strzelecwyborowy.pl I run "
-            "video courses on long-range shooting and on ATAK."
+            "By profession I build software. By passion I am a long-range shooter and a "
+            "grappler. On strzelecwyborowy.pl I run video courses on long-range shooting and on "
+            "ATAK. I write plugins for ATAK — the app the military and emergency services use to "
+            "run a situational map on a phone. I build TAK servers, from a Raspberry Pi to "
+            "Kubernetes. What I learn goes into books, written in Polish, because nobody had "
+            "written them in Polish."
         ),
         "co_robie_naglowek": "What I do",
     },
