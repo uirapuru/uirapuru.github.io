@@ -258,7 +258,7 @@ WTYCZKI = [
                          "wtyczki PrintPlugin.",
                 "sekcje": [
                     ("Kontakt",
-                     ["Pytania i zgłoszenia wysyłaj e-mailem na adres uirapuruadg@gmail.com. "
+                     ["Pytania i zgłoszenia wysyłaj e-mailem na adres kontakt@taklab.eu. "
                       "Odpowiadam w ciągu kilku dni. Piszę po polsku i po angielsku."]),
                     ("Jak zgłosić błąd",
                      ["Wyślij e-mail z tematem „PrintPlugin – błąd” i dołącz:",
@@ -390,7 +390,7 @@ WTYCZKI = [
                          "issues for PrintPlugin.",
                 "sekcje": [
                     ("Contact",
-                     ["Send questions and reports by email to uirapuruadg@gmail.com. I reply "
+                     ["Send questions and reports by email to kontakt@taklab.eu. I reply "
                       "within a few days, in English or Polish."]),
                     ("How to report a bug",
                      ["Send an email with the subject „PrintPlugin – bug” and include:",
@@ -773,7 +773,7 @@ WTYCZKI = [
                          "wtyczki Modern UI.",
                 "sekcje": [
                     ("Kontakt",
-                     ["Pytania i zgłoszenia wysyłaj e-mailem na adres uirapuruadg@gmail.com. "
+                     ["Pytania i zgłoszenia wysyłaj e-mailem na adres kontakt@taklab.eu. "
                       "Odpowiadam w ciągu kilku dni. Piszę po polsku i po angielsku."]),
                     ("Jak zgłosić błąd",
                      ["Wyślij e-mail z tematem „Modern UI – błąd” i dołącz:",
@@ -907,7 +907,7 @@ WTYCZKI = [
                          "issues for Modern UI.",
                 "sekcje": [
                     ("Contact",
-                     ["Send questions and reports by email to uirapuruadg@gmail.com. I reply "
+                     ["Send questions and reports by email to kontakt@taklab.eu. I reply "
                       "within a few days, in English or Polish."]),
                     ("How to report a bug",
                      ["Send an email with the subject „Modern UI – bug” and include:",
