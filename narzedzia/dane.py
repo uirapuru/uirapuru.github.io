@@ -7,7 +7,7 @@ GITHUB = "https://github.com/uirapuru"
 
 HERO = {
     "pl": {
-        "motto": "Rozkładam sprzęt i oprogramowanie na części, żeby dało się ich używać.",
+        "motto": "Strzelectwo i komunikacja",
         "cytat": "To nie problem jest problemem. Problemem jest twoje nastawienie do problemu.",
         "cytat_autor": "kapitan Jack Sparrow",
         "robie": (
@@ -21,7 +21,7 @@ HERO = {
         "co_robie_naglowek": "Czym się zajmuję",
     },
     "en": {
-        "motto": "I take hardware and software apart so they become usable.",
+        "motto": "Shooting and communications",
         "cytat": "The problem is not the problem. The problem is your attitude about the problem.",
         "cytat_autor": "Captain Jack Sparrow",
         "robie": (
