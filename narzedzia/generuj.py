@@ -120,8 +120,11 @@ NARZEDZIA = [
     },
     {
         "url": "ballistics/",
-        "pl": ("Kalkulator balistyczny", "Tor pocisku liczony w przeglądarce."),
-        "en": ("Ballistic calculator", "Trajectory solved in the browser."),
+        "pl": ("Animacja toru pocisku", "Poglądowa animacja lotu pocisku: jak kąt lufy, prędkość "
+                                        "i stan powietrza zmieniają tor. Nie służy do liczenia nastaw."),
+        "en": ("Bullet trajectory animation", "An illustrative animation of a bullet in flight: how "
+                                              "barrel angle, velocity and air change the path. Not for "
+                                              "computing corrections."),
     },
 ]
 
