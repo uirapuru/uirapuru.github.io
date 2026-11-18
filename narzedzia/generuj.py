@@ -130,6 +130,33 @@ NARZEDZIA = [
 
 SERWISY = [
     {
+        "url": "https://strzelecwyborowy.pl/",
+        "pl": ("strzelecwyborowy.pl", "Kursy wideo po polsku. „12 strzałów”: strzelanie z karabinu "
+                                      "na duże odległości w 12 etapach, od naboju i zerowania po "
+                                      "wiatr i pracę strzelca z obserwatorem; każdy etap ma filmy "
+                                      "z lektorem, wykład, test i zadanie z tarczą do druku. "
+                                      "„Kurs ATAK”: 49 filmów od instalacji ATAK-CIV, przez mapy "
+                                      "offline i MGRS, po łączenie telefonów przez serwer. Pierwszy "
+                                      "etap każdego kursu jest za darmo."),
+        "en": ("strzelecwyborowy.pl", "Video courses in Polish. „12 strzałów” teaches long-range "
+                                      "rifle shooting in 12 stages, from the cartridge and zeroing "
+                                      "to wind and shooter–spotter work; every stage has narrated "
+                                      "videos, a lecture, a test and a task with a printable "
+                                      "target. „Kurs ATAK” has 49 videos, from installing ATAK-CIV "
+                                      "through offline maps and MGRS to linking phones through a "
+                                      "server. The first stage of each course is free."),
+    },
+    {
+        "url": "https://sharpshooteracademy.com/",
+        "pl": ("sharpshooteracademy.com", "12 Shots, angielskie wydanie kursu „12 strzałów” o strzelaniu "
+                                          "z karabinu na duże odległości. Ma angielskiego lektora "
+                                          "i jednostki imperialne obok metrycznych. Pierwszy etap "
+                                          "jest za darmo."),
+        "en": ("sharpshooteracademy.com", "12 Shots, the English edition of the long-range rifle "
+                                          "course, with English narration and imperial units shown "
+                                          "alongside metric. The first stage is free."),
+    },
+    {
         "url": "https://atakplugins.eu/",
         "pl": ("atakplugins.eu", "Katalog wtyczek, aplikacji i klientów TAK ze zrzutami "
                                  "ekranu i odnośnikami do pobrania. Wtyczki, które ładują się "

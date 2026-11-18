@@ -1456,6 +1456,99 @@ WTYCZKI = [
             "polityka": "https://uirapuru.github.io/ulan/polityka-prywatnosci.html",
         },
     },
+    {
+        "slug": "marksman-course",
+        "rodzaj": "aplikacja",
+        "wersja": "1.1.0",
+        "data": "2026-11-13",
+        "ikona": "marksman-course.png",
+        "zrzuty": ["marksman-course-1.jpg", "marksman-course-2.jpg"],
+        "repo": None,
+        "sklep": "https://play.google.com/store/apps/details?id=pl.uirapuru.marksmancourse",
+        "pl": {
+            "nazwa": "Kurs Strzelców Wyborowych",
+            "podtytul": "Aplikacja na Androida",
+            "stan": "W Google Play",
+            "skrot": (
+                "Kurs „12 strzałów” w telefonie, po polsku albo po angielsku: 12 rozdziałów, "
+                "159 filmów z lektorem i napisami, test po każdym rozdziale. Filmy można "
+                "pobrać i oglądać bez internetu."
+            ),
+            "sekcje": [
+                ("Po co to jest",
+                 ["Kurs „12 strzałów” działa na strzelecwyborowy.pl, w przeglądarce, po "
+                  "zalogowaniu. Na strzelnicy albo w terenie wygodniej mieć go w telefonie, "
+                  "bez konta i bez sieci.",
+                  "Aplikacja ma te same filmy co kurs na stronie. Kupione rozdziały są "
+                  "przypisane do konta Google, więc wracają na nowym telefonie."]),
+                ("Jak działa",
+                 [("lista",
+                   ["Rozdział 1 jest bezpłatny. Rozdziały od 2 do 12 kupujesz osobno "
+                    "w aplikacji, przez Google Play.",
+                    "Rozdziały przechodzisz po kolei. Następny otwiera się, gdy obejrzysz "
+                    "filmy poprzedniego i zaliczysz test.",
+                    "Test ma 10 losowych pytań. Do zaliczenia potrzeba 8 dobrych "
+                    "odpowiedzi. Prób jest bez limitu.",
+                    "Każdy rozdział ma kartę strzelania do druku, a część rozdziałów także "
+                    "tarcze."])]),
+                ("Bez internetu",
+                 ["Filmy są strumieniowane z serwera. Cały rozdział można też pobrać na "
+                  "telefon. Pobrane filmy są zaszyfrowane i grają bez sieci. Menu, testy "
+                  "i statystyki działają bez internetu."]),
+                ("Dwa języki",
+                 ["Od wersji 1.1.0 aplikacja ma też angielskie wydanie kursu, Sharpshooter "
+                  "Academy. Język wybierasz przy pierwszym uruchomieniu, a zmieniasz go "
+                  "w ekranie „O aplikacji”. Kupiony rozdział otwiera się w obu językach."]),
+                ("Prywatność",
+                 ["Aplikacja nie ma konta ani logowania, reklam ani analityki. Do serwera "
+                  "wysyła tylko token zakupu Google Play, numer rozdziału i język kursu, żeby "
+                  "wydać filmy kupionego rozdziału."]),
+            ],
+            "polityka": "https://uirapuru.github.io/marksman-course/polityka-prywatnosci.html",
+        },
+        "en": {
+            "nazwa": "Kurs Strzelców Wyborowych / Sharpshooter Academy",
+            "podtytul": "Android app",
+            "stan": "On Google Play",
+            "skrot": (
+                "The 12 Shots course on a phone, in Polish or English: 12 chapters, 159 "
+                "narrated and subtitled videos, a test after every chapter. Videos can be "
+                "downloaded and watched offline."
+            ),
+            "sekcje": [
+                ("Why it exists",
+                 ["The 12 Shots course runs on strzelecwyborowy.pl, in a browser, after "
+                  "signing in. At the range or in the field it is handier on a phone, with "
+                  "no account and no network.",
+                  "The app has the same videos as the course on the website. Purchased "
+                  "chapters belong to your Google account, so they come back on a new "
+                  "phone."]),
+                ("How it works",
+                 [("lista",
+                   ["Chapter 1 is free. Chapters 2 to 12 are bought separately in the app, "
+                    "through Google Play.",
+                    "Chapters unlock in order. The next one opens once you have watched the "
+                    "videos of the previous one and passed its test.",
+                    "A test has 10 random questions. Passing takes 8 correct answers. "
+                    "Attempts are unlimited.",
+                    "Every chapter has a printable shooting card, and some chapters also "
+                    "have targets."])]),
+                ("Offline",
+                 ["Videos stream from a server. You can also download a whole chapter to "
+                  "the phone. Downloaded videos are encrypted and play without a network. "
+                  "Menus, tests and statistics work offline."]),
+                ("Two languages",
+                 ["Since version 1.1.0 the app also has the English edition of the course, "
+                  "Sharpshooter Academy. You pick the language on first launch and change it "
+                  "under „About”. A purchased chapter opens in both languages."]),
+                ("Privacy",
+                 ["The app has no account, no login, no adverts and no analytics. It sends "
+                  "the server only a Google Play purchase token, a chapter number and the "
+                  "course language, to release the videos of a purchased chapter."]),
+            ],
+            "polityka": "https://uirapuru.github.io/marksman-course/polityka-prywatnosci.html",
+        },
+    },
 ]
 
 # --- kursy -----------------------------------------------------------------
@@ -1487,17 +1580,6 @@ KURSY = [
                "voice. The last module has scenarios for soldiers, hunters, rescuers, "
                "local authorities and airsoft players. The introduction and module 1 are "
                "free. In Polish."),
-    },
-    {
-        "url": "https://play.google.com/store/apps/details?id=pl.uirapuru.marksmancourse",
-        "pl": ("Kurs Strzelców Wyborowych",
-               "Kurs „12 strzałów” jako aplikacja na Androida w Google Play: 159 filmów "
-               "z lektorem i napisami oraz test po każdym rozdziale. Filmy można pobrać "
-               "i oglądać bez internetu. Pierwszy rozdział jest za darmo."),
-        "en": ("Marksman Course app",
-               "The 12 Shots course as an Android app on Google Play: 159 narrated, "
-               "subtitled videos and a test after every chapter. Videos can be downloaded "
-               "and watched offline. The first chapter is free."),
     },
 ]
 
