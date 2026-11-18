@@ -795,13 +795,17 @@ WTYCZKI = [
                      ["Wtyczka nie zbiera danych i nie wysyła niczego przez internet. Nie ma "
                       "kodu sieciowego, bibliotek analitycznych ani reklam. Nie deklaruje "
                       "żadnych uprawnień Androida.",
-                      "Do ramki stanów wtyczka odczytuje na urządzeniu stan połączenia "
-                      "z serwerami TAK, dokładność GPS i stan sieci komórkowej. Pokazuje je na "
-                      "ekranie i nigdzie nie zapisuje. Nie czyta współrzędnych, numeru "
+                      "Na ekranie wtyczka pokazuje dane, które odczytuje z ATAK-a i telefonu: "
+                      "własne położenie (współrzędne, wysokość, kierunek, prędkość, dokładność "
+                      "GPS) ze znakiem wywoławczym, stan połączenia z serwerami TAK i stan sieci "
+                      "komórkowej. Niczego z tego nie zapisuje ani nie wysyła. Nie czyta numeru "
                       "telefonu ani treści wiadomości.",
+                      "Na Twoje polecenie wtyczka włącza albo wyłącza połączenie z serwerem TAK "
+                      "i ustawienie ATAK-a „Ukryj moją aktualną pozycję”.",
                       "W ustawieniach ATAK-a wtyczka zapisuje wybrany tryb interfejsu, "
                       "orientację ekranu, układ paska narzędzi, położenie pasków i okien oraz "
-                      "motywy. Motyw trafia do pliku tylko wtedy, gdy wyeksportujesz go sam.",
+                      "motywy. Motyw trafia do pliku w katalogu atak/tools/modernui/themes tylko "
+                      "wtedy, gdy wyeksportujesz go sam.",
                       ("odnosnik", "Pełna polityka prywatności (po angielsku)",
                        "modernui/privacy-policy.html")]),
                     ("Najczęściej zadawane pytania",
@@ -926,13 +930,17 @@ WTYCZKI = [
                      ["The plugin collects no data and sends nothing over the internet. It has "
                       "no networking code, no analytics libraries and no adverts. It declares "
                       "no Android permissions.",
-                      "For the status box the plugin reads, on the device, the connection "
-                      "state of your TAK servers, the GPS accuracy and the mobile network "
-                      "state. It shows them on screen and stores them nowhere. It does not "
-                      "read your coordinates, phone number or message contents.",
+                      "On screen the plugin shows data it reads from ATAK and the phone: your "
+                      "own position (coordinates, altitude, heading, speed, GPS accuracy) with "
+                      "your callsign, the connection state of your TAK servers and the mobile "
+                      "network state. It stores and sends none of it. It does not read your "
+                      "phone number or message contents.",
+                      "At your request the plugin turns a TAK server connection on or off and "
+                      "switches the ATAK setting „Hide my current location”.",
                       "In the ATAK settings the plugin stores the selected interface mode, the "
                       "screen orientation, the tool bar layout, bar and window positions, and "
-                      "themes. A theme goes to a file only when you export it yourself.",
+                      "themes. A theme goes to a file in atak/tools/modernui/themes only when you "
+                      "export it yourself.",
                       ("odnosnik", "Full privacy policy", "modernui/privacy-policy.html")]),
                     ("Frequently asked questions",
                      [("pytania",

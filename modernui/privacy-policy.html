@@ -15,20 +15,16 @@ a { color: #1b6f4f; } li { margin: .3rem 0; }
 </head>
 <body>
 <h1>Privacy Policy — Modern UI</h1>
-
-<p>Last updated: 28 September 2026 (version 0.3)</p>
+<p>Last updated: 18 November 2026 (version 0.13.0)</p>
 
 <p>Modern UI is a plugin for ATAK-CIV developed by Grzegorz Kaszuba ("the developer").</p>
-<p>The plugin replaces the ATAK toolbar with a compact portrait interface. It adds no features of
-its own: every icon starts a function that ATAK already has. The plugin runs entirely on the
-device.</p>
+<p>The plugin replaces the ATAK toolbar with a compact portrait interface. Almost every icon
+starts a function that ATAK already has. The plugin runs entirely on the device.</p>
 
 <h2>Data the plugin collects</h2>
-
-<p>None. The plugin does not collect, transmit, or share any personal or device data.</p>
-
+<p>None. The plugin does not send any personal or device data to the developer or to any third
+party.</p>
 <p>Specific facts behind that statement:</p>
-
 <ul>
 <li>The plugin declares no Android permissions of its own.</li>
 <li>The plugin contains no networking code. It opens no connections and sends nothing to
@@ -38,51 +34,61 @@ device.</p>
 <li>The plugin has no user account, no login, and never asks for an email address.</li>
 </ul>
 
-<h2>Information the plugin reads to show status</h2>
-
-<p>The plugin shows three status indicators. To draw them it reads, on the device and only while
-the new interface is on screen:</p>
-
+<h2>Information the plugin reads and shows</h2>
+<p>While the new interface is on screen, the plugin reads the following from ATAK and from the
+phone, on the device, and shows it on screen:</p>
 <ul>
-<li>whether ATAK is connected to the TAK servers you configured in ATAK,</li>
-<li>whether ATAK has a GPS position and how accurate it is, in metres,</li>
-<li>the mobile signal level, whether a SIM card is ready, and whether airplane mode is on.</li>
+<li>your own position as ATAK knows it — coordinates, altitude, heading, speed and GPS
+  accuracy — and your callsign, in the location field,</li>
+<li>whether ATAK is connected to each TAK server you configured,</li>
+<li>the mobile signal level, whether a SIM card is ready, and whether airplane mode is on,</li>
+<li>the number of unread chat messages that ATAK already shows on its own contacts button,</li>
+<li>the list of ATAK tools and the toolbar buttons of other installed plugins (name and icon).</li>
 </ul>
+<p>These values are shown and then discarded. They are not stored, logged, or sent anywhere.
+The plugin does not read message contents, contact details, your phone number, or SIM
+identifiers.</p>
 
-<p>These values are shown on screen and then discarded. They are not stored, logged, or sent
-anywhere. The plugin does not read your position coordinates, phone number, or SIM identifiers.</p>
+<h2>ATAK settings the plugin can change at your request</h2>
+<ul>
+<li>Turning a TAK server connection on or off from the server list.</li>
+<li>The ATAK setting „Hide my current location”, from the location field. ATAK then stops
+  sharing your position with others.</li>
+<li>Setting your position by hand, which opens the ATAK tool for that.</li>
+<li>The screen orientation.</li>
+</ul>
+<p>The plugin changes these settings only when you choose the matching item.</p>
 
-<h2>Settings the plugin stores</h2>
+<h2>Data the plugin stores</h2>
+<p>In the ATAK settings on the device the plugin stores: the selected interface (new or
+standard), the screen orientation from before the new interface was first turned on, the
+positions of the bars, the status box and the ATAK windows, the tools you placed on your tool
+bar, and your themes.</p>
+<p>When you export a theme, the plugin writes it as a JSON file to
+<code>atak/tools/modernui/themes</code> on the device. When you import themes, it reads the
+files you pick. A theme file holds colours, transparency and text size only.</p>
 
-<p>The plugin writes these entries into the ATAK settings on the device: which interface is
-selected (new or standard), the screen orientation you had before the new interface was first
-turned on, the position of the status box, the position of the tool bar, and the list of tools you
-placed on that bar. It also switches the existing ATAK setting that forces portrait orientation.
-It creates no files and no database.</p>
+<h2>The start screen</h2>
+<p>The Modern UI icon in the phone's app menu opens a start screen. To show whether ATAK-CIV is
+installed, the screen checks for that one app on the device. It reads no other information about
+installed apps.</p>
 
-<h2>Information the plugin reads to build the tool bar</h2>
-
-<p>To offer tools for the bar, the plugin reads the list of ATAK toolbar tools and the toolbar
-buttons of other installed plugins (name and icon), and the number of unread chat messages that
-ATAK already shows on its own contacts button. This happens on the device. The plugin does not
-read message contents or contact details.</p>
+<h2>Data handled by ATAK</h2>
+<p>Modern UI runs inside ATAK-CIV. What ATAK does with your position, chat and map data is
+governed by ATAK-CIV and by the TAK servers you configure there. This policy covers only
+Modern UI.</p>
 
 <h2>Distribution through Google Play</h2>
-
 <p>Google Play collects installation and crash data on its own terms, independently of the plugin.
-See the <a href="https://policies.google.com/privacy">Google Play Services privacy policy</a>.</p>
+See the <a href="https://policies.google.com/privacy">Google Privacy Policy</a>.</p>
 
 <h2>Children</h2>
-
 <p>The plugin is intended for users aged 18 or over. It is not directed at children.</p>
 
 <h2>Changes to this policy</h2>
-
 <p>Changes will be published on this page with a new date at the top.</p>
 
 <h2>Contact</h2>
-
 <p>Questions about this policy: <a href="mailto:uirapuruadg@gmail.com">uirapuruadg@gmail.com</a></p>
-
 </body>
 </html>
