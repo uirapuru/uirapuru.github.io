@@ -135,6 +135,7 @@ NARZEDZIA = [
 SERWISY = [
     {
         "url": "https://strzelecwyborowy.pl/",
+        "miniatura": "strzelecwyborowy.jpg",
         "pl": ("strzelecwyborowy.pl", "Kursy wideo po polsku. „12 strzałów”: strzelanie z karabinu "
                                       "na duże odległości w 12 etapach, od naboju i zerowania po "
                                       "wiatr i pracę strzelca z obserwatorem; każdy etap ma filmy "
@@ -152,6 +153,7 @@ SERWISY = [
     },
     {
         "url": "https://sharpshooteracademy.com/",
+        "miniatura": "sharpshooteracademy.jpg",
         "pl": ("sharpshooteracademy.com", "12 Shots, angielskie wydanie kursu „12 strzałów” o strzelaniu "
                                           "z karabinu na duże odległości. Ma angielskiego lektora "
                                           "i jednostki imperialne obok metrycznych. Pierwszy etap "
@@ -171,6 +173,7 @@ SERWISY = [
     },
     {
         "url": "https://taklab.eu/",
+        "miniatura": "taklab.jpg",
         "pl": ("taklab.eu", "Własny serwer TAK na ćwiczenie, kurs albo akcję, postawiony "
                             "w chmurze w pięć minut. Z mapą CloudTAK, czatem i łącznością "
                             "głosową."),
@@ -454,7 +457,10 @@ def strona_glowna(jezyk):
     karty = []
     for n in SERWISY:
         tytul, opis = n[jezyk]
+        miniatura = (f'<img class="miniatura" src="{r("media/serwisy/" + n["miniatura"])}" '
+                     f'alt="" loading="lazy">' if n.get("miniatura") else "")
         karty.append(f"""    <a class="karta" href="{u(n['url'])}">
+      {miniatura}
       <h3>{u(tytul)}</h3>
       <p>{u(opis)}</p>
       <span class="wiecej">{u(e['wiecej'])} →</span>
@@ -464,7 +470,7 @@ def strona_glowna(jezyk):
   <div class="szeroko">
     <h2>{u(e['serwisy_naglowek'])}</h2>
     <p class="wstep">{u(e['serwisy_wstep'])}</p>
-    <div class="siatka">
+    <div class="siatka pary">
 {chr(10).join(karty)}
     </div>
   </div>
