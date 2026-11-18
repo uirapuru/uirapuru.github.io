@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="pl">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>sniperSticky — Grzegorz Kaszuba</title>
+<meta name="description" content="Kalkulator balistyczny na ekranie e-papierowym, mocowany przy lunecie. Liczy poprawki bez telefonu i bez sieci, pogodę i wiatr bierze z Kestrela.">
+
+<link rel="stylesheet" href="../styl.css?v=2">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+
+<header class="pasek">
+  <div class="szeroko">
+    <a class="marka" href="../index.html">Grzegorz Kaszuba</a>
+    <nav>
+      <a href="../index.html#wtyczki">Wtyczki</a>
+      <a href="../index.html#kursy">Kursy</a>
+      <a href="../index.html#ebooki">Ebooki</a>
+      <a href="../kontakt.html">Kontakt</a>
+    </nav>
+    <span class="jezyk"><a href="../en/plugins/snipersticky.html">English</a></span>
+  </div>
+</header>
+<div class="wasko okruszek"><a href="../index.html">Strona główna</a> › <a href="../index.html#wtyczki">Wtyczki</a> › sniperSticky</div>
+<article class="wasko">
+  
+  <span class="stan">Działa, wersja 0.6.5</span>
+  <h1>sniperSticky</h1>
+  <p class="podtytul">Urządzenie z ekranem e-papierowym</p>
+  <p>Kalkulator balistyczny na ekranie e-papierowym, mocowany przy lunecie. Liczy poprawki bez telefonu i bez sieci, pogodę i wiatr bierze z Kestrela.</p>
+<h2>Po co to jest</h2>
+<p>Telefon przy karabinie przeszkadza. Trzeba go odblokować, ekran gaśnie, a w pełnym słońcu trudno coś odczytać.</p>
+<p>Ekran e-papierowy jest czytelny w pełnym słońcu i zużywa prąd tylko przy zmianie obrazu. sniperSticky pokazuje na nim nastawę dla wybranego celu dużymi cyframi, które widać bez odrywania oka od broni.</p>
+<h2>Sprzęt</h2>
+<p>Program działa na reTerminal Sticky firmy Seeed: mikrokontroler ESP32-S3, ekran 3,97 cala o rozdzielczości 800 × 480, akumulator 750 mAh, masa 70 g. Oprogramowanie napisałem od zera w C++.</p>
+<h2>Co liczy i pokazuje</h2>
+<ul><li>nastawę w pionie i w poziomie w tysięcznych dla jednego celu albo dla czterech celów naraz,</li><li>kartę odległości z celami na łukach odległości i tabelę poprawek co 100 m,</li><li>przechył boczny broni,</li><li>oddany strzał, wykryty akcelerometrem.</li></ul>
+<p>Silnik balistyczny jest przepisany z SniperTAK. Wyniki różnią się od wtyczki najwyżej o 0,05 tysięcznej.</p>
+<p>Gdy brakuje danych, w miejscu liczby stoi „--”. Program nie podstawia wartości domyślnych.</p>
+<h2>Współpraca z Kestrelem</h2>
+<p>Sticky łączy się z wiatromierzem Kestrel 5700 przez Bluetooth. Pobiera z niego pogodę, wiatr, profile broni i cele. Może też pokazywać nastawy policzone przez sam Kestrel. Protokół Kestrela odtworzyłem wcześniej przy wtyczce SniperTAK.</p>
+<h2>Stan prac</h2>
+<p>Działa wersja 0.6.5. Nowe wersje Sticky pobiera sam przez Wi-Fi, a profile i cele zostają w pamięci.</p>
+<p>Następna wersja dodaje nastawy w minutach kątowych (MOA). W przygotowaniu są połączenia z dalmierzami Vortex Impact 4000 i Leica CRF 2700-B oraz wymiana celów i profili z wtyczką SniperTAK.</p>
+<p>Zrzuty poniżej to obraz ekranu wygenerowany na komputerze, piksel w piksel taki sam jak na urządzeniu.</p>
+<h2>Zrzuty ekranu</h2><div class="zrzuty"><img src="../media/wtyczki/snipersticky-1.png" alt="" loading="lazy"><img src="../media/wtyczki/snipersticky-2.png" alt="" loading="lazy"><img src="../media/wtyczki/snipersticky-3.png" alt="" loading="lazy"></div>
+
+  <p><a href="../index.html">← Wróć na stronę główną</a></p>
+</article>
+
+<footer class="stopka">
+  <div class="szeroko">
+    <nav>
+      <a href="../index.html">Strona główna</a>
+      <a href="../kontakt.html">Kontakt</a>
+      <a href="../prywatnosc.html">Prywatność</a>
+      <a href="https://github.com/uirapuru">GitHub</a>
+    </nav>
+    <p>Grzegorz Kaszuba · <a href="mailto:grzegorzkaszuba84@gmail.com">grzegorzkaszuba84@gmail.com</a> ·
+       <span data-telefon>numer widoczny po włączeniu JavaScriptu</span></p>
+    <p>Strona nie jest powiązana z TAK Product Center ani z żadną instytucją publiczną.</p>
+  </div>
+</footer>
+<script src="../js/tel.js"></script>
+</html>

@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>sniperSticky — Grzegorz Kaszuba</title>
+<meta name="description" content="A ballistic calculator on an e-paper screen, mounted next to the scope. It computes corrections with no phone and no network, and reads weather and wind from a Kestrel.">
+
+<link rel="stylesheet" href="../../styl.css?v=2">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+
+<header class="pasek">
+  <div class="szeroko">
+    <a class="marka" href="../../en/index.html">Grzegorz Kaszuba</a>
+    <nav>
+      <a href="../../en/index.html#wtyczki">Plugins</a>
+      <a href="../../en/index.html#kursy">Courses</a>
+      <a href="../../en/index.html#ebooki">Books</a>
+      <a href="../../en/contact.html">Contact</a>
+    </nav>
+    <span class="jezyk"><a href="../../wtyczki/snipersticky.html">Polski</a></span>
+  </div>
+</header>
+<div class="wasko okruszek"><a href="../../en/index.html">Home</a> › <a href="../../en/index.html#wtyczki">Plugins</a> › sniperSticky</div>
+<article class="wasko">
+  
+  <span class="stan">Working, version 0.6.5</span>
+  <h1>sniperSticky</h1>
+  <p class="podtytul">E-paper device</p>
+  <p>A ballistic calculator on an e-paper screen, mounted next to the scope. It computes corrections with no phone and no network, and reads weather and wind from a Kestrel.</p>
+<h2>Why it exists</h2>
+<p>A phone on a rifle gets in the way. It has to be unlocked, the screen goes dark, and it is hard to read in full sun.</p>
+<p>An e-paper screen is readable in full sun and draws power only when the image changes. sniperSticky shows the correction for the selected target in large digits you can read without leaving the rifle.</p>
+<h2>Hardware</h2>
+<p>The program runs on the Seeed reTerminal Sticky: an ESP32-S3 microcontroller, a 3.97-inch 800 × 480 screen, a 750 mAh battery, 70 g. I wrote the firmware from scratch in C++.</p>
+<h2>What it computes and shows</h2>
+<ul><li>elevation and windage in mils for one target or for four targets at once,</li><li>a range card with targets on range arcs and a correction table every 100 m,</li><li>rifle cant,</li><li>a fired shot, detected by the accelerometer.</li></ul>
+<p>The ballistic engine is ported from SniperTAK. Results differ from the plugin by 0.05 mil at most.</p>
+<p>When data is missing, the number is replaced by „--”. The program never fills in default values.</p>
+<h2>Working with a Kestrel</h2>
+<p>The Sticky connects to a Kestrel 5700 weather meter over Bluetooth. It reads weather, wind, rifle profiles and targets, and can also show the corrections computed by the Kestrel itself. I had reverse-engineered the Kestrel protocol earlier for the SniperTAK plugin.</p>
+<h2>Status</h2>
+<p>Version 0.6.5 works. The Sticky downloads new versions by itself over Wi-Fi, and profiles and targets stay in memory.</p>
+<p>The next version adds corrections in minutes of angle (MOA). Links to the Vortex Impact 4000 and Leica CRF 2700-B rangefinders and target and profile exchange with the SniperTAK plugin are in progress.</p>
+<p>The screenshots below are rendered on a computer, pixel for pixel the same as on the device.</p>
+<h2>Screenshots</h2><div class="zrzuty"><img src="../../media/wtyczki/snipersticky-1.png" alt="" loading="lazy"><img src="../../media/wtyczki/snipersticky-2.png" alt="" loading="lazy"><img src="../../media/wtyczki/snipersticky-3.png" alt="" loading="lazy"></div>
+
+  <p><a href="../../en/index.html">← Back to the home page</a></p>
+</article>
+
+<footer class="stopka">
+  <div class="szeroko">
+    <nav>
+      <a href="../../en/index.html">Home</a>
+      <a href="../../en/contact.html">Contact</a>
+      <a href="../../en/privacy.html">Privacy</a>
+      <a href="https://github.com/uirapuru">GitHub</a>
+    </nav>
+    <p>Grzegorz Kaszuba · <a href="mailto:grzegorzkaszuba84@gmail.com">grzegorzkaszuba84@gmail.com</a> ·
+       <span data-telefon>number shown once JavaScript is enabled</span></p>
+    <p>This site is not affiliated with TAK Product Center or any public institution.</p>
+  </div>
+</footer>
+<script src="../../js/tel.js"></script>
+</html>

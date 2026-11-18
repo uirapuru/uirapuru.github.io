@@ -15,7 +15,8 @@ HERO = {
             "sytuacyjną na telefonie. Stawiam serwery TAK, od Raspberry Pi po Kubernetes. "
             "Rozgryzam protokoły urządzeń, których producent nie opisał: wiatromierza Kestrel, "
             "radia Baofeng, dalmierza Leica. Z tego, czego się dowiem, robię ebooki po polsku, "
-            "bo po polsku nikt tego nie napisał."
+            "bo po polsku nikt tego nie napisał. Na strzelecwyborowy.pl prowadzę kursy wideo "
+            "ze strzelania długodystansowego i z ATAK-a."
         ),
         "co_robie_naglowek": "Czym się zajmuję",
     },
@@ -28,7 +29,8 @@ HERO = {
             "a situational map on a phone. I build TAK servers, from a Raspberry Pi to Kubernetes. "
             "I reverse-engineer device protocols their makers never documented: the Kestrel weather "
             "meter, Baofeng radios, Leica rangefinders. What I learn goes into books, written in "
-            "Polish, because nobody had written them in Polish."
+            "Polish, because nobody had written them in Polish. On strzelecwyborowy.pl I run "
+            "video courses on long-range shooting and on ATAK."
         ),
         "co_robie_naglowek": "What I do",
     },
@@ -45,7 +47,7 @@ WTYCZKI = [
         "pl": {
             "nazwa": "TakLab Hub",
             "podtytul": "Aplikacja na Androida",
-            "stan": "Zgłoszona do Google Play",
+            "stan": "Test zamknięty w Google Play",
             "skrot": (
                 "Doprowadza telefon od stanu pustego do działającego klienta ATAK. Pobiera "
                 "katalog, instaluje ATAK i wtyczki ze sprawdzeniem sumy kontrolnej, zakłada "
@@ -69,16 +71,19 @@ WTYCZKI = [
                   "dodaje operatorów, wydaje im paczki połączeniowe i pokazuje kod QR do "
                   "rejestracji."]),
                 ("Stan prac",
-                 ["Aplikacja działa na telefonie. Instalacja ATAK-a i wtyczek jest gotowa. "
-                  "Obsługa środowisk serwerowych działa na atrapie API, bo samo API dopiero "
-                  "powstaje. Mapy i VPN to na razie ekrany bez działania."]),
+                 ["Wersja 0.29 jest w teście zamkniętym w Google Play. Instalacja ATAK-a "
+                  "i wtyczek jest gotowa. Pozycja „Mój serwer” zakłada środowiska na "
+                  "taklab.eu, także serwer kupiony na stronie.",
+                  "Od wersji 0.29 telefon sam może być serwerem TAK. Pozostałe telefony "
+                  "w tej samej sieci Wi-Fi łączą się z nim bez chmury i bez internetu: "
+                  "wymieniają pozycje, czat i obraz z kamer."]),
             ],
             "polityka": "https://uirapuru.github.io/taklab-hub/prywatnosc.html",
         },
         "en": {
             "nazwa": "TakLab Hub",
             "podtytul": "Android app",
-            "stan": "Submitted to Google Play",
+            "stan": "Closed testing on Google Play",
             "skrot": (
                 "Takes a phone from empty to a working ATAK client. Fetches a catalogue, "
                 "installs ATAK and its plugins with checksum verification, and provisions a "
@@ -101,9 +106,12 @@ WTYCZKI = [
                   "TakLab API, adds operators, issues their connection packages, and shows a QR "
                   "code for enrolment."]),
                 ("Status",
-                 ["The app runs on a phone. Installing ATAK and plugins is finished. Server "
-                  "environments run against a stub API, because the API itself is still being "
-                  "built. Maps and VPN are screens without function for now."]),
+                 ["Version 0.29 is in closed testing on Google Play. Installing ATAK and "
+                  "plugins is finished. The „My server” screen provisions environments on "
+                  "taklab.eu, including a server bought on the website.",
+                  "Since 0.29 the phone itself can act as a TAK server. Other phones on the "
+                  "same Wi-Fi network connect to it with no cloud and no internet, and share "
+                  "positions, chat and camera video."]),
             ],
             "polityka": "https://uirapuru.github.io/taklab-hub/prywatnosc.html",
         },
@@ -143,6 +151,13 @@ WTYCZKI = [
                   "Bluetooth Kestrela nie jest opisany publicznie, więc odtworzyłem go od zera, "
                   "nasłuchując transmisji. Opis protokołu jest częścią moich notatek "
                   "z rozkładania sprzętu na części."]),
+                ("Ostatnie zmiany",
+                 ["Wersja 0.11 dostała model oporu G7 liczony z tablicy, poprawkę na strzał "
+                  "pod kątem w górę i w dół oraz efekt Coriolisa liczony jako pełny wektor. "
+                  "Wyniki sprawdziłem niezależnym programem: różnica w nastawie pionowej "
+                  "wynosi najwyżej 1 %.",
+                  "Ten sam silnik liczy w aplikacjach SniperKIT i Ułan oraz w urządzeniu "
+                  "sniperSticky."]),
             ],
             "polityka": "https://uirapuru.github.io/sniperTAK/privacy-policy.html",
         },
@@ -174,6 +189,13 @@ WTYCZKI = [
                  ["Conditions can be typed in or read from a Kestrel weather meter. Kestrel's "
                   "Bluetooth protocol is not publicly documented, so I reconstructed it from "
                   "scratch by listening to the traffic."]),
+                ("Recent changes",
+                 ["Version 0.11 added a table-based G7 drag model, a correction for uphill "
+                  "and downhill shots, and Coriolis computed as a full vector. I checked the "
+                  "results against an independent program: elevation differs by 1 % at "
+                  "most.",
+                  "The same engine runs in the SniperKIT and Ułan apps and in the "
+                  "sniperSticky device."]),
             ],
             "polityka": "https://uirapuru.github.io/sniperTAK/privacy-policy.html",
         },
@@ -350,7 +372,7 @@ WTYCZKI = [
         "pl": {
             "nazwa": "Sarneg",
             "podtytul": "Wtyczka ATAK-CIV 5.8",
-            "stan": "W Google Play",
+            "stan": "Test zamknięty w Google Play",
             "skrot": (
                 "Szyfruje liczby w wiadomości szyfrem SARNEG i zostawia resztę tekstu "
                 "czytelną. Nic nie zapisuje na urządzeniu."
@@ -386,7 +408,7 @@ WTYCZKI = [
         "en": {
             "nazwa": "Sarneg",
             "podtytul": "ATAK-CIV 5.8 plugin",
-            "stan": "On Google Play",
+            "stan": "Closed testing on Google Play",
             "skrot": (
                 "Encrypts the numbers in a message with the SARNEG cipher and leaves the rest "
                 "of the text readable. It writes nothing to the device."
@@ -751,14 +773,115 @@ WTYCZKI = [
         },
     },
     {
+        "slug": "snipersticky",
+        "ikona": None,
+        "zrzuty": ["snipersticky-1.png", "snipersticky-2.png", "snipersticky-3.png"],
+        "repo": None,
+        "pl": {
+            "nazwa": "sniperSticky",
+            "podtytul": "Urządzenie z ekranem e-papierowym",
+            "stan": "Działa, wersja 0.6.5",
+            "skrot": (
+                "Kalkulator balistyczny na ekranie e-papierowym, mocowany przy lunecie. "
+                "Liczy poprawki bez telefonu i bez sieci, pogodę i wiatr bierze z Kestrela."
+            ),
+            "sekcje": [
+                ("Po co to jest",
+                 ["Telefon przy karabinie przeszkadza. Trzeba go odblokować, ekran gaśnie, "
+                  "a w pełnym słońcu trudno coś odczytać.",
+                  "Ekran e-papierowy jest czytelny w pełnym słońcu i zużywa prąd tylko przy "
+                  "zmianie obrazu. sniperSticky pokazuje na nim nastawę dla wybranego celu "
+                  "dużymi cyframi, które widać bez odrywania oka od broni."]),
+                ("Sprzęt",
+                 ["Program działa na reTerminal Sticky firmy Seeed: mikrokontroler ESP32-S3, "
+                  "ekran 3,97 cala o rozdzielczości 800 × 480, akumulator 750 mAh, masa 70 g. "
+                  "Oprogramowanie napisałem od zera w C++."]),
+                ("Co liczy i pokazuje",
+                 [("lista",
+                   ["nastawę w pionie i w poziomie w tysięcznych dla jednego celu albo "
+                    "dla czterech celów naraz,",
+                    "kartę odległości z celami na łukach odległości i tabelę poprawek co 100 m,",
+                    "przechył boczny broni,",
+                    "oddany strzał, wykryty akcelerometrem."]),
+                  "Silnik balistyczny jest przepisany z SniperTAK. Wyniki różnią się od "
+                  "wtyczki najwyżej o 0,05 tysięcznej.",
+                  "Gdy brakuje danych, w miejscu liczby stoi „--”. Program nie podstawia "
+                  "wartości domyślnych."]),
+                ("Współpraca z Kestrelem",
+                 ["Sticky łączy się z wiatromierzem Kestrel 5700 przez Bluetooth. Pobiera "
+                  "z niego pogodę, wiatr, profile broni i cele. Może też pokazywać nastawy "
+                  "policzone przez sam Kestrel. Protokół Kestrela odtworzyłem wcześniej przy "
+                  "wtyczce SniperTAK."]),
+                ("Stan prac",
+                 ["Działa wersja 0.6.5. Nowe wersje Sticky pobiera sam przez Wi-Fi, a profile "
+                  "i cele zostają w pamięci.",
+                  "Następna wersja dodaje nastawy w minutach kątowych (MOA). W przygotowaniu "
+                  "są połączenia z dalmierzami Vortex Impact 4000 i Leica CRF 2700-B oraz "
+                  "wymiana celów i profili z wtyczką SniperTAK.",
+                  "Zrzuty poniżej to obraz ekranu wygenerowany na komputerze, piksel w piksel "
+                  "taki sam jak na urządzeniu."]),
+            ],
+            "polityka": None,
+        },
+        "en": {
+            "nazwa": "sniperSticky",
+            "podtytul": "E-paper device",
+            "stan": "Working, version 0.6.5",
+            "skrot": (
+                "A ballistic calculator on an e-paper screen, mounted next to the scope. "
+                "It computes corrections with no phone and no network, and reads weather "
+                "and wind from a Kestrel."
+            ),
+            "sekcje": [
+                ("Why it exists",
+                 ["A phone on a rifle gets in the way. It has to be unlocked, the screen "
+                  "goes dark, and it is hard to read in full sun.",
+                  "An e-paper screen is readable in full sun and draws power only when the "
+                  "image changes. sniperSticky shows the correction for the selected target "
+                  "in large digits you can read without leaving the rifle."]),
+                ("Hardware",
+                 ["The program runs on the Seeed reTerminal Sticky: an ESP32-S3 "
+                  "microcontroller, a 3.97-inch 800 × 480 screen, a 750 mAh battery, 70 g. "
+                  "I wrote the firmware from scratch in C++."]),
+                ("What it computes and shows",
+                 [("lista",
+                   ["elevation and windage in mils for one target or for four targets at "
+                    "once,",
+                    "a range card with targets on range arcs and a correction table every "
+                    "100 m,",
+                    "rifle cant,",
+                    "a fired shot, detected by the accelerometer."]),
+                  "The ballistic engine is ported from SniperTAK. Results differ from the "
+                  "plugin by 0.05 mil at most.",
+                  "When data is missing, the number is replaced by „--”. The program never "
+                  "fills in default values."]),
+                ("Working with a Kestrel",
+                 ["The Sticky connects to a Kestrel 5700 weather meter over Bluetooth. It "
+                  "reads weather, wind, rifle profiles and targets, and can also show the "
+                  "corrections computed by the Kestrel itself. I had reverse-engineered the "
+                  "Kestrel protocol earlier for the SniperTAK plugin."]),
+                ("Status",
+                 ["Version 0.6.5 works. The Sticky downloads new versions by itself over "
+                  "Wi-Fi, and profiles and targets stay in memory.",
+                  "The next version adds corrections in minutes of angle (MOA). Links to the "
+                  "Vortex Impact 4000 and Leica CRF 2700-B rangefinders and target and "
+                  "profile exchange with the SniperTAK plugin are in progress.",
+                  "The screenshots below are rendered on a computer, pixel for pixel the "
+                  "same as on the device."]),
+            ],
+            "polityka": None,
+        },
+    },
+    {
         "slug": "ulan",
         "ikona": "ulan.png",
         "zrzuty": ["ulan-1.jpg", "ulan-2.jpg", "ulan-3.jpg"],
         "repo": None,
+        "sklep": "https://play.google.com/store/apps/details?id=pl.uirapuru.ulan",
         "pl": {
             "nazwa": "Ułan",
             "podtytul": "Aplikacja na Androida",
-            "stan": "Test zamknięty w Google Play",
+            "stan": "W Google Play",
             "skrot": (
                 "Kalkulatory, filmy z lektorem i karty wiedzy do szkolenia indywidualnego "
                 "żołnierza. Działa bez internetu i nie zbiera żadnych danych."
@@ -801,7 +924,7 @@ WTYCZKI = [
         "en": {
             "nazwa": "Ułan",
             "podtytul": "Android app",
-            "stan": "Closed testing on Google Play",
+            "stan": "On Google Play",
             "skrot": (
                 "Calculators, narrated videos and knowledge cards for the individual "
                 "training of a soldier. Works offline and collects no data."
@@ -843,6 +966,49 @@ WTYCZKI = [
             ],
             "polityka": "https://uirapuru.github.io/ulan/polityka-prywatnosci.html",
         },
+    },
+]
+
+# --- kursy -----------------------------------------------------------------
+
+KURSY = [
+    {
+        "url": "https://strzelecwyborowy.pl/course/view.php?id=2",
+        "pl": ("12 strzałów",
+               "Strzelanie z karabinu na duże odległości w 12 etapach: od naboju i zerowania "
+               "po wiatr i pracę w parze strzelec–obserwator. Każdy etap ma filmy "
+               "z lektorem, wykład, test i zadanie strzeleckie z tarczą do druku. Pierwszy "
+               "etap jest za darmo."),
+        "en": ("12 Shots",
+               "Long-range rifle shooting in 12 stages, from the cartridge and zeroing to "
+               "wind and working as a shooter–spotter pair. Each stage has narrated videos, "
+               "a lecture, a test and a shooting task with a printable target. The first "
+               "stage is free. In Polish."),
+    },
+    {
+        "url": "https://strzelecwyborowy.pl/course/view.php?id=4",
+        "pl": ("Kurs ATAK",
+               "49 filmów od instalacji ATAK-CIV, przez mapy offline i współrzędne MGRS, "
+               "do połączenia telefonów przez serwer z czatem, wideo i głosem. Ostatni "
+               "moduł to scenariusze dla żołnierzy, myśliwych, ratowników, samorządów "
+               "i graczy ASG. Wstęp i moduł 1 są za darmo."),
+        "en": ("ATAK course",
+               "49 videos, from installing ATAK-CIV through offline maps and MGRS "
+               "coordinates to connecting phones through a server with chat, video and "
+               "voice. The last module has scenarios for soldiers, hunters, rescuers, "
+               "local authorities and airsoft players. The introduction and module 1 are "
+               "free. In Polish."),
+    },
+    {
+        "url": "https://play.google.com/store/apps/details?id=pl.uirapuru.marksmancourse",
+        "pl": ("Kurs Strzelców Wyborowych",
+               "Kurs „12 strzałów” jako aplikacja na Androida w Google Play: 159 filmów "
+               "z lektorem i napisami oraz test po każdym rozdziale. Filmy można pobrać "
+               "i oglądać bez internetu. Pierwszy rozdział jest za darmo."),
+        "en": ("Marksman Course app",
+               "The 12 Shots course as an Android app on Google Play: 159 narrated, "
+               "subtitled videos and a test after every chapter. Videos can be downloaded "
+               "and watched offline. The first chapter is free."),
     },
 ]
 

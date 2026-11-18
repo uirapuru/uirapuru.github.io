@@ -11,7 +11,7 @@ import os
 import sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from dane import MARKA, EMAIL, GITHUB, HERO, WTYCZKI, EBOOKI  # noqa: E402
+from dane import MARKA, EMAIL, GITHUB, HERO, WTYCZKI, EBOOKI, KURSY  # noqa: E402
 
 EBOOKI = [b for b in EBOOKI if not b.get("ukryty")]
 
@@ -24,10 +24,13 @@ E = {
         "start": "Strona główna",
         "wtyczki": "Wtyczki",
         "ebooki": "Ebooki",
+        "kursy": "Kursy",
+        "kursy_wstep": "Kursy wideo, które prowadzę na strzelecwyborowy.pl.",
+        "do_kursu": "Przejdź do kursu",
         "kontakt": "Kontakt",
         "prywatnosc": "Prywatność",
         "drugi_jezyk": "English",
-        "wtyczki_wstep": "Wtyczki do ATAK-a i aplikacje na Androida. "
+        "wtyczki_wstep": "Wtyczki do ATAK-a, aplikacje na Androida i jedno urządzenie. "
                          "Każda powstała, bo czegoś brakowało mnie samemu.",
         "ebooki_wstep": "Książki do pobrania za darmo, w formacie PDF. "
                         "Część napisałem, część przetłumaczyłem.",
@@ -56,10 +59,13 @@ E = {
         "start": "Home",
         "wtyczki": "Plugins",
         "ebooki": "Books",
+        "kursy": "Courses",
+        "kursy_wstep": "Video courses I run on strzelecwyborowy.pl.",
+        "do_kursu": "Go to the course",
         "kontakt": "Contact",
         "prywatnosc": "Privacy",
         "drugi_jezyk": "Polski",
-        "wtyczki_wstep": "ATAK plugins and Android apps. Each exists because something was "
+        "wtyczki_wstep": "ATAK plugins, Android apps and one device. Each exists because something was "
                          "missing for me first.",
         "ebooki_wstep": "Free PDF downloads. Some I wrote, some I translated.",
         "wiecej": "Read more",
@@ -157,6 +163,7 @@ def naglowek(jezyk, glebokosc, tytul, opis, druga_wersja, bez_indeksu=False):
     <a class="marka" href="{r(sciezka(jezyk, 'index.html'))}">{u(MARKA)}</a>
     <nav>
       <a href="{r(sciezka(jezyk, 'index.html'))}#wtyczki">{u(e['wtyczki'])}</a>
+      <a href="{r(sciezka(jezyk, 'index.html'))}#kursy">{u(e['kursy'])}</a>
       <a href="{r(sciezka(jezyk, 'index.html'))}#ebooki">{u(e['ebooki'])}</a>
       <a href="{r(sciezka(jezyk, 'kontakt.html' if jezyk == 'pl' else 'contact.html'))}">{u(e['kontakt'])}</a>
     </nav>
@@ -289,6 +296,27 @@ def strona_glowna(jezyk):
 </section>
 """)
 
+    # kursy
+    karty = []
+    for k in KURSY:
+        tytul, opis = k[jezyk]
+        karty.append(f"""    <a class="karta" href="{u(k['url'])}">
+      <h3>{u(tytul)}</h3>
+      <p>{u(opis)}</p>
+      <span class="wiecej">{u(e['do_kursu'])} →</span>
+    </a>""")
+    czesci.append(f"""
+<section id="kursy" class="przemienna">
+  <div class="szeroko">
+    <h2>{u(e['kursy'])}</h2>
+    <p class="wstep">{u(e['kursy_wstep'])}</p>
+    <div class="siatka">
+{chr(10).join(karty)}
+    </div>
+  </div>
+</section>
+""")
+
     # ebooki
     karty = []
     for b in EBOOKI:
@@ -302,7 +330,7 @@ def strona_glowna(jezyk):
       <span class="wiecej">{u(e['wiecej'])} →</span>
     </a>""")
     czesci.append(f"""
-<section id="ebooki" class="przemienna">
+<section id="ebooki">
   <div class="szeroko">
     <h2>{u(e['ebooki'])}</h2>
     <p class="wstep">{u(e['ebooki_wstep'])}</p>
@@ -323,7 +351,7 @@ def strona_glowna(jezyk):
       <span class="wiecej">{u(e['wiecej'])} →</span>
     </a>""")
     czesci.append(f"""
-<section id="narzedzia">
+<section id="narzedzia" class="przemienna">
   <div class="szeroko">
     <h2>{u(e['narzedzia_naglowek'])}</h2>
     <p class="wstep">{u(e['narzedzia_wstep'])}</p>
@@ -344,7 +372,7 @@ def strona_glowna(jezyk):
       <span class="wiecej">{u(e['wiecej'])} →</span>
     </a>""")
     czesci.append(f"""
-<section id="serwisy" class="przemienna">
+<section id="serwisy">
   <div class="szeroko">
     <h2>{u(e['serwisy_naglowek'])}</h2>
     <p class="wstep">{u(e['serwisy_wstep'])}</p>

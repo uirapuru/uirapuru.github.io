@@ -13,6 +13,7 @@
     <a class="marka" href="../en/index.html">Grzegorz Kaszuba</a>
     <nav>
       <a href="../en/index.html#wtyczki">Plugins</a>
+      <a href="../en/index.html#kursy">Courses</a>
       <a href="../en/index.html#ebooki">Books</a>
       <a href="../en/contact.html">Contact</a>
     </nav>
@@ -25,7 +26,7 @@
     <h1>Grzegorz Kaszuba</h1>
     <p class="motto">I take hardware and software apart so they become usable.</p>
     <blockquote>The problem is not the problem. The problem is your attitude about the problem.<cite>— Captain Jack Sparrow</cite></blockquote>
-    <p class="robie">I write plugins for ATAK — the app the military and emergency services use to run a situational map on a phone. I build TAK servers, from a Raspberry Pi to Kubernetes. I reverse-engineer device protocols their makers never documented: the Kestrel weather meter, Baofeng radios, Leica rangefinders. What I learn goes into books, written in Polish, because nobody had written them in Polish.</p>
+    <p class="robie">I write plugins for ATAK — the app the military and emergency services use to run a situational map on a phone. I build TAK servers, from a Raspberry Pi to Kubernetes. I reverse-engineer device protocols their makers never documented: the Kestrel weather meter, Baofeng radios, Leica rangefinders. What I learn goes into books, written in Polish, because nobody had written them in Polish. On strzelecwyborowy.pl I run video courses on long-range shooting and on ATAK.</p>
     <div class="kontakt-pasek">
       <span>Email: <a href="mailto:grzegorzkaszuba84@gmail.com">grzegorzkaszuba84@gmail.com</a></span>
       <span>Phone: <span data-telefon>number shown once JavaScript is enabled</span></span>
@@ -38,11 +39,11 @@
 <section id="wtyczki">
   <div class="szeroko">
     <h2>Plugins</h2>
-    <p class="wstep">ATAK plugins and Android apps. Each exists because something was missing for me first.</p>
+    <p class="wstep">ATAK plugins, Android apps and one device. Each exists because something was missing for me first.</p>
     <div class="siatka pary">
     <a class="karta karta-wtyczka" href="../en/plugins/taklab-hub.html">
       <img class="ikona" src="../media/wtyczki/taklab-hub.png" alt="">
-      <span class="stan">Submitted to Google Play</span>
+      <span class="stan">Closed testing on Google Play</span>
       <h3>TakLab Hub</h3>
       <p class="podtytul">Android app</p>
       <p>Takes a phone from empty to a working ATAK client. Fetches a catalogue, installs ATAK and its plugins with checksum verification, and provisions a server environment.</p>
@@ -74,7 +75,7 @@
     </a>
     <a class="karta karta-wtyczka" href="../en/plugins/sarneg.html">
       <img class="ikona" src="../media/wtyczki/sarneg.png" alt="">
-      <span class="stan">On Google Play</span>
+      <span class="stan">Closed testing on Google Play</span>
       <h3>Sarneg</h3>
       <p class="podtytul">ATAK-CIV 5.8 plugin</p>
       <p>Encrypts the numbers in a message with the SARNEG cipher and leaves the rest of the text readable. It writes nothing to the device.</p>
@@ -112,9 +113,17 @@
       <p>The SniperTAK ballistic calculator as a standalone app with its own map. No ATAK and no TAK server needed.</p>
       <span class="wiecej">Read more →</span>
     </a>
+    <a class="karta karta-wtyczka" href="../en/plugins/snipersticky.html">
+      
+      <span class="stan">Working, version 0.6.5</span>
+      <h3>sniperSticky</h3>
+      <p class="podtytul">E-paper device</p>
+      <p>A ballistic calculator on an e-paper screen, mounted next to the scope. It computes corrections with no phone and no network, and reads weather and wind from a Kestrel.</p>
+      <span class="wiecej">Read more →</span>
+    </a>
     <a class="karta karta-wtyczka" href="../en/plugins/ulan.html">
       <img class="ikona" src="../media/wtyczki/ulan.png" alt="">
-      <span class="stan">Closed testing on Google Play</span>
+      <span class="stan">On Google Play</span>
       <h3>Ułan</h3>
       <p class="podtytul">Android app</p>
       <p>Calculators, narrated videos and knowledge cards for the individual training of a soldier. Works offline and collects no data.</p>
@@ -124,7 +133,31 @@
   </div>
 </section>
 
-<section id="ebooki" class="przemienna">
+<section id="kursy" class="przemienna">
+  <div class="szeroko">
+    <h2>Courses</h2>
+    <p class="wstep">Video courses I run on strzelecwyborowy.pl.</p>
+    <div class="siatka">
+    <a class="karta" href="https://strzelecwyborowy.pl/course/view.php?id=2">
+      <h3>12 Shots</h3>
+      <p>Long-range rifle shooting in 12 stages, from the cartridge and zeroing to wind and working as a shooter–spotter pair. Each stage has narrated videos, a lecture, a test and a shooting task with a printable target. The first stage is free. In Polish.</p>
+      <span class="wiecej">Go to the course →</span>
+    </a>
+    <a class="karta" href="https://strzelecwyborowy.pl/course/view.php?id=4">
+      <h3>ATAK course</h3>
+      <p>49 videos, from installing ATAK-CIV through offline maps and MGRS coordinates to connecting phones through a server with chat, video and voice. The last module has scenarios for soldiers, hunters, rescuers, local authorities and airsoft players. The introduction and module 1 are free. In Polish.</p>
+      <span class="wiecej">Go to the course →</span>
+    </a>
+    <a class="karta" href="https://play.google.com/store/apps/details?id=pl.uirapuru.marksmancourse">
+      <h3>Marksman Course app</h3>
+      <p>The 12 Shots course as an Android app on Google Play: 159 narrated, subtitled videos and a test after every chapter. Videos can be downloaded and watched offline. The first chapter is free.</p>
+      <span class="wiecej">Go to the course →</span>
+    </a>
+    </div>
+  </div>
+</section>
+
+<section id="ebooki">
   <div class="szeroko">
     <h2>Books</h2>
     <p class="wstep">Free PDF downloads. Some I wrote, some I translated.</p>
@@ -161,7 +194,7 @@
   </div>
 </section>
 
-<section id="narzedzia">
+<section id="narzedzia" class="przemienna">
   <div class="szeroko">
     <h2>Browser tools</h2>
     <p class="wstep">Things that work without installing anything.</p>
@@ -180,7 +213,7 @@
   </div>
 </section>
 
-<section id="serwisy" class="przemienna">
+<section id="serwisy">
   <div class="szeroko">
     <h2>Sites</h2>
     <p class="wstep">Sites I run.</p>

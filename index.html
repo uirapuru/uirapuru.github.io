@@ -13,6 +13,7 @@
     <a class="marka" href="index.html">Grzegorz Kaszuba</a>
     <nav>
       <a href="index.html#wtyczki">Wtyczki</a>
+      <a href="index.html#kursy">Kursy</a>
       <a href="index.html#ebooki">Ebooki</a>
       <a href="kontakt.html">Kontakt</a>
     </nav>
@@ -25,7 +26,7 @@
     <h1>Grzegorz Kaszuba</h1>
     <p class="motto">Rozkładam sprzęt i oprogramowanie na części, żeby dało się ich używać.</p>
     <blockquote>To nie problem jest problemem. Problemem jest twoje nastawienie do problemu.<cite>— kapitan Jack Sparrow</cite></blockquote>
-    <p class="robie">Piszę wtyczki do ATAK-a — aplikacji, na której wojsko i służby prowadzą mapę sytuacyjną na telefonie. Stawiam serwery TAK, od Raspberry Pi po Kubernetes. Rozgryzam protokoły urządzeń, których producent nie opisał: wiatromierza Kestrel, radia Baofeng, dalmierza Leica. Z tego, czego się dowiem, robię ebooki po polsku, bo po polsku nikt tego nie napisał.</p>
+    <p class="robie">Piszę wtyczki do ATAK-a — aplikacji, na której wojsko i służby prowadzą mapę sytuacyjną na telefonie. Stawiam serwery TAK, od Raspberry Pi po Kubernetes. Rozgryzam protokoły urządzeń, których producent nie opisał: wiatromierza Kestrel, radia Baofeng, dalmierza Leica. Z tego, czego się dowiem, robię ebooki po polsku, bo po polsku nikt tego nie napisał. Na strzelecwyborowy.pl prowadzę kursy wideo ze strzelania długodystansowego i z ATAK-a.</p>
     <div class="kontakt-pasek">
       <span>E-mail: <a href="mailto:grzegorzkaszuba84@gmail.com">grzegorzkaszuba84@gmail.com</a></span>
       <span>Telefon: <span data-telefon>numer widoczny po włączeniu JavaScriptu</span></span>
@@ -38,11 +39,11 @@
 <section id="wtyczki">
   <div class="szeroko">
     <h2>Wtyczki</h2>
-    <p class="wstep">Wtyczki do ATAK-a i aplikacje na Androida. Każda powstała, bo czegoś brakowało mnie samemu.</p>
+    <p class="wstep">Wtyczki do ATAK-a, aplikacje na Androida i jedno urządzenie. Każda powstała, bo czegoś brakowało mnie samemu.</p>
     <div class="siatka pary">
     <a class="karta karta-wtyczka" href="wtyczki/taklab-hub.html">
       <img class="ikona" src="media/wtyczki/taklab-hub.png" alt="">
-      <span class="stan">Zgłoszona do Google Play</span>
+      <span class="stan">Test zamknięty w Google Play</span>
       <h3>TakLab Hub</h3>
       <p class="podtytul">Aplikacja na Androida</p>
       <p>Doprowadza telefon od stanu pustego do działającego klienta ATAK. Pobiera katalog, instaluje ATAK i wtyczki ze sprawdzeniem sumy kontrolnej, zakłada środowisko serwerowe.</p>
@@ -74,7 +75,7 @@
     </a>
     <a class="karta karta-wtyczka" href="wtyczki/sarneg.html">
       <img class="ikona" src="media/wtyczki/sarneg.png" alt="">
-      <span class="stan">W Google Play</span>
+      <span class="stan">Test zamknięty w Google Play</span>
       <h3>Sarneg</h3>
       <p class="podtytul">Wtyczka ATAK-CIV 5.8</p>
       <p>Szyfruje liczby w wiadomości szyfrem SARNEG i zostawia resztę tekstu czytelną. Nic nie zapisuje na urządzeniu.</p>
@@ -112,9 +113,17 @@
       <p>Kalkulator balistyczny SniperTAK jako osobna aplikacja z własną mapą. Nie potrzebuje ATAK-a ani serwera TAK.</p>
       <span class="wiecej">Czytaj dalej →</span>
     </a>
+    <a class="karta karta-wtyczka" href="wtyczki/snipersticky.html">
+      
+      <span class="stan">Działa, wersja 0.6.5</span>
+      <h3>sniperSticky</h3>
+      <p class="podtytul">Urządzenie z ekranem e-papierowym</p>
+      <p>Kalkulator balistyczny na ekranie e-papierowym, mocowany przy lunecie. Liczy poprawki bez telefonu i bez sieci, pogodę i wiatr bierze z Kestrela.</p>
+      <span class="wiecej">Czytaj dalej →</span>
+    </a>
     <a class="karta karta-wtyczka" href="wtyczki/ulan.html">
       <img class="ikona" src="media/wtyczki/ulan.png" alt="">
-      <span class="stan">Test zamknięty w Google Play</span>
+      <span class="stan">W Google Play</span>
       <h3>Ułan</h3>
       <p class="podtytul">Aplikacja na Androida</p>
       <p>Kalkulatory, filmy z lektorem i karty wiedzy do szkolenia indywidualnego żołnierza. Działa bez internetu i nie zbiera żadnych danych.</p>
@@ -124,7 +133,31 @@
   </div>
 </section>
 
-<section id="ebooki" class="przemienna">
+<section id="kursy" class="przemienna">
+  <div class="szeroko">
+    <h2>Kursy</h2>
+    <p class="wstep">Kursy wideo, które prowadzę na strzelecwyborowy.pl.</p>
+    <div class="siatka">
+    <a class="karta" href="https://strzelecwyborowy.pl/course/view.php?id=2">
+      <h3>12 strzałów</h3>
+      <p>Strzelanie z karabinu na duże odległości w 12 etapach: od naboju i zerowania po wiatr i pracę w parze strzelec–obserwator. Każdy etap ma filmy z lektorem, wykład, test i zadanie strzeleckie z tarczą do druku. Pierwszy etap jest za darmo.</p>
+      <span class="wiecej">Przejdź do kursu →</span>
+    </a>
+    <a class="karta" href="https://strzelecwyborowy.pl/course/view.php?id=4">
+      <h3>Kurs ATAK</h3>
+      <p>49 filmów od instalacji ATAK-CIV, przez mapy offline i współrzędne MGRS, do połączenia telefonów przez serwer z czatem, wideo i głosem. Ostatni moduł to scenariusze dla żołnierzy, myśliwych, ratowników, samorządów i graczy ASG. Wstęp i moduł 1 są za darmo.</p>
+      <span class="wiecej">Przejdź do kursu →</span>
+    </a>
+    <a class="karta" href="https://play.google.com/store/apps/details?id=pl.uirapuru.marksmancourse">
+      <h3>Kurs Strzelców Wyborowych</h3>
+      <p>Kurs „12 strzałów” jako aplikacja na Androida w Google Play: 159 filmów z lektorem i napisami oraz test po każdym rozdziale. Filmy można pobrać i oglądać bez internetu. Pierwszy rozdział jest za darmo.</p>
+      <span class="wiecej">Przejdź do kursu →</span>
+    </a>
+    </div>
+  </div>
+</section>
+
+<section id="ebooki">
   <div class="szeroko">
     <h2>Ebooki</h2>
     <p class="wstep">Książki do pobrania za darmo, w formacie PDF. Część napisałem, część przetłumaczyłem.</p>
@@ -161,7 +194,7 @@
   </div>
 </section>
 
-<section id="narzedzia">
+<section id="narzedzia" class="przemienna">
   <div class="szeroko">
     <h2>Narzędzia w przeglądarce</h2>
     <p class="wstep">Rzeczy, które działają bez instalowania czegokolwiek.</p>
@@ -180,7 +213,7 @@
   </div>
 </section>
 
-<section id="serwisy" class="przemienna">
+<section id="serwisy">
   <div class="szeroko">
     <h2>Serwisy</h2>
     <p class="wstep">Strony, które prowadzę.</p>
