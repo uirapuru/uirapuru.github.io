@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="pl">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PrintPlugin — Wsparcie — Grzegorz Kaszuba</title>
+<meta name="description" content="Kontakt, zgłaszanie błędów, prywatność, częste pytania i znane błędy wtyczki PrintPlugin.">
+
+<link rel="stylesheet" href="../styl.css?v=3">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+
+<header class="pasek">
+  <div class="szeroko">
+    <a class="marka" href="../index.html">Grzegorz Kaszuba</a>
+    <nav>
+      <a href="../index.html#urzadzenia">Urządzenia</a>
+      <a href="../index.html#aplikacje">Aplikacje</a>
+      <a href="../index.html#wtyczki">Wtyczki</a>
+      <a href="../index.html#kursy">Kursy</a>
+      <a href="../index.html#ebooki">Ebooki</a>
+      <a href="../kontakt.html">Kontakt</a>
+    </nav>
+    <span class="jezyk"><a href="../en/plugins/printplugin-support.html">English</a></span>
+  </div>
+</header>
+<div class="wasko okruszek"><a href="../index.html">Strona główna</a> › <a href="../index.html#wtyczki">Wtyczki</a> › <a href="../wtyczki/printplugin.html">PrintPlugin</a> › Wsparcie</div>
+<article class="wasko">
+  <h1>PrintPlugin — Wsparcie</h1>
+  <p class="podtytul">Kontakt, zgłaszanie błędów, prywatność, częste pytania i znane błędy wtyczki PrintPlugin.</p>
+<h2>Kontakt</h2>
+<p>Pytania i zgłoszenia wysyłaj e-mailem na adres uirapuruadg@gmail.com. Odpowiadam w ciągu kilku dni. Piszę po polsku i po angielsku.</p>
+<h2>Jak zgłosić błąd</h2>
+<p>Wyślij e-mail z tematem „PrintPlugin – błąd” i dołącz:</p>
+<ul><li>napis z wersją wtyczki z ekranu startowego, na przykład „Wersja 1.0.1 [5.8.0] (paczka 8)”; ekran startowy otwiera ikona Print Plugin w menu aplikacji telefonu,</li><li>wersję ATAK-CIV; znajdziesz ją w ustawieniach Androida, w części Aplikacje → ATAK,</li><li>model telefonu i wersję Androida,</li><li>ustawienia z okna „Eksport mapy”: format, tło, siatkę MGRS, skalę i arkusz topograficzny,</li><li>opis kroków, po których pojawia się błąd, i oczekiwany wynik,</li><li>zrzut ekranu podglądu albo plik wynikowy, jeżeli eksport się udał.</li></ul>
+<p>Bez wersji wtyczki i wersji ATAK-CIV nie da się odtworzyć błędu. Wtyczka nie wysyła raportów sama, więc e-mail jest jedynym źródłem informacji o błędzie.</p>
+<h2>Prywatność</h2>
+<p>Wtyczka nie zbiera danych i nie wysyła niczego przez internet. Nie ma kodu sieciowego, bibliotek analitycznych ani reklam. Nie prosi o dostęp do pamięci telefonu.</p>
+<p>Arkusze w trakcie eksportu leżą w katalogu tymczasowym ATAK-a i znikają przy kolejnym uruchomieniu wtyczki. Gotowy plik trafia tylko do miejsca, które wskażesz w systemowym oknie zapisu.</p>
+<p><a href="../printplugin/privacy-policy.html">Pełna polityka prywatności (po angielsku)</a></p>
+<h2>Najczęściej zadawane pytania</h2>
+<h3>Gdzie znajdę przycisk Print?</h3><p>Na pasku narzędzi ATAK-a. Jeżeli go nie ma, otwórz menu paska narzędzi (ikona koła zębatego) i wybierz „All tools &amp; plugins”.</p><h3>Ikona Print Plugin w menu telefonu nie drukuje mapy. Dlaczego?</h3><p>Ikona otwiera tylko ekran startowy z instrukcją i wersją. Eksport działa wyłącznie w ATAK-u, przyciskiem Print.</p><h3>Na jakich wersjach ATAK-a działa wtyczka?</h3><p>Na ATAK-CIV 5.5, 5.7 i 5.8. Jedna paczka działa na wszystkich trzech.</p><h3>Jak wydrukować mapę w skali, żeby mierzyć linijką?</h3><p>Wybierz skalę stałą, na przykład 1:25 000, i format PDF. Przy druku ustaw papier A4 i rozmiar 100 %, bez dopasowania do strony. Po druku zmierz linijką podziałkę i porównaj z jej opisem.</p><h3>Dlaczego dostaję kilka arkuszy?</h3><p>Przy skali stałej kadr, który nie mieści się na jednym arkuszu A4, wtyczka dzieli na arkusze numerowane wierszami od lewego górnego. „Dopasuj do kadru” daje zawsze jeden arkusz.</p><h3>Czy wtyczka działa bez internetu?</h3><p>Tak. Drukuje kafelki, które ATAK ma w pamięci. Bez kafelków wybierz „Białe tło”: arkusz będzie miał obiekty i siatkę MGRS.</p><h3>Jak dołączyć do testów?</h3><p>Wtyczka jest w teście zamkniętym w Google Play. Napisz e-mail z adresem Gmail, którego używasz w Sklepie Play, a dopiszę go do listy testerów.</p>
+<h2>Znane błędy i ograniczenia</h2>
+<table><thead><tr><th>Objaw</th><th>Przyczyna</th><th>Co zrobić</th></tr></thead><tbody><tr><td>Po naciśnięciu OK nic się nie dzieje.</td><td>Mapa pokazuje cały glob.</td><td>Przybliż mapę i powtórz eksport.</td></tr><tr><td>Część arkusza jest biała, a siatka i opisy są na miejscu.</td><td>ATAK nie ma kafelków podkładu dla tego terenu.</td><td>Przewiń mapę po całym terenie, żeby ATAK pobrał kafelki, albo wybierz „Białe tło”.</td></tr><tr><td>Komunikat „Wyłącz przechylenie mapy”.</td><td>Przy przechylonej mapie skala nie jest jednolita.</td><td>Wyłącz widok 3D i powtórz eksport w skali stałej.</td></tr><tr><td>Eksport w skali stałej zostaje odrzucony.</td><td>Kadr wymaga więcej niż 16 arkuszy.</td><td>Zmniejsz kadr albo wybierz skalę 1:50 000 lub 1:100 000.</td></tr><tr><td>Komunikat „Eksport jest już przygotowywany”.</td><td>Wtyczka robi jeden eksport naraz.</td><td>Poczekaj na podgląd.</td></tr><tr><td>Wydruk ma inną skalę niż napis na arkuszu.</td><td>Drukarka dopasowała arkusz do strony.</td><td>Drukuj w rozmiarze 100 %, bez dopasowania do strony.</td></tr><tr><td>Komunikat „Systemowe okno zapisu jest niedostępne”.</td><td>Android nie otworzył okna wyboru pliku.</td><td>Uruchom ponownie ATAK i powtórz eksport.</td></tr><tr><td>Przy „Dopasuj do kadru” po bokach mapy jest biały pas.</td><td>Ekran telefonu jest wyższy niż arkusz A4, a wtyczka nie rozciąga mapy.</td><td>To zamierzone. Wybierz skalę stałą, żeby wypełnić arkusz.</td></tr><tr><td>Wtyczka mówi w innym języku niż ATAK.</td><td>Wtyczka bierze język z ustawień telefonu. ATAK nie pozwala ustawić osobnego języka dla aplikacji.</td><td>Zmień język telefonu. Obsługiwane są polski i angielski.</td></tr></tbody></table>
+  <p><a href="printplugin.html">← PrintPlugin</a></p>
+</article>
+
+<footer class="stopka">
+  <div class="szeroko">
+    <nav>
+      <a href="../index.html">Strona główna</a>
+      <a href="../kontakt.html">Kontakt</a>
+      <a href="../prywatnosc.html">Prywatność</a>
+      <a href="https://github.com/uirapuru">GitHub</a>
+    </nav>
+    <p>Grzegorz Kaszuba · <a href="mailto:grzegorzkaszuba84@gmail.com">grzegorzkaszuba84@gmail.com</a> ·
+       <span data-telefon>numer widoczny po włączeniu JavaScriptu</span></p>
+    <p>Strona nie jest powiązana z TAK Product Center ani z żadną instytucją publiczną.</p>
+  </div>
+</footer>
+<script src="../js/tel.js"></script>
+</html>

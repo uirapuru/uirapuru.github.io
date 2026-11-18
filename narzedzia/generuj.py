@@ -48,6 +48,8 @@ E = {
         "telefon_bez_js": "numer widoczny po włączeniu JavaScriptu",
         "zrzuty": "Zrzuty ekranu",
         "film": "Film",
+        "wsparcie": "Wsparcie",
+        "wsparcie_link": "Wsparcie, zgłaszanie błędów i częste pytania",
         "zdjecia": "Zdjęcia",
         "polityka_apki": "Polityka prywatności aplikacji",
         "repo": "Kod źródłowy",
@@ -89,6 +91,8 @@ E = {
         "telefon_bez_js": "number shown once JavaScript is enabled",
         "zrzuty": "Screenshots",
         "film": "Video",
+        "wsparcie": "Support",
+        "wsparcie_link": "Support, bug reports and FAQ",
         "zdjecia": "Photos",
         "polityka_apki": "App privacy policy",
         "repo": "Source code",
@@ -229,15 +233,20 @@ def blok(tresc):
             "<tr>" + "".join(f"<td>{u(k)}</td>" for k in w) + "</tr>" for w in tresc[2]
         )
         return f"<table><thead><tr>{naglowki}</tr></thead><tbody>{wiersze}</tbody></table>"
+    if rodzaj == "pytania":
+        return "".join(f"<h3>{u(q)}</h3><p>{u(a)}</p>" for q, a in tresc[1])
     raise ValueError(f"nieznany rodzaj bloku: {rodzaj}")
 
 
-def sekcje_html(sekcje):
+def sekcje_html(sekcje, r=None):
     czesci = []
     for tytul, tresci in sekcje:
         czesci.append(f"<h2>{u(tytul)}</h2>")
         for t in tresci:
-            czesci.append(blok(t))
+            if isinstance(t, tuple) and t[0] == "odnosnik":
+                czesci.append(f'<p><a href="{u(r(t[2]))}">{u(t[1])}</a></p>')
+            else:
+                czesci.append(blok(t))
     return "\n".join(czesci)
 
 
@@ -446,6 +455,9 @@ def strona_wtyczki(w, jezyk):
                   + zrzuty)
 
     linki = []
+    if d.get("wsparcie"):
+        linki.append(f'<a href="{w["slug"]}-{"wsparcie" if jezyk == "pl" else "support"}.html">'
+                     f'{u(e["wsparcie_link"])}</a>')
     if w["repo"]:
         linki.append(f'<a href="{u(w["repo"])}">{u(e["repo"])}</a>')
     if d["polityka"]:
@@ -469,6 +481,34 @@ def strona_wtyczki(w, jezyk):
 """)
     czesci.append(stopka(jezyk, glebokosc))
     return "".join(czesci)
+
+
+def strona_wsparcia(w, jezyk):
+    e = E[jezyk]
+    d = w[jezyk]
+    kat = 'wtyczki' if jezyk == 'pl' else 'plugins'
+    plik = f"{w['slug']}-{'wsparcie' if jezyk == 'pl' else 'support'}.html"
+    glebokosc = 1 if jezyk == "pl" else 2
+    r = lambda p: wzgledny(glebokosc, p)  # noqa: E731
+    druga = (f"en/plugins/{w['slug']}-support.html" if jezyk == "pl"
+             else f"wtyczki/{w['slug']}-wsparcie.html")
+    tytul = f"{d['nazwa']} — {e['wsparcie']}"
+    czesci = [naglowek(jezyk, glebokosc, f"{tytul} — {MARKA}", d["wsparcie"]["wstep"], druga)]
+    czesci.append(okruszek(jezyk, glebokosc,
+                           [(e[SEKCJA[w["rodzaj"]]],
+                             sciezka(jezyk, "index.html") + "#" + SEKCJA[w["rodzaj"]]),
+                            (d["nazwa"], sciezka(jezyk, kat, w["slug"] + ".html")),
+                            (e["wsparcie"], None)]))
+    czesci.append(f"""
+<article class="wasko">
+  <h1>{u(tytul)}</h1>
+  <p class="podtytul">{u(d['wsparcie']['wstep'])}</p>
+{sekcje_html(d['wsparcie']['sekcje'], r)}
+  <p><a href="{w['slug']}.html">← {u(d['nazwa'])}</a></p>
+</article>
+""")
+    czesci.append(stopka(jezyk, glebokosc))
+    return "".join(czesci), f"{'' if jezyk == 'pl' else 'en/'}{kat}/{plik}"
 
 
 def strona_ebooka(b, jezyk):
@@ -670,6 +710,9 @@ def main():
 
         for w in WTYCZKI:
             zapisz(f"{przedrostek}{kat_wtyczki}/{w['slug']}.html", strona_wtyczki(w, jezyk))
+            if w[jezyk].get("wsparcie"):
+                tresc, plik = strona_wsparcia(w, jezyk)
+                zapisz(plik, tresc)
         for b in EBOOKI:
             zapisz(f"{przedrostek}{kat_ebooki}/{b['slug']}.html", strona_ebooka(b, jezyk))
 

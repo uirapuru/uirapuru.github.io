@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PrintPlugin — Support — Grzegorz Kaszuba</title>
+<meta name="description" content="Contact, bug reports, privacy, frequently asked questions and known issues for PrintPlugin.">
+
+<link rel="stylesheet" href="../../styl.css?v=3">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+
+<header class="pasek">
+  <div class="szeroko">
+    <a class="marka" href="../../en/index.html">Grzegorz Kaszuba</a>
+    <nav>
+      <a href="../../en/index.html#urzadzenia">Devices</a>
+      <a href="../../en/index.html#aplikacje">Apps</a>
+      <a href="../../en/index.html#wtyczki">Plugins</a>
+      <a href="../../en/index.html#kursy">Courses</a>
+      <a href="../../en/index.html#ebooki">Books</a>
+      <a href="../../en/contact.html">Contact</a>
+    </nav>
+    <span class="jezyk"><a href="../../wtyczki/printplugin-wsparcie.html">Polski</a></span>
+  </div>
+</header>
+<div class="wasko okruszek"><a href="../../en/index.html">Home</a> › <a href="../../en/index.html#wtyczki">Plugins</a> › <a href="../../en/plugins/printplugin.html">PrintPlugin</a> › Support</div>
+<article class="wasko">
+  <h1>PrintPlugin — Support</h1>
+  <p class="podtytul">Contact, bug reports, privacy, frequently asked questions and known issues for PrintPlugin.</p>
+<h2>Contact</h2>
+<p>Send questions and reports by email to uirapuruadg@gmail.com. I reply within a few days, in English or Polish.</p>
+<h2>How to report a bug</h2>
+<p>Send an email with the subject „PrintPlugin – bug” and include:</p>
+<ul><li>the plugin version line from the start screen, for example „Version 1.0.1 [5.8.0] (build 8)”; the Print Plugin icon in the phone&#x27;s app menu opens the start screen,</li><li>the ATAK-CIV version; you will find it in Android settings under Apps → ATAK,</li><li>the phone model and Android version,</li><li>the settings from the „Map export” window: format, background, MGRS grid, scale and topographic sheet,</li><li>the steps that lead to the bug and what you expected to happen,</li><li>a screenshot of the preview, or the output file if the export succeeded.</li></ul>
+<p>Without the plugin and ATAK-CIV versions the bug cannot be reproduced. The plugin sends no reports by itself, so your email is the only source of information about the bug.</p>
+<h2>Privacy</h2>
+<p>The plugin collects no data and sends nothing over the internet. It has no networking code, no analytics libraries and no adverts. It does not ask for storage access.</p>
+<p>Sheets being exported sit in ATAK&#x27;s temporary directory and are removed the next time the plugin starts. The finished file goes only to the place you pick in the system save dialog.</p>
+<p><a href="../../printplugin/privacy-policy.html">Full privacy policy</a></p>
+<h2>Frequently asked questions</h2>
+<h3>Where is the Print button?</h3><p>On the ATAK toolbar. If it is not there, open the toolbar menu (the gear icon) and choose „All tools &amp; plugins”.</p><h3>The Print Plugin icon in the phone menu does not print a map. Why?</h3><p>The icon only opens a start screen with instructions and the version. Exporting works only inside ATAK, with the Print button.</p><h3>Which ATAK versions does it run on?</h3><p>ATAK-CIV 5.5, 5.7 and 5.8. One package runs on all three.</p><h3>How do I print a map to scale so I can measure with a ruler?</h3><p>Choose a fixed scale, for example 1:25,000, and the PDF format. When printing, set A4 paper and 100 % size, without fit to page. After printing, measure the scale bar with a ruler and compare it with its label.</p><h3>Why do I get several sheets?</h3><p>At a fixed scale, a view that does not fit on one A4 sheet is split into sheets numbered row by row from the top left. „Fit to view” always gives one sheet.</p><h3>Does the plugin work offline?</h3><p>Yes. It prints the tiles ATAK has cached. With no tiles, choose „White background”: the sheet will show objects and the MGRS grid.</p><h3>How do I join the test?</h3><p>The plugin is in closed testing on Google Play. Email me the Gmail address you use in the Play Store and I will add it to the tester list.</p>
+<h2>Known issues and limitations</h2>
+<table><thead><tr><th>Symptom</th><th>Cause</th><th>What to do</th></tr></thead><tbody><tr><td>Nothing happens after pressing OK.</td><td>The map shows the whole globe.</td><td>Zoom in and export again.</td></tr><tr><td>Part of a sheet is blank while the grid and labels are in place.</td><td>ATAK has no base map tiles for that area.</td><td>Pan the map over the whole area so ATAK downloads the tiles, or choose „White background”.</td></tr><tr><td>The message „Turn off map tilt”.</td><td>With a tilted map the scale is not uniform.</td><td>Turn off 3D view and export at a fixed scale again.</td></tr><tr><td>A fixed-scale export is refused.</td><td>The view needs more than 16 sheets.</td><td>Shrink the view or choose 1:50,000 or 1:100,000.</td></tr><tr><td>The message „Export is already being prepared”.</td><td>The plugin runs one export at a time.</td><td>Wait for the preview.</td></tr><tr><td>The printout has a different scale from the label on the sheet.</td><td>The printer fitted the sheet to the page.</td><td>Print at 100 % size, without fit to page.</td></tr><tr><td>The message „System save dialog is unavailable”.</td><td>Android did not open the file picker.</td><td>Restart ATAK and export again.</td></tr><tr><td>With „Fit to view” there is a white strip beside the map.</td><td>The phone screen is taller than an A4 sheet and the plugin never stretches the map.</td><td>This is intended. Choose a fixed scale to fill the sheet.</td></tr><tr><td>The plugin speaks a different language from ATAK.</td><td>The plugin follows the phone language. ATAK does not allow a separate per-app language.</td><td>Change the phone language. Polish and English are supported.</td></tr></tbody></table>
+  <p><a href="printplugin.html">← PrintPlugin</a></p>
+</article>
+
+<footer class="stopka">
+  <div class="szeroko">
+    <nav>
+      <a href="../../en/index.html">Home</a>
+      <a href="../../en/contact.html">Contact</a>
+      <a href="../../en/privacy.html">Privacy</a>
+      <a href="https://github.com/uirapuru">GitHub</a>
+    </nav>
+    <p>Grzegorz Kaszuba · <a href="mailto:grzegorzkaszuba84@gmail.com">grzegorzkaszuba84@gmail.com</a> ·
+       <span data-telefon>number shown once JavaScript is enabled</span></p>
+    <p>This site is not affiliated with TAK Product Center or any public institution.</p>
+  </div>
+</footer>
+<script src="../../js/tel.js"></script>
+</html>

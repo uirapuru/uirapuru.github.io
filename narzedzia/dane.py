@@ -247,6 +247,98 @@ WTYCZKI = [
                   "i 5.8. Jedna paczka działa na wszystkich trzech."]),
             ],
             "polityka": "https://uirapuru.github.io/printplugin/privacy-policy.html",
+            "wsparcie": {
+                "wstep": "Kontakt, zgłaszanie błędów, prywatność, częste pytania i znane błędy "
+                         "wtyczki PrintPlugin.",
+                "sekcje": [
+                    ("Kontakt",
+                     ["Pytania i zgłoszenia wysyłaj e-mailem na adres uirapuruadg@gmail.com. "
+                      "Odpowiadam w ciągu kilku dni. Piszę po polsku i po angielsku."]),
+                    ("Jak zgłosić błąd",
+                     ["Wyślij e-mail z tematem „PrintPlugin – błąd” i dołącz:",
+                      ("lista",
+                       ["napis z wersją wtyczki z ekranu startowego, na przykład „Wersja 1.0.1 "
+                        "[5.8.0] (paczka 8)”; ekran startowy otwiera ikona Print Plugin w menu "
+                        "aplikacji telefonu,",
+                        "wersję ATAK-CIV; znajdziesz ją w ustawieniach Androida, w części "
+                        "Aplikacje → ATAK,",
+                        "model telefonu i wersję Androida,",
+                        "ustawienia z okna „Eksport mapy”: format, tło, siatkę MGRS, skalę "
+                        "i arkusz topograficzny,",
+                        "opis kroków, po których pojawia się błąd, i oczekiwany wynik,",
+                        "zrzut ekranu podglądu albo plik wynikowy, jeżeli eksport się udał."]),
+                      "Bez wersji wtyczki i wersji ATAK-CIV nie da się odtworzyć błędu. "
+                      "Wtyczka nie wysyła raportów sama, więc e-mail jest jedynym źródłem "
+                      "informacji o błędzie."]),
+                    ("Prywatność",
+                     ["Wtyczka nie zbiera danych i nie wysyła niczego przez internet. Nie ma "
+                      "kodu sieciowego, bibliotek analitycznych ani reklam. Nie prosi o dostęp "
+                      "do pamięci telefonu.",
+                      "Arkusze w trakcie eksportu leżą w katalogu tymczasowym ATAK-a i znikają "
+                      "przy kolejnym uruchomieniu wtyczki. Gotowy plik trafia tylko do miejsca, "
+                      "które wskażesz w systemowym oknie zapisu.",
+                      ("odnosnik", "Pełna polityka prywatności (po angielsku)",
+                       "printplugin/privacy-policy.html")]),
+                    ("Najczęściej zadawane pytania",
+                     [("pytania",
+                       [("Gdzie znajdę przycisk Print?",
+                         "Na pasku narzędzi ATAK-a. Jeżeli go nie ma, otwórz menu paska "
+                         "narzędzi (ikona koła zębatego) i wybierz „All tools & plugins”."),
+                        ("Ikona Print Plugin w menu telefonu nie drukuje mapy. Dlaczego?",
+                         "Ikona otwiera tylko ekran startowy z instrukcją i wersją. Eksport "
+                         "działa wyłącznie w ATAK-u, przyciskiem Print."),
+                        ("Na jakich wersjach ATAK-a działa wtyczka?",
+                         "Na ATAK-CIV 5.5, 5.7 i 5.8. Jedna paczka działa na wszystkich trzech."),
+                        ("Jak wydrukować mapę w skali, żeby mierzyć linijką?",
+                         "Wybierz skalę stałą, na przykład 1:25 000, i format PDF. Przy druku "
+                         "ustaw papier A4 i rozmiar 100 %, bez dopasowania do strony. Po druku "
+                         "zmierz linijką podziałkę i porównaj z jej opisem."),
+                        ("Dlaczego dostaję kilka arkuszy?",
+                         "Przy skali stałej kadr, który nie mieści się na jednym arkuszu A4, "
+                         "wtyczka dzieli na arkusze numerowane wierszami od lewego górnego. "
+                         "„Dopasuj do kadru” daje zawsze jeden arkusz."),
+                        ("Czy wtyczka działa bez internetu?",
+                         "Tak. Drukuje kafelki, które ATAK ma w pamięci. Bez kafelków wybierz "
+                         "„Białe tło”: arkusz będzie miał obiekty i siatkę MGRS."),
+                        ("Jak dołączyć do testów?",
+                         "Wtyczka jest w teście zamkniętym w Google Play. Napisz e-mail z "
+                         "adresem Gmail, którego używasz w Sklepie Play, a dopiszę go do listy "
+                         "testerów.")])]),
+                    ("Znane błędy i ograniczenia",
+                     [("tabela",
+                       ["Objaw", "Przyczyna", "Co zrobić"],
+                       [["Po naciśnięciu OK nic się nie dzieje.",
+                         "Mapa pokazuje cały glob.",
+                         "Przybliż mapę i powtórz eksport."],
+                        ["Część arkusza jest biała, a siatka i opisy są na miejscu.",
+                         "ATAK nie ma kafelków podkładu dla tego terenu.",
+                         "Przewiń mapę po całym terenie, żeby ATAK pobrał kafelki, albo "
+                         "wybierz „Białe tło”."],
+                        ["Komunikat „Wyłącz przechylenie mapy”.",
+                         "Przy przechylonej mapie skala nie jest jednolita.",
+                         "Wyłącz widok 3D i powtórz eksport w skali stałej."],
+                        ["Eksport w skali stałej zostaje odrzucony.",
+                         "Kadr wymaga więcej niż 16 arkuszy.",
+                         "Zmniejsz kadr albo wybierz skalę 1:50 000 lub 1:100 000."],
+                        ["Komunikat „Eksport jest już przygotowywany”.",
+                         "Wtyczka robi jeden eksport naraz.",
+                         "Poczekaj na podgląd."],
+                        ["Wydruk ma inną skalę niż napis na arkuszu.",
+                         "Drukarka dopasowała arkusz do strony.",
+                         "Drukuj w rozmiarze 100 %, bez dopasowania do strony."],
+                        ["Komunikat „Systemowe okno zapisu jest niedostępne”.",
+                         "Android nie otworzył okna wyboru pliku.",
+                         "Uruchom ponownie ATAK i powtórz eksport."],
+                        ["Przy „Dopasuj do kadru” po bokach mapy jest biały pas.",
+                         "Ekran telefonu jest wyższy niż arkusz A4, a wtyczka nie rozciąga "
+                         "mapy.",
+                         "To zamierzone. Wybierz skalę stałą, żeby wypełnić arkusz."],
+                        ["Wtyczka mówi w innym języku niż ATAK.",
+                         "Wtyczka bierze język z ustawień telefonu. ATAK nie pozwala ustawić "
+                         "osobnego języka dla aplikacji.",
+                         "Zmień język telefonu. Obsługiwane są polski i angielski."]])]),
+                ],
+            },
         },
         "en": {
             "nazwa": "PrintPlugin",
@@ -287,6 +379,99 @@ WTYCZKI = [
                   "package runs on all three."]),
             ],
             "polityka": "https://uirapuru.github.io/printplugin/privacy-policy.html",
+            "wsparcie": {
+                "wstep": "Contact, bug reports, privacy, frequently asked questions and known "
+                         "issues for PrintPlugin.",
+                "sekcje": [
+                    ("Contact",
+                     ["Send questions and reports by email to uirapuruadg@gmail.com. I reply "
+                      "within a few days, in English or Polish."]),
+                    ("How to report a bug",
+                     ["Send an email with the subject „PrintPlugin – bug” and include:",
+                      ("lista",
+                       ["the plugin version line from the start screen, for example "
+                        "„Version 1.0.1 [5.8.0] (build 8)”; the Print Plugin icon in the "
+                        "phone's app menu opens the start screen,",
+                        "the ATAK-CIV version; you will find it in Android settings under "
+                        "Apps → ATAK,",
+                        "the phone model and Android version,",
+                        "the settings from the „Map export” window: format, background, MGRS "
+                        "grid, scale and topographic sheet,",
+                        "the steps that lead to the bug and what you expected to happen,",
+                        "a screenshot of the preview, or the output file if the export "
+                        "succeeded."]),
+                      "Without the plugin and ATAK-CIV versions the bug cannot be reproduced. "
+                      "The plugin sends no reports by itself, so your email is the only source "
+                      "of information about the bug."]),
+                    ("Privacy",
+                     ["The plugin collects no data and sends nothing over the internet. It has "
+                      "no networking code, no analytics libraries and no adverts. It does not "
+                      "ask for storage access.",
+                      "Sheets being exported sit in ATAK's temporary directory and are removed "
+                      "the next time the plugin starts. The finished file goes only to the "
+                      "place you pick in the system save dialog.",
+                      ("odnosnik", "Full privacy policy", "printplugin/privacy-policy.html")]),
+                    ("Frequently asked questions",
+                     [("pytania",
+                       [("Where is the Print button?",
+                         "On the ATAK toolbar. If it is not there, open the toolbar menu (the "
+                         "gear icon) and choose „All tools & plugins”."),
+                        ("The Print Plugin icon in the phone menu does not print a map. Why?",
+                         "The icon only opens a start screen with instructions and the "
+                         "version. Exporting works only inside ATAK, with the Print button."),
+                        ("Which ATAK versions does it run on?",
+                         "ATAK-CIV 5.5, 5.7 and 5.8. One package runs on all three."),
+                        ("How do I print a map to scale so I can measure with a ruler?",
+                         "Choose a fixed scale, for example 1:25,000, and the PDF format. When "
+                         "printing, set A4 paper and 100 % size, without fit to page. After "
+                         "printing, measure the scale bar with a ruler and compare it with its "
+                         "label."),
+                        ("Why do I get several sheets?",
+                         "At a fixed scale, a view that does not fit on one A4 sheet is split "
+                         "into sheets numbered row by row from the top left. „Fit to view” "
+                         "always gives one sheet."),
+                        ("Does the plugin work offline?",
+                         "Yes. It prints the tiles ATAK has cached. With no tiles, choose "
+                         "„White background”: the sheet will show objects and the MGRS grid."),
+                        ("How do I join the test?",
+                         "The plugin is in closed testing on Google Play. Email me the Gmail "
+                         "address you use in the Play Store and I will add it to the tester "
+                         "list.")])]),
+                    ("Known issues and limitations",
+                     [("tabela",
+                       ["Symptom", "Cause", "What to do"],
+                       [["Nothing happens after pressing OK.",
+                         "The map shows the whole globe.",
+                         "Zoom in and export again."],
+                        ["Part of a sheet is blank while the grid and labels are in place.",
+                         "ATAK has no base map tiles for that area.",
+                         "Pan the map over the whole area so ATAK downloads the tiles, or "
+                         "choose „White background”."],
+                        ["The message „Turn off map tilt”.",
+                         "With a tilted map the scale is not uniform.",
+                         "Turn off 3D view and export at a fixed scale again."],
+                        ["A fixed-scale export is refused.",
+                         "The view needs more than 16 sheets.",
+                         "Shrink the view or choose 1:50,000 or 1:100,000."],
+                        ["The message „Export is already being prepared”.",
+                         "The plugin runs one export at a time.",
+                         "Wait for the preview."],
+                        ["The printout has a different scale from the label on the sheet.",
+                         "The printer fitted the sheet to the page.",
+                         "Print at 100 % size, without fit to page."],
+                        ["The message „System save dialog is unavailable”.",
+                         "Android did not open the file picker.",
+                         "Restart ATAK and export again."],
+                        ["With „Fit to view” there is a white strip beside the map.",
+                         "The phone screen is taller than an A4 sheet and the plugin never "
+                         "stretches the map.",
+                         "This is intended. Choose a fixed scale to fill the sheet."],
+                        ["The plugin speaks a different language from ATAK.",
+                         "The plugin follows the phone language. ATAK does not allow a "
+                         "separate per-app language.",
+                         "Change the phone language. Polish and English are supported."]])]),
+                ],
+            },
         },
     },
     {
