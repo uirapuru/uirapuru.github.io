@@ -1853,4 +1853,71 @@ EBOOKI = [
             ],
         },
     },
+    {
+        "slug": "tactical-networking",
+        "bez_indeksu": True,   # tłumaczenie cudzej książki: poza wyszukiwarkami
+        "okladka": "tactical-networking.jpg",
+        "drive": "1Q3lZYElKaHyzXJfIcPgCLxG4kLdCdKhT",
+        "drive_maly": None,
+        "strony": 127,
+        "wlasny": False,
+        "autor": None,
+        "pl": {
+            "tytul": "Polowy podręcznik sieci taktycznych",
+            "podtytul": "Tactical Networking Field Handbook",
+            "skrot": ("Tłumaczenie podręcznika sieci IP w terenie: adresacja i NAT, radia mesh "
+                      "MANET, łącza satelitarne, LTE i 5G, plan PACE i obraz z kamer IP w ATAK. "
+                      "127 stron."),
+            "sekcje": [
+                ("O czym jest",
+                 ["Pierwsza część uczy podstaw: jak płyną pakiety, jak podzielić adresy na "
+                  "podsieci i co robią NAT, routing, DNS, DHCP, VLAN-y, zapory, tunele VPN i QoS.",
+                  "Druga część opisuje nośniki: radia mesh MANET, terminale satelitarne na niskiej "
+                  "orbicie, LTE i 5G. Pokazuje też, jak złożyć z nich plan PACE, w którym sieć sama "
+                  "przechodzi na łącze zapasowe.",
+                  "Trzecia część łączy sieci kilku jednostek w jedną sieć misji. Czwarta prowadzi "
+                  "obraz z kamery IP przez sieć radiową do ATAK.",
+                  "Każdy rozdział kończy się pułapkami spotykanymi w terenie i sposobem sprawdzenia, "
+                  "czy sieć działa. Na końcu są zestawienia portów, podsieci i słowniczek."]),
+                ("Skąd się wzięło",
+                 ["To tłumaczenie na polski, wykonane na własny użytek. Oryginał wydało "
+                  "The Communicator LLC w 2026 roku. Prawa autorskie do treści należą do autorów "
+                  "oryginału."]),
+                ("Dla kogo",
+                 ["Dla osób, które stawiają łączność zespołu pracującego z ATAK: serwer TAK, "
+                  "radia mesh, terminal satelitarny i kamery. Podręcznik nie zakłada wcześniejszej "
+                  "wiedzy o sieciach."]),
+            ],
+        },
+        "en": {
+            "tytul": "Tactical Networking Field Handbook",
+            "podtytul": "Polish translation",
+            "skrot": ("A translation of the field handbook on IP networking: addressing and NAT, "
+                      "MANET mesh radios, satellite, LTE and 5G links, PACE planning and IP camera "
+                      "video into ATAK. 127 pages."),
+            "sekcje": [
+                ("What it covers",
+                 ["Part one covers the basics: how packets travel, how to split addresses into "
+                  "subnets, and what NAT, routing, DNS, DHCP, VLANs, firewalls, VPN tunnels and "
+                  "QoS do.",
+                  "Part two covers bearers: MANET mesh radios, low-orbit satellite terminals, LTE "
+                  "and 5G. It also shows how to build them into a PACE plan in which the network "
+                  "fails over to a backup link on its own.",
+                  "Part three joins the networks of several units into one mission network. Part "
+                  "four takes video from an IP camera across the radio network into ATAK.",
+                  "Every chapter ends with field pitfalls and a way to check that the network "
+                  "works. Port, subnet and glossary references close the book."]),
+                ("Where it came from",
+                 ["This is a Polish translation made for private use. The original was published "
+                  "by The Communicator LLC in 2026. Copyright in the text belongs to the original "
+                  "authors."]),
+                ("Who it is for",
+                 ["People who set up communications for a team working with ATAK: TAK server, "
+                  "mesh radios, satellite terminal and cameras. No prior networking knowledge is "
+                  "assumed."]),
+                ("Language",
+                 ["The translation is in Polish."]),
+            ],
+        },
+    },
 ]
